@@ -1,0 +1,63 @@
+\documentclass[11pt, ngerman, fleqn, DIV=15, headinclude]{scrartcl}
+
+\usepackage[bibatend]{../header}
+
+\usepackage{tikz}
+
+\hypersetup{
+    pdftitle=
+}
+
+\newcounter{totalpoints}
+\newcommand\punkte[1]{#1\addtocounter{totalpoints}{#1}}
+
+\newcounter{problemset}
+\setcounter{problemset}{1}
+
+\subject{physics606 -- Advanced Quantum Theory}
+\ihead{physics606 -- Set \arabic{problemset}}
+
+\title{Problem Set \arabic{problemset}}
+
+\publishers{Group X -- Tutor}
+\ofoot{Group X -- Tutor}
+
+
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+}
+\ifoot{Martin Ueding}
+
+\ohead{\rightmark}
+
+\begin{document}
+
+\maketitle
+
+\vspace{3ex}
+
+\begin{center}
+    \begin{tabular}{rrr}
+        problem number & achieved points & possible points \\
+        \midrule
+        1 & & \punkte{10} \\
+        2 & & \punkte{15} \\
+        \midrule
+        Total & & \arabic{totalpoints}
+    \end{tabular}
+\end{center}
+
+\vspace{5ex}
+
+I, Martin Ueding, would like to scan and upload the problem sets with your
+corrections to my website \url{martin-ueding.de}. There, the original problem
+set as well as the reviewed one will be licensed under the “Creative Commons
+Attribution-ShareAlike 4.0 International License”. Is that
+okay with you?
+
+Yes $\Box$ \hspace{2cm} No $\Box$
+
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
