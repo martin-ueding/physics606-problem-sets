@@ -149,6 +149,44 @@ definition of the matrix element is:
 
 \section{Decomposition of a Wave Function}
 
+\subsection{Coefficients}
+
+We have
+\[
+    \psi(x, t) = \sum_n u_n(t) \psi_n(x).
+\]
+There $\psi$ are different, one has an index, the other does not. We will use
+this notation although it is a little overloaded. From there, we project the
+$\psi$ onto a $\psi_m$:
+\begin{align*}
+    \int \dif x \, \psi_n^*(x) \psi(x, t)
+    &= \sum_m u_m (t) \int \dif x \, \psi_n^*(x) \psi_m(x) \\
+    &= u_n(t).
+\end{align*}
+
+Therefore, the equation~(4) from the problem set holds.
+
+\subsection{Normalization}
+
+For this problem, we just insert the definition of $\psi$:
+\begin{align*}
+    \int \dif x \, |\psi(x, t)|^2
+    &= \int \dif x \, \sbr{\sum_n u_n^*(t) \psi_n^*(x)} \sbr{\sum_m u_m(t)
+    \psi_m(x)} \\
+    &= \sum_{n,m} u_n^*(t) u_m(t) \int \dif x \, \psi_n^*(x) \psi_m(x) \\
+    \intertext{%
+        Eigenfunctions are orthogonal, so this reduces to the $m = n$ terms:
+    }
+    &= \sum_{n,m} u_n^*(t) u_m(t) \braket{n|m} \\
+    &= \sum_{n} |u_n(t)|^2
+\end{align*}
+
+Since $\psi$ had to be normalized, the condition
+\[
+    \sum_{n} |u_n(t)|^2 = 1
+\]
+follows.
+
 \section{Angular Momentum Operator}
 
 \section{Canonical Transformations}
