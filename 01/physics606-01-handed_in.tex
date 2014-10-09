@@ -106,9 +106,10 @@ Since
 \[
     \braket{n | Q | m} = \braket{m | Q | n}^*,
 \]
-the equations above are the complex conjugate of each other. Including the
-previously proven fact that the eigenvalues are real, we can derive the
-following equation:
+the equations above are the complex conjugate of each other. This statement
+will be proven in the next part of this problem. Including the previously
+proven fact that the eigenvalues are real, we can derive the following
+equation:
 \[
     q_m \braket{n|m} = q_n \braket{n|m}.
 \]
@@ -119,6 +120,32 @@ This leaves us with:
 We assume non-degenerate eigenvalues, which means that $\braket{n|m} = 0$. The
 definition of orthogonality is a vanishing scalar product, which is the case
 here. Therefore $\ket n$ and $\ket m$ are orthogonal.
+
+\subsection{Matrix Representation}
+
+Basically we have to show that $Q_{ij} = Q_{ji}^*$ actually holds here. The
+definition of the matrix element is:
+\begin{align*}
+    Q_{ij}
+    &= \int \dif x \, \psi_i^*(x) Q \psi_j(x). \\
+    \intertext{%
+        From equation~(1) from the problem set we know that we can write this
+        like this as well:
+    }
+    &= \int \dif x \, \sbr{Q^\dagger \psi_i(x)}^* \psi_j^*(x). \\
+    \intertext{%
+        We include the last factor into the complex conjugation:
+    }
+    &= \int \dif x \, \sbr{\psi_j^*(x) Q^\dagger \psi_i(x)}^*. \\
+    \intertext{%
+        Integration and complex conjugation commutes, leaving
+    }
+    &= \sbr{ \int \dif x \, \psi_j^*(x) Q^\dagger \psi_i(x)}^*. \\
+    \intertext{%
+        This, however, is just the definition of
+    }
+    &= Q_{ji}^*.
+\end{align*}
 
 \section{Decomposition of a Wave Function}
 
