@@ -15,7 +15,7 @@
 \setcounter{problemset}{1}
 
 \subject{physics606 -- Advanced Quantum Theory}
-\ihead{physics606 -- Set \arabic{problemset}}
+\ihead{physics606 -- Problem Set \arabic{problemset}}
 
 \title{Problem Set \arabic{problemset}}
 
@@ -28,7 +28,7 @@
     \and
     Lino Lemmer \\ \small{\href{mailto:l2@uni-bonn.de}{l2@uni-bonn.de}}
 }
-\ifoot{Martin Ueding}
+\ifoot{Martin Ueding, Lino Lemmer}
 
 \ohead{\rightmark}
 
@@ -54,12 +54,77 @@
 \vspace{5ex}
 
 I, Martin Ueding, would like to scan and upload the problem sets with your
-corrections to my website \url{martin-ueding.de}. There, the original problem
-set as well as the reviewed one will be licensed under the “Creative Commons
-Attribution-ShareAlike 4.0 International License”. Is that
-okay with you?
+corrections to my website \href{http://martin-ueding.de}{martin-ueding.de}.
+There, the original problem set as well as the reviewed one will be licensed
+under the “\href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative
+Commons Attribution-ShareAlike 4.0 International License}”. Is that okay with
+you?
 
 Yes $\Box$ \hspace{2cm} No $\Box$
+
+\newpage
+
+\section{Hermitean Operators}
+
+\subsection{Real Eigenvalues}
+
+Let the eigenvalue of the operator $Q$ on $\psi_2$ be $q_2$. For now, we assume
+$q_2 \in \C$. We start with the equation~(1) from the problem set:
+\begin{align*}
+    \int \dif x \, \psi_1^*(x) Q \psi_2^*(x)
+    &= \int \dif x \, \sbr{Q \psi_1(x)}^* \psi_2^*(x). \\
+    \intertext{%
+        We expand the complex conjugate in the square bracket:
+    }
+    \int \dif x \, \psi_1^*(x) Q \psi_2^*(x)
+    &= \int \dif x \, \psi_1^*(x) Q^\dagger \psi_2^*(x). \\
+    \intertext{%
+        The eigenvalue of $Q^\dagger$ is the complex conjugate of the
+        eigenvalue of $Q$:
+    }
+    q_2 \int \dif x \, \psi_1^*(x) \psi_2^*(x)
+    &= q_2^* \int \dif x \, \psi_1^*(x) \psi_2^*(x) \\
+    \iff q_2 &= q_2^*.
+\end{align*}
+
+This restricts the eigenvalues to $\Im(q) = 0$ which means that $q \in \R$. The
+eigenvalues are all real.
+
+\subsection{Orthogonal Eigenfunctions}
+
+We will use the bra-ket notation here. Let $\ket n$ for $n \in \N$ (perhaps
+bounded to some $N$) be the eigenstates for $Q$ with eigenvalues $q_n$. All the
+$q_n$ are assume to be pairwise different.
+
+First we have for $m, n \in \N$ which are assumed to be different:
+\begin{align*}
+    \braket{n | Q | m} &= q_m \braket{n | m}, \\
+    \braket{m | Q | n} &= q_n \braket{m | n}.
+\end{align*}
+
+Since
+\[
+    \braket{n | Q | m} = \braket{m | Q | n}^*,
+\]
+the equations above are the complex conjugate of each other. Including the
+previously proven fact that the eigenvalues are real, we can derive the
+following equation:
+\[
+    q_m \braket{n|m} = q_n \braket{n|m}.
+\]
+This leaves us with:
+\[
+    [q_m - q_n] \braket{n|m} = 0.
+\]
+We assume non-degenerate eigenvalues, which means that $\braket{n|m} = 0$. The
+definition of orthogonality is a vanishing scalar product, which is the case
+here. Therefore $\ket n$ and $\ket m$ are orthogonal.
+
+\section{Decomposition of a Wave Function}
+
+\section{Angular Momentum Operator}
+
+\section{Canonical Transformations}
 
 
 \end{document}
