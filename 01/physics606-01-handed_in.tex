@@ -227,11 +227,33 @@ We want
 \begin{align*}
     \psi_m(\phi) &= \psi_m(\phi + 2\piup).
     \intertext{This implies}
-    \exp(\iup m\phi) &= \exp(\iup m(\phi + 2\piup)) \\
+    \exp(\iup m\phi) &= \exp\left(\iup m(\phi + 2\piup)\right) \\
                      &= \exp(\iup m\phi)
     \underbrace{\exp(\iup m2\piup)}_{=1,\text{ for }m\in\mathbb{N}}.
 \end{align*}
 Therefor $m$ has to be integer.
+
+\subsection{Orthonormal eigenfunctions}
+
+\begin{align*}
+    \int_0^{2\piup}\!\dif\phi\, \psi_l^*\psi_m &= \frac1{2\piup}
+    \int_0^{2\piup}\!\dif\phi\, \exp(-\iup l\phi)\exp(\iup m\phi) \\
+    &= \frac1{2\piup} \int_0^{2\piup}\!\dif\phi\, \exp\left(\iup
+    \phi(m-l)\right).
+    \intertext{We look at $m\neq l$:}
+    &= \frac1{2\piup} \frac1{\iup(m-l)} \sbr{\exp\left(\iup
+    \phi(m-l)\right)}_0^{2\piup},
+    \intertext{from $m-l\in\mathbb{N}$ we get}
+    &= 0.
+    \intertext{%
+        The other case $l=m$ gives because of the normalization
+    }
+    \int_0^{2\piup}\!\dif\phi\, \psi_m^*\psi_m &= 1.
+    \intertext{%
+        These two cases show us, that the eigenfunctions are orthonormal:
+    }
+    \int_0^{2\piup}\!\dif\phi\, \psi_l^*\psi_m &= \delta_{lm}.
+\end{align*}
 
 
 \section{Canonical Transformations}
