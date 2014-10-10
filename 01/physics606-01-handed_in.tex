@@ -200,6 +200,27 @@ Just inserting again:
 
 \section{Angular Momentum Operator}
 
+\subsection{Eigenvalue}
+
+We have
+
+\begin{align*}
+    L_z &= -\iup\hbar\dpd{}{\phi}
+    \intertext{and}
+    \psi_m(\phi) &= \frac1{\sqrt{2\piup}}\exp\del{\iup m\phi}.
+    \intertext{First the eigenvalues:}
+    L_z \psi_m(\phi) &=
+    -\iup\hbar \dpd{}{\phi} \sbr{\frac1{\sqrt{2\piup}}\exp\del{\iup m\phi}} \\
+    &= -\iup\hbar \frac{\iup m}{\sqrt{2\piup}}\exp\del{\iup m\phi} \\
+    &= \hbar m \psi_m(\phi).
+    \intertext{Now we show, that the eigenfunctions are normalized:}
+    \abs{\psi_m}^2 &= \int_0^{2\piup}\!\dif\phi\, \psi_m^*\psi_m \\
+                   &= \frac1{2\piup} \int_0^{2\piup}\!\dif\phi\, \exp\del{-\iup
+m\phi}\exp\del{\iup m\phi} \\
+&= \frac1{2\piup} \int_0^{2\piup}\!\dif\phi\, 1 \\
+&= 1.
+\end{align*}
+
 \section{Canonical Transformations}
 
 
