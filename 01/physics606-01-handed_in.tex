@@ -314,6 +314,29 @@ If we adopt the sloppy notation from the exercise sheet, we get the same $H$:
 
 \subsection{Check for canonicality}
 
+To verify that it is a canonical transformation we have to calculate the
+Poisson brackets. This is a mechanical task, so we did this with
+\emph{Mathematica}:
+
+\begin{verbatim}
+In[1]:= qbar[q_, p_] := Log[Sin[p]/q]
+
+In[2]:= pbar[q_, p_] := q Cot[p]
+
+In[3]:= poisson[a_, b_] := D[a[q, p], q] D[b[q, p], p] - D[a[q, p], p] D[b[q, p], q]
+
+In[6]:= poisson[qbar, qbar] // Simplify
+Out[6]= 0
+
+In[7]:= poisson[pbar, pbar] // Simplify
+Out[7]= 0
+
+In[8]:= poisson[qbar, pbar] // Simplify
+Out[8]= 1
+\end{verbatim}
+
+The three relations hold, therefore the transformation is canonical.
+
 \subsection{Invariance of Poisson brackets}
 \label{sec:invar_poisson}
 
