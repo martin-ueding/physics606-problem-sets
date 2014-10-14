@@ -287,6 +287,118 @@ Therefor $m$ has to be integer.
     \end{align*}
 \end{proof}
 
+\subsection{Check for canonicality}
+
+\subsection{Invariance of Poisson brackets}
+
+As the problem is stated, we believe that it actually is trivial. It says that
+one should proof that
+\[
+    \cbr{A(q, p), B(q, p)}_{q,p} = \cbr{A(\bar q, \bar p), B(\bar q, \bar
+    p)}_{\bar q,\bar p}
+\]
+holds. We mean this in the sense that both sides contain the functions $A$ and
+$B$ which take two arguments. Both sides only depend on dummy variables, the
+$q$ and $p$ with and without a bar. Since $f(x) = f(y)$ if $x = y$ (as is the
+definition of a function), there cannot be any difference whether the Poisson
+brackets are spelled out with $q$ or $\bar q$. That said, we think that the
+problem actually implies that the left and the right $A$ are two different
+functions. So we will call them $A$ and $\bar A$ to make this a non-trivial
+problem.
+
+We now assume that the functions $A$ and $\bar A$ relate in the following way:
+\[
+    \bar A\del{\bar q(q, p), \bar p(q, p)} = A(q, p).
+\]
+So for a given $q$ and $p$ both functions take the same \emph{value}, although
+the arguments for $\bar A$ and $A$ differ. If this is to be the case, the total
+differential with respect to $q$ (and $p$) has to be the same. This brings us
+to
+\[
+    \dpd{\bar A}{\bar q} \dpd{\bar q}q + \dpd{\bar A}{\bar p} \dpd{\bar p}q =
+    \dpd Aq.
+\]
+
+We start off with the Poisson bracket of $A$ and $B$. Since there might be more
+than one coordinate, we start indexing them again.
+\begin{align*}
+    \{ A, B \}_{q,p}
+    &= \sum_k \sbr{
+        \dpd{A}{{q_k}} \dpd{B}{{p_k}} - \dpd{A}{{p_k}} \dpd{B}{{q_k}}
+    } \\
+    \intertext{%
+        We use the relation that we derived using the total differential to
+        expand the partial differentials. This is going to be messy.
+    }
+    &= \sum_{j,k}
+    \sbr{
+        \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{q_k} % 1
+        + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{q_k} % 2
+    }
+    \sbr{
+        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{p_k} % 3
+        + \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{p_k} % 4
+    } \\
+    &\phantom=- \sum_{j,k}
+    \sbr{
+        \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{p_k} % 5
+        + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{p_k} % 6
+    }
+    \sbr{
+        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{q_k} % 7
+        + \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{q_k} % 8
+    } \\
+    \intertext{%
+        We now expand this whole thing, such that it becomes even messier.
+    }
+    &= \sum_{j,k} \Bigg[
+        \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{q_k} % 1
+        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{p_k} % 3
+        + \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{q_k} % 1
+        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{p_k} % 4
+        + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{q_k} % 2
+        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{p_k} % 3
+        \\
+        &\qquad
+        + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{q_k} % 2
+        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{p_k} % 4
+        - \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{p_k} % 5
+        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{q_k} % 7
+        - \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{p_k} % 5
+        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{q_k} % 8
+        \\
+        &\qquad
+        - \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{p_k} % 6
+        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{q_k} % 7
+        - \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{p_k} % 6
+        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{q_k} % 8
+    \Bigg]
+    \intertext{%
+        We will now group them again by the derivatives of $\bar A$ and $\bar
+        B$ into four groups.
+    }
+    &=
+        \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{q_k}
+        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{p_k}
+        - \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{p_k}
+        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{q_k}
+
+        + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{q_k}
+        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{p_k}
+        - \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{p_k}
+        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{q_k}
+
+        + \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{q_k} % 1
+        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{p_k} % 4
+        - \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{p_k} % 5
+        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{q_k} % 8
+
+        + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{q_k} % 2
+        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{p_k} % 3
+        - \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{p_k} % 6
+        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{q_k} % 7
+
+\end{align*}
 
 \end{document}
 
