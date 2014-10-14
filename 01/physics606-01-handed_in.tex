@@ -273,23 +273,49 @@ Therefor $m$ has to be integer.
 
 \subsection{Form-Invariance of Equations of Motion}
 
-\begin{theorem}
-    Let $A$ and $B$ be two functions of all the $q_i$ and $p_j$. A canonical
-    transformation is defined via the new coordinates $\bar q_i$ and $\bar p_j$
-    which depend on all the old coordinates and momenta. The functions $A$ and
-    $B$ are transformed to $\bar A$ and $\bar B$ and only depend on the new
-    coordinates and momenta.
-\end{theorem}
+See section~\ref{sec:invar_poisson} for the proof that Poisson brackets of
+arbitrary functions that are defined on the configuration manifold are
+invariant under canonical transformations. We will now use this to show the
+invariance of the equations of motions.
 
-\begin{proof}
-    \begin{align*}
-        \{
-    \end{align*}
-\end{proof}
+The time evolution can be expressed with the Poisson brackets:
+\[
+    \dot q_i = \dpd{H}{p_i}
+    \quad\land\quad
+    \dot p_i = \dpd{H}{q_i}
+    \qquad\iff\qquad
+    \dot q_i = \{ q_i, H \}
+    \quad\land\quad
+    \dot p_i = \{ p_i, H \}
+\]
+
+To use the proof from section~\ref{sec:invar_poisson}, we need to have
+two arbitrary functions. We chose them to be $(q_i, H)$ for the first
+equation of motion and $(p_i, H)$ for the second. Since both cases work
+similarly, we only show the first one here.
+
+\begin{align*}
+    \dot q_i
+    &= \{q_i, H \}_{q, p}
+    \intertext{%
+        Using the theorem:
+    }
+    &= \sbr{\bar q_i, \bar H }_{\bar q, \bar p}
+\end{align*}
+
+From this, we can obtain
+\[
+    \dot{\bar q}_i = \dpd{\bar H}{\bar p_i}.
+\]
+If we adopt the sloppy notation from the exercise sheet, we get the same $H$:
+\[
+    \dot{\bar q}_i = \dpd{H}{\bar p_i}.
+\]
 
 \subsection{Check for canonicality}
 
 \subsection{Invariance of Poisson brackets}
+\label{sec:invar_poisson}
 
 As the problem is stated, we believe that it actually is trivial. It says that
 one should proof that
@@ -330,75 +356,94 @@ than one coordinate, we start indexing them again.
         We use the relation that we derived using the total differential to
         expand the partial differentials. This is going to be messy.
     }
-    &= \sum_{j,k}
+    &= \sum_{j,k,l}
     \sbr{
         \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{q_k} % 1
         + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{q_k} % 2
     }
     \sbr{
-        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{p_k} % 3
-        + \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{p_k} % 4
+        \dpd{\bar B}{\bar q_l} \dpd{\bar q_l}{p_k} % 3
+        + \dpd{\bar B}{\bar p_l} \dpd{\bar p_l}{p_k} % 4
     } \\
-    &\phantom=- \sum_{j,k}
+    &\phantom=- \sum_{j,k,l}
     \sbr{
         \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{p_k} % 5
         + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{p_k} % 6
     }
     \sbr{
-        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{q_k} % 7
-        + \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{q_k} % 8
+        \dpd{\bar B}{\bar q_l} \dpd{\bar q_l}{q_k} % 7
+        + \dpd{\bar B}{\bar p_l} \dpd{\bar p_l}{q_k} % 8
     } \\
     \intertext{%
         We now expand this whole thing, such that it becomes even messier.
     }
-    &= \sum_{j,k} \Bigg[
+    &= \sum_{j,k,l} \Bigg[
         \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{q_k} % 1
-        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{p_k} % 3
+        \dpd{\bar B}{\bar q_l} \dpd{\bar q_l}{p_k} % 3
         + \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{q_k} % 1
-        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{p_k} % 4
+        \dpd{\bar B}{\bar p_l} \dpd{\bar p_l}{p_k} % 4
         + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{q_k} % 2
-        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{p_k} % 3
+        \dpd{\bar B}{\bar q_l} \dpd{\bar q_l}{p_k} % 3
         \\
         &\qquad
         + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{q_k} % 2
-        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{p_k} % 4
+        \dpd{\bar B}{\bar p_l} \dpd{\bar p_l}{p_k} % 4
         - \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{p_k} % 5
-        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{q_k} % 7
+        \dpd{\bar B}{\bar q_l} \dpd{\bar q_l}{q_k} % 7
         - \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{p_k} % 5
-        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{q_k} % 8
+        \dpd{\bar B}{\bar p_l} \dpd{\bar p_l}{q_k} % 8
         \\
         &\qquad
         - \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{p_k} % 6
-        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{q_k} % 7
+        \dpd{\bar B}{\bar q_l} \dpd{\bar q_l}{q_k} % 7
         - \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{p_k} % 6
-        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{q_k} % 8
+        \dpd{\bar B}{\bar p_l} \dpd{\bar p_l}{q_k} % 8
     \Bigg]
     \intertext{%
         We will now group them again by the derivatives of $\bar A$ and $\bar
-        B$ into four groups.
+        B$ into four groups. The brackets that form from two of the above terms
+        are a Poisson bracket of the transformed coordinates. To make it
+        obvious which bracket there is, we added them to the left side.
     }
     &=
-        \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{q_k}
-        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{p_k}
-        - \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{p_k}
-        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{q_k}
-
-        + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{q_k}
-        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{p_k}
-        - \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{p_k}
-        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{q_k}
-
-        + \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{q_k} % 1
-        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{p_k} % 4
-        - \dpd{\bar A}{\bar q_j} \dpd{\bar q_j}{p_k} % 5
-        \dpd{\bar B}{\bar p_j} \dpd{\bar p_j}{q_k} % 8
-
-        + \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{q_k} % 2
-        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{p_k} % 3
-        - \dpd{\bar A}{\bar p_j} \dpd{\bar p_j}{p_k} % 6
-        \dpd{\bar B}{\bar q_j} \dpd{\bar q_j}{q_k} % 7
-
+    \sum_{j, k, l}\dpd{\bar A}{\bar q_j} \dpd{\bar B}{\bar q_l} \sbr{
+        \dpd{\bar q_j}{q_k}
+        \dpd{\bar q_l}{p_k}
+        - \dpd{\bar q_j}{p_k}
+        \dpd{\bar q_l}{q_k}
+    } \hspace{8em} [\ldots] = \cbr{\bar q_j, \bar q_k}_{q,p} = 0 \\
+    &\phantom=+ \sum_{j, k, l}\dpd{\bar A}{\bar p_j} \dpd{\bar B}{\bar p_l} \sbr{
+        \dpd{\bar p_j}{q_k}
+        \dpd{\bar p_l}{p_k}
+        - \dpd{\bar p_j}{p_k}
+        \dpd{\bar p_l}{q_k}
+    } \hspace{7em} [\ldots] = \cbr{\bar p_j, \bar p_k}_{q,p} = 0 \\
+    &\phantom=+ \sum_{j, k, l}\dpd{\bar A}{\bar q_j} \dpd{\bar B}{\bar p_l} \sbr{
+        \dpd{\bar q_j}{q_k}
+        \dpd{\bar p_l}{p_k}
+        - \dpd{\bar q_j}{p_k}
+        \dpd{\bar p_l}{q_k}
+    } \hspace{7em} [\ldots] = \cbr{\bar q_j, \bar p_k}_{q,p} = \delta_{jl} \\
+    &\phantom=+ \sum_{j, k, l}\dpd{\bar A}{\bar p_j} \dpd{\bar B}{\bar q_l} \sbr{
+        \dpd{\bar p_j}{q_k}
+        \dpd{\bar q_l}{p_k}
+        - \dpd{\bar p_j}{p_k}
+        \dpd{\bar q_l}{q_k}
+    } \hspace{7em} [\ldots] = \cbr{\bar p_j, \bar q_k}_{q,p} = -\delta_{jl} \\
+    \intertext{%
+        The brackets reduce the whole expression considerably, we yield
+    }
+    &= \sum_j \sbr{ \dpd{\bar A}{\bar q_j} \dpd{\bar B}{\bar p_j} - \dpd{\bar
+    A}{\bar p_j} \dpd{\bar B}{\bar q_j}} \\
+    \intertext{%
+        which is just the definition of the following Poisson bracket:
+    }
+    &= \cbr{\bar A, \bar B}_{\bar q, \bar p}.
 \end{align*}
+
+This proves that the Poisson bracket of any function is invariant under
+canonical transformations. The function has to be transformed as well, though,
+unlike the notation on the problem set suggests.
 
 \end{document}
 
