@@ -4,6 +4,13 @@
 
 \usepackage{tikz}
 
+\usepackage[tikz]{mdframed}
+\newmdtheoremenv[%
+    backgroundcolor=black!5,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+]{theorem}{Theorem}[section]
+
 \hypersetup{
     pdftitle=
 }
@@ -21,6 +28,7 @@
 
 \publishers{Group 2 -- Dilege Gülmez}
 \ofoot{Group 2 -- Dilege Gülmez}
+
 
 
 \author{
@@ -203,21 +211,26 @@ Just inserting again:
 \subsection{Eigenvalue}
 
 We have
-
 \begin{align*}
     L_z &= -\iup\hbar\dpd{}{\phi}
     \intertext{and}
     \psi_m(\phi) &= \frac1{\sqrt{2\piup}}\exp\del{\iup m\phi}.
-    \intertext{First the eigenvalues:}
+\end{align*}
+
+First the eigenvalues:
+\begin{align*}
     L_z \psi_m(\phi) &=
     -\iup\hbar \dpd{}{\phi} \sbr{\frac1{\sqrt{2\piup}}\exp\del{\iup m\phi}} \\
     &= -\iup\hbar \frac{\iup m}{\sqrt{2\piup}}\exp\del{\iup m\phi} \\
     &= \hbar m \psi_m(\phi).
-    \intertext{Now we show, that the eigenfunctions are normalized:}
+\end{align*}
+
+Now we show, that the eigenfunctions are normalized:
+\begin{align*}
     \abs{\psi_m}^2 &= \int_0^{2\piup}\!\dif\phi\, \psi_m^*\psi_m \\
                    &= \frac1{2\piup} \int_0^{2\piup}\!\dif\phi\, \exp\del{-\iup
 m\phi}\exp\del{\iup m\phi} \\
-&= \frac1{2\piup} \int_0^{2\piup}\!\dif\phi\, 1 \\
+&= \frac1{2\piup} \int_0^{2\piup}\!\dif\phi \\
 &= 1.
 \end{align*}
 
@@ -257,6 +270,16 @@ Therefor $m$ has to be integer.
 
 
 \section{Canonical Transformations}
+
+\subsection{Form-Invariance of Equations of Motion}
+
+\begin{theorem}
+    Let $A$ and $B$ be two functions of all the $q_i$ and $p_j$. A canonical
+    transformation is defined via the new coordinates $\bar q_i$ and $\bar p_j$
+    which depend on all the old coordinates and momenta. The functions $A$ and
+    $B$ are transformed to $\bar A$ and $\bar B$ and only depend on the new
+    coordinates and momenta.
+\end{theorem}
 
 
 \end{document}
