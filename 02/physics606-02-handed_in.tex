@@ -107,6 +107,22 @@ trajectories.
 
 \subsection{}
 
+It is not clear to us what $\delta$ is (scalar constant, scalar function of
+something else, variational operator, …). We assume that it is a simple scalar.
+
+The generator is $g = \delta p_k$ since
+\[
+    \delta = \dpd{g}{p_k}.
+\]
+For this to be a canonical transformation, we have to have $\{g, H\} = 0$. That
+means
+\[
+    \{\delta p_k, H\} = \delta \dot p_k = - \dpd{H}{q_k} = 0.
+\]
+The hamiltonian must not depend on $q_k$ for this to work. Also since $\dot p_k
+= 0$ this means that the momentum in the $k$-direction is preserved, as
+Noether's theorem also says.
+
 \section{Canonical Transformations in Quantum Mechanics}
 
 \section{Gauge Invariance in Classical Electrodynamics}
