@@ -1,0 +1,117 @@
+\documentclass[11pt, ngerman, fleqn, DIV=15, headinclude, BCOR=1cm]{scrartcl}
+
+\usepackage[bibatend]{../header}
+
+\usepackage{tikz}
+
+\usepackage[tikz]{mdframed}
+\newmdtheoremenv[%
+    backgroundcolor=black!5,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+]{theorem}{Theorem}[section]
+
+\hypersetup{
+    pdftitle=
+}
+
+\newcounter{totalpoints}
+\newcommand\punkte[1]{#1\addtocounter{totalpoints}{#1}}
+
+\newcounter{problemset}
+\setcounter{problemset}{2}
+
+\subject{physics606 -- Advanced Quantum Theory}
+\ihead{physics606 -- Problem Set \arabic{problemset}}
+
+\title{Problem Set \arabic{problemset}}
+
+\publishers{Group 2 -- Dilege Gülmez}
+\ofoot{Group 2 -- Dilege Gülmez}
+
+
+
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+    \and
+    Lino Lemmer \\ \small{\href{mailto:l2@uni-bonn.de}{l2@uni-bonn.de}}
+}
+\ifoot{Martin Ueding, Lino Lemmer}
+
+\ohead{\rightmark}
+
+\begin{document}
+
+\maketitle
+
+\vspace{3ex}
+
+\begin{center}
+    \begin{tabular}{rrr}
+        problem number & achieved points & possible points \\
+        \midrule
+        1 & & \punkte{7} \\
+        2 & & \punkte{9} \\
+        3 & & \punkte{12} \\
+        \midrule
+        Total & & \arabic{totalpoints}
+    \end{tabular}
+\end{center}
+
+\section{Canonical Transformations and Classical Trajectories}
+
+\subsection{}
+
+Let $(q_i(t), p_i(t))$ be a solution to the equations of motion. Then for $q_i$
+we have
+\begin{align*}
+    \dot q_i(t) &= \cbr{q_i(t), H}. \\
+    \intertext{%
+        We add the same to both sides which will not make any difference:
+    }
+    \iff \dot q_i(t) + \epsilon \cbr{\dpd{g}{p_i}, H} &= \cbr{q_i(t), H} + \epsilon \cbr{\dpd{g}{p_i}, H}. \\
+    \intertext{%
+        On the left hand side we expand the Poisson bracket into its
+        definition.
+    }
+    \iff \dot q_i(t) + \epsilon \sum_j \sbr{\dmd{g}{2}{q_j}{}{p_i}{}
+        \dpd{H}{p_j}
+    - \dmd{g}{2}{p_j}{}{p_i}{} \dpd{H}{q_j}} &= \cbr{q_i(t) + \epsilon \dpd{g}{p_i}, H}. \\
+    \intertext{%
+        The equations of motion allow us to eliminate $H$ on the left hand
+        side.
+    }
+    \iff \dot q_i(t) + \epsilon \sum_j \sbr{\dmd{g}{2}{q_j}{}{p_i}{} \dot q_j +
+    \dmd{g}{2}{p_j}{}{p_i}{} \dot p_j} &= \cbr{q_i(t) + \epsilon \dpd{g}{p_i}, H}. \\
+    \intertext{%
+        The term in the square bracket is
+        \[
+            \dod{}t \dpd{}{p_i} g\del{q_1(t), \ldots, q_n(t), p_1(t), \ldots, p_n(t)}.
+        \]
+        Therefore we can write this as
+    }
+    \iff \dot q_i(t) + \epsilon \dod{}t \dpd{g}{p_i} &= \cbr{q_i(t) + \epsilon \dpd{g}{p_i}, H}. \\
+    \intertext{%
+        We factor out the time derivative and yield
+    }
+    \iff \dod{}t \sbr{q_i(t) + \epsilon \dpd{g}{p_i}} &= \cbr{q_i(t) + \epsilon \dpd{g}{p_i}, H}. \\
+    \intertext{%
+        Inserting the definition of the transformation gives us
+    }
+    \iff \dod{}t \bar q_i(t) &= \cbr{\bar q_i(t), H}.
+\end{align*}
+
+That is the equation of motion for $\bar q_i$. The same thing can be done with
+$\bar p_i$. Therefore, these infinitesimal transformations generate more valid
+trajectories.
+
+\subsection{}
+
+\section{Canonical Transformations in Quantum Mechanics}
+
+\section{Gauge Invariance in Classical Electrodynamics}
+
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
