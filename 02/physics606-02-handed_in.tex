@@ -255,10 +255,10 @@ any way:
 \subsection{Homogeneous Maxwell equations}
 
 The first equation is fulfilled since $\tens \epsilon$ is antisymmetric whereas
-the $\vnabla$ commute with each other.
+the $\vnabla$ commute with each other. Summation convention is implied.
 \[
-    \vnabla \vec B = \vnabla [\curl \vec A] = \epsilon_{ijk} \vnabla_i
-    \vnabla_j A_j = 0.
+    \vnabla \vec B = \vnabla [\curl \vec A] = \epsilon_{ijk} \nabla_i
+    \nabla_j A_k = 0.
 \]
 
 The second equation is fulfilled since a gradient has no curl and the last two
@@ -272,7 +272,7 @@ Again, this can be written with differential forms, this being a simple $\dif F
 = 0$. Since $F := \dif A$ it follows that $\dif{^2} A = 0$. If you write this
 in components you get
 \[
-    \vnabla_{[\alpha} F_{\beta\gamma]} = 0,
+    \nabla_{[\alpha} F_{\beta\gamma]} = 0,
 \]
 where we have use the antisymmetrization brackets in the indices. For all
 values for $\alpha$, $\beta$, $\gamma$ out of $\{0, 1, 2, 3\}$ you will get one
