@@ -125,6 +125,86 @@ Noether's theorem also says.
 
 \section{Canonical Transformations in Quantum Mechanics}
 
+\subsection{Transformation of the coefficients}
+
+Equation~(3) from the problem set states:
+\[
+    \ket \psi = \sum_n c_n(t) \ket n,
+\]
+where we introduced $\ket n$ as the eigenstates to the operator $\hat g$. The
+eigenvalues of $\hat g$ are $g_n$, so we simply get:
+\[
+    \ket{\tilde \psi}
+    = \sum_n c_n(t) \hat U_g(\xi) \ket n
+    = \sum_n c_n(t) g_n \ket n.
+\]
+Then $\tilde c_n(t) = c_n(t) g_n$ follows.
+
+\subsection{Rotations around $z$-axis}
+
+Let
+\[
+    g = \hat L_z = - \iup \hbar \dpd{}\phi
+\]
+be the generator now. Then the unitary operator is
+\[
+    \hat U_{\hat L_z}(\xi) = \exp\del{- \xi \dpd{}\phi}.
+\]
+
+We take an eigenfunction of $\hat L_z$ which is
+\[
+    \psi_m(\phi, t) = \exp(\iup m \phi).
+\]
+When we apply $\hat U_{\hat L_z}(\xi)$ to this eigenfunction, we get
+\[
+    \hat U_{\hat L_z}(\xi) \exp(\iup m \phi) = \exp(-\xi \iup \phi) \exp(\iup m \phi).
+\]
+That can be written as
+\[
+    \exp(-\xi \iup \phi) \exp(\iup m \phi) = \psi(\phi - \xi, t),
+\]
+which is a rotation around the $z$-axis with the angle $\xi$. This indeed
+generates rotations.
+
+\subsection{Rotations of superpositions}
+
+\subsubsection{Case fixed $l$ and fixed $m$}
+
+Our state is
+\[
+    \ket \psi = \ket{l, m}
+\]
+where $\ket{l, m}$ is an eigenstate of $\hat L^2$ and $\hat L_z$ which commutes
+with the former. The part that $\hat L_z$ acts upon is $\exp(\iup m \phi)$, so
+the operator $\hat U_{\hat L_z}(\xi)$ will add a phase factor of $\exp(- \iup m
+\xi)$ to the whole expression. This does \emph{not} change the physical
+reality, since it is just a change of the \emph{overall} phase of $\ket \psi$.
+
+\subsubsection{Case fixed $l$ but different $m$}
+
+Now our state is
+\[
+    \ket \psi = \sum_m c_m(t) \ket{l, m},
+\]
+where the coefficients are for the different values of $m$. The new
+coefficients look like this:
+\[
+    \tilde c_m(t) = c_m(t) \exp(-\iup m \phi).
+\]
+The different summands of the superposition have a phase change which depends
+on $m$. So this is no overall phase change that could be factored out. This
+does change the physical reality.
+
+\subsubsection{Case different $l$ and different $m$}
+
+This is similar to the above case. The states are now:
+\[
+    \ket \psi = \sum_{l,m} c_{lm}(t) \ket{l, m},
+\]
+The coefficients still transform in the same $m$ dependence as before, altering
+more than the overall phase of $\ket \psi$. This also changes the physical
+reality.
+
 \section{Gauge Invariance in Classical Electrodynamics}
 
 
