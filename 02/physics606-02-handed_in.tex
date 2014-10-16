@@ -207,6 +207,50 @@ reality.
 
 \section{Gauge Invariance in Classical Electrodynamics}
 
+\subsection{Gauge invariance}
+
+We have, without explicit functional dependence:
+\[
+    \vec B = \curl \vec A
+    \eqnsep
+    \vec E = - \vnabla U = \dot{\vec A}
+\]
+And the potentials transform like so:
+\[
+    \vec A \to \vec A + \vnabla \lambda
+    \eqnsep
+    U \to U + \dot \lambda
+\]
+
+Now this is:
+\[
+    \vec B \to \curl \sbr{\vec A + \vnabla \lambda} = \curl \vec A + \vec 0 =
+    \vec B
+\]
+So $\vec B$ is unchanged. Now we transform the electric field,
+\[
+    \vec E \to - \vnabla U + \vnabla \dot \lambda - \dot{\vec A} - \vnabla \dot
+    \lambda = \vec E,
+\]
+which is also unchanged.
+
+All this can be written more elegantly using differential forms. First of all
+we combine $U$ and $\vec A$ into a single four-vector $\tens A$. Using the flat
+isomorphism in our four dimensional Minkoswki manifold we introduce the 1-form
+$A := \tens A^\flat$. Then we have the field strength tensor, a 2-form, $F :=
+\dif A$. The gauge transformation is the addition of a gradient to the spacial
+components and a negative time derivative of the same entity to the temporal
+component. We can write this summand as the four-vector $S^i := - \nabla^i
+\lambda$. The raising of the index flipped the signs already, so one can see
+that the components $S^\mu$ indeed yield the right summands for $A^i$ and $U =
+A^0$. Now $S_i = - \nabla_i \lambda$ is the component way of writing a 1-form
+as the gradient of a 0-form (a scalar, what is what $\lambda$ is). We write
+this as $S = \dif \lambda$. Now the gauge transformation is $A \to A + \dif
+\lambda$. Since $F = \dif A$ and $\dif{^2} = 0$, it can be seen elegantly that
+$F$ is not changed in any way:
+\[
+    F = \dif A \to \dif A + \dif{^2} \lambda = \dif A = F.
+\]
 
 \end{document}
 
