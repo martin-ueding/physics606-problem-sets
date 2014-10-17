@@ -280,6 +280,87 @@ of the four equations shown in the vectorial notation.
 
 \subsection{Lorentz gauge}
 
+This is again pretty laborious in the SI-system and with three-vectors. First
+of all, the given gauge condition is wrong. In the nice way of writing it, it
+is
+\[
+    \partial_\mu A^\mu = 0,
+\]
+meaning that the four-divergence of $\tens A$ vanishes. The Coulomb gauge
+similarly is $\partial_i A^i = 0$, meaning that the three-divergence of $\vec
+A$ vanishes. With this notation, it is easy to see the analogy. However, this
+means that in the clumsy way this is
+\[
+    \vnabla \vec A = - \mu_0 \varepsilon_0 \dot U,
+\]
+note the time derivative on the $U$!
+
+We will start with the first inhomogeneous equation:
+\begin{align*}
+    \vnabla \vec E &= \frac{\varrho}{\varepsilon_0} \\
+    \iff \vnabla \sbr{- \vnabla U - \dot{\vec A}} &= \frac{\varrho}{\varepsilon_0} \\
+    \iff - \laplace U - \vnabla \dot{\vec A} &= \frac{\varrho}{\varepsilon_0} \\
+    \intertext{%
+        Now using the gradient of the correct gauge condition gives us
+    }
+    \iff - \laplace U - \mu_0 \varepsilon_0 \dot U &= \frac{\varrho}{\varepsilon_0}. \\
+    \intertext{%
+        We define
+        \[
+            \dalambert := \frac{1}{c^2} \dpd[2]{}t - \laplace
+        \]
+        in the SI-system to write this easier:
+    }
+    \iff \dalambert U &= \frac{\varrho}{\varepsilon_0}.
+\end{align*}
+This equation only depends on $\varrho \propto J^0$ and $U \propto A^0$ now,
+it is decoupled from the spatial components.
+
+Now we will tend to the second equation, the spatial part.
+\begin{align*}
+    \curl \vec B &= \mu_0 \vec j + \mu_0 \varepsilon_0 \dot{\vec E} \\
+    \iff \curl \curl \vec A &= \mu_0 \vec j + \mu_0 \varepsilon_0
+    \sbr{- \vnabla \dot U - \dot{\vec A}} \\
+    \iff \curl \curl \vec A &= \mu_0 \vec j - \mu_0 \varepsilon_0 \vnabla \dot
+    U - \mu_0 \varepsilon_0 \dot{\vec A} \\
+    \intertext{%
+        The double curl can be expanded to $\vnabla \vnabla \vec A - \laplace
+        \vec A.$ This can be shown with the Levi-Civita symbol:
+        \[
+            [\curl\curl \vec A]_i = \epsilon_{ijk} \partial_j \epsilon_{kmn}
+            \partial_m A_n = [\delta_{im} \delta_{jn} - \delta_{in}
+            \delta_{jm}] \partial_j \partial_m A_n = \partial_i \partial_j A_j
+            - \partial_j \partial_j A_i = [\vnabla \vnabla \vec A - \laplace
+            \vec A]_i.
+        \]
+        We insert that into the equation now:
+    }
+    \iff \vnabla \vnabla \vec A - \laplace A &= \mu_0 \vec j - \mu_0 \varepsilon_0 \vnabla \dot
+    U - \mu_0 \varepsilon_0 \dot{\vec A} \\
+    \intertext{%
+        The correct gauge condition gives us $\mu_0 \varepsilon_0 \vnabla \dot
+        U - \vnabla \vnabla A$ which we use to replace any temporal-like
+        quantities from the equation.
+    }
+    \iff \vnabla \vnabla \vec A - \laplace A &= \mu_0 \vec j + \vnabla \vnabla \vec A - \mu_0 \varepsilon_0 \dot{\vec A} \\
+    \iff \mu_0 \varepsilon_0 \dot{\vec A} - \laplace A &= \mu_0 \vec j \\
+    \intertext{%
+        Using the definition of $\dalambert$ again here, we obtain
+    }
+    \iff \dalambert \vec A = \mu_0 \vec j.
+\end{align*}
+
+Setting $A^0 := cU$ and $J^0 = \varrho/c$, we can write this equation easier as
+\[
+    \dalambert \tens A = \mu_0 \tens J.
+\]
+
+This could even be written with differential forms:
+\[
+    \dif{\hodge F} = 4 \piup \hodge J,
+\]
+which might be the most elegant form.
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
