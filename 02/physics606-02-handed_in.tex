@@ -361,6 +361,51 @@ This could even be written with differential forms:
 \]
 which might be the most elegant form.
 
+\subsection{Gauge invarance of the Lagrangian}
+
+The difference of $L$ and its transformed one is
+\[
+    \Deltaup L = \intop_{\R^3} \dif{^3x} \, [\varrho \dot \lambda + \vec j
+    \vnabla \lambda].
+\]
+Please note the difference between the Laplacian $\laplace$ and the “difference
+Delta” $\Deltaup$. As it currently stands, that is not the total time
+derivative of another function. Therefore, this is not necessarily gauge
+invariant.
+
+The action is the time integral of the Lagrange function, so we get:
+\begin{align*}
+    \Deltaup S &= \intop_\R \dif t\, \Deltaup L \\
+               &= \intop_{\R^4} \dif t \, \dif{^3x} \, [\varrho \dot \lambda + \vec j \vnabla
+    \lambda] \\
+    \intertext{%
+        This will be much clearer in four dimensional notation.
+    }
+               &= \intop_{\R^4} \dif{^4x} \, [\varrho \dot \lambda + \vec j
+    \vnabla] = \intop_{\R^4} \dif{^4x} \, J^\mu \partial_\mu \lambda \\
+    \intertext{%
+        The continuity equation states that $\partial_\mu J^\mu = 0$, so we can
+        write
+        \[
+            \partial_\mu J^\mu \lambda = [\partial_\mu J^\mu] \lambda + J^\mu
+            \partial_\mu \lambda = J^\mu \partial_\mu \lambda.
+        \]
+        We can use this to write the integral as the volume integral over a
+        divergence:
+    }
+               &= \intop_{\R^4} \dif{^4x} \, \partial_\mu J^\mu \lambda.
+    \intertext{%
+        That integral can be transformed into a surface integral over $\tens J
+        \lambda$. Using the assumption that the current $\tens J$ is bounded
+        ($\exists R \in \R^+\colon \forall r \geq R\colon  |\tens J(r)| = 0.$)
+        the whole term vanishes.
+    }
+    &= 0
+\end{align*}
+
+Therefore, the action is actually the same. Therefore, the physics do not
+change.
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
