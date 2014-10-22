@@ -58,11 +58,66 @@
     \end{tabular}
 \end{center}
 
-\section{Particle in External Electromagnetic Field} % #8
+\section{Particle in external electromagnetic field} % #8
 
-\section{Charge Conservation} % #9
+\subsection{Canonical momentum}
 
-\section{Some Gaussian Integrals} % #10
+In general, the canonical momenta in classical mechanics are defined as
+\[
+    \pi_i := \frac{\partial L}{\partial \dot x^i}.
+\]
+We use $\vec\pi$ instead of $\vec P$ here to make the distinction to the linear
+momentum $\vec p$ clearer.
+
+Given the particular Lagrange function we have:
+\[
+    \pi_i = m \dot x_i + q A_i.
+\]
+
+The linear momenta are given by
+\[
+    p_i = m \dot x_i
+\]
+and differ by the $q A_i$ in the canonical momenta.
+
+\subsection{Hamilton function}
+
+Generally, the Hamilton function is defined as
+\[
+    H(q, \pi, t) := \pi_i \dot q^i(q, \pi, t) - L(q, \dot q(q, \pi, t), t).
+\]
+The velocities all have to be replaced with the canonical momenta. The
+velocities are given by
+\[
+    \dot x_i = \frac 1m [p_i - q A_i]
+\]
+which need to be inserted into the Hamilton function.
+
+The Hamilton function is
+\begin{align*}
+    H
+    &= \pi_i \dot q^i - L \\
+    &= \vec \pi \dot{\vec x} - \frac m2 \dot{\vec x}^2 + qU - q \dot{\vec x}
+    \vec A \\
+    &= \frac 1m \vec \pi [\vec \pi - q \vec A] - \frac1{2m} [\vec \pi - q \vec A]^2 + qU -
+    \frac qm [\vec \pi - q \vec A] \vec A \\
+    &= \frac 1m [\vec \pi - q \vec A] \sbr{\vec \pi - \frac12 [\vec \pi - q \vec A] -
+    q \vec A} + qU \\
+    &= \frac 1m [\vec \pi - q \vec A] \sbr{\vec \pi -
+    q \vec A - \frac12 [\vec \pi - q \vec A]} + qU \\
+    &= \frac 1{2m} [\vec \pi - q \vec A]^2 + qU.
+\end{align*}
+
+The total energy should be
+\[
+    \frac{1}{2m} \vec p^2 + qU,
+\]
+so the Hamilton function is not the total energy. Also, the rest mass is
+would be missing, but that is another story. 
+
+\section{Charge conservation} % #9
+
+\section{Some Gaussian integrals} % #10
 
 
 \end{document}
