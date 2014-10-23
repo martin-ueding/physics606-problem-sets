@@ -79,9 +79,21 @@
 
 \RequirePackage[usenames, dvipsnames]{xcolor}
 
-\colorlet{darkred}{red!70!black}
-\colorlet{darkblue}{blue!70!black}
-\colorlet{darkgreen}{green!40!black}
+\if@color
+    \colorlet{darkred}{red!70!black}
+    \colorlet{linkcolor}{blue!70!black}
+    \colorlet{citecolor}{green!40!black}
+    \colorlet{notecolor}{yellow!30}
+    \colorlet{warningcolor}{red!20}
+\else
+    \colorlet{darkred}{black}
+    \colorlet{linkcolor}{black}
+    \colorlet{citecolor}{black}
+    \colorlet{notecolor}{black!10}
+    \colorlet{warningcolor}{black!10}
+\fi
+
+\colorlet{urlcolor}{linkcolor}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                         Font and font like settings                         %
@@ -126,23 +138,11 @@
     breaklinks=false,
     colorlinks=true,
     pdfauthor={Martin Ueding},
+    citecolor=citecolor,
+    linkcolor=linkcolor,
+    menucolor=black,
+    urlcolor=urlcolor,
 }
-
-\if@color
-    \hypersetup{
-        citecolor=darkgreen,
-        linkcolor=darkblue,
-        menucolor=black,
-        urlcolor=darkblue,
-    }
-\else
-    \hypersetup{
-        citecolor=black,
-        linkcolor=black,
-        menucolor=black,
-        urlcolor=black,
-    }
-\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                               Math Operators                                %
@@ -325,5 +325,36 @@
     Fehlerangabe. Um den Fehler zu erhalten, wird diese von rechts über die
     Zahl gelegt, alle anderen Stellen werden auf 0 gesetzt.
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                 Admonitions                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage[tikz]{mdframed}
+
+\newmdenv[%
+    backgroundcolor=notecolor!50,
+    frametitlebackgroundcolor=notecolor,
+    roundcorner=5pt,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+    frametitle={Note},
+    frametitlerule=true,
+]{note}
+
+\newmdenv[%
+    backgroundcolor=warningcolor!50,
+    frametitlebackgroundcolor=warningcolor,
+    roundcorner=5pt,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+    frametitle={Warning},
+    frametitlerule=true,
+]{warning}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                               End of package                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \endinput
