@@ -308,6 +308,46 @@ We shall compute
     &= \frac 12 \sqrt{\frac{\piup}{a^3}}. \\
 \end{align*}
 
+\subsection{Fourth integral}
+
+First we note the following:
+\[
+    ax^2 + bx = \sbr{\sqrt a x + \frac{1}{2 \sqrt a} b}^2 - \frac{b^2}{4a}.
+\]
+
+The integral to compute is
+\begin{align*}
+    I_0(a, b)
+    &= \int_{-\infty}^\infty \dif x \exp(-ax^2 + bx). \\
+    \intertext{%
+        We use the completion of the square we showed above:
+    }
+    &= \int_{-\infty}^\infty \dif x \exp\del{-\sbr{\sqrt a x + \frac{b}{2
+    \sqrt a}}^2 + \frac{b^2}{4a}}. \\
+    \intertext{%
+        The constant term can be put in front of the integral:
+    }
+    &= \exp\del{\frac{b^2}{4a}} \int_{-\infty}^\infty \dif x \exp\del{-\sbr{\sqrt a x + \frac{b}{2
+    \sqrt a}}^2}. \\
+    \intertext{%
+        Using a substitution of the integrand with a simple shift we can remove
+        the
+        \[
+            + \frac{b}{2 \sqrt a}
+        \]
+        part in the exponential function. Since it is a finite shift and the
+        bounds are infinite, this will not change the value of the integral at
+        all. Therefore, we use the same variable $x$ and just drop the term
+        linear in $b$. We get
+    }
+    &= \exp\del{\frac{b^2}{4a}} \int_{-\infty}^\infty \dif x \exp(-a x^2). \\
+    \intertext{%
+        The integral is well known by now, we can just insert it and obtain the
+        final result of
+    }
+    &= \exp\del{\frac{b^2}{4a}} \sqrt{\frac\piup a}. \\
+\end{align*}
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
