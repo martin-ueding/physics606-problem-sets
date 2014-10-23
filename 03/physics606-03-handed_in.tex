@@ -119,14 +119,109 @@ would be missing, but that is another story.
 
 The Poisson bracket to evaluate is
 \[
-    \dot{\vec \pi} = \{\vec \pi, H\}.
+    \dot{\vec \pi} = \{\vec \pi, H\} = \pd{\vec \pi}{x^j} \pd{H}{\pi_j} -
+    \pd{\vec \pi}{\pi_j} \pd{H}{x^j}.
 \]
-We will do this in small parts since there a lot of terms here.
-
+We will do this in small parts since there are a lot of terms here. The left
+side of the equation is
+\[
+    \dot \pi_i = m \ddot x_i - q \dot A_i.
+\]
+The first partial derivative in the Poisson bracket is
+\[
+    \pd{\pi_i}{x^j} = \pd{}{x^j} \sbr{m x_i + q A_i(x)} = q \pd{A_i}{x^j}.
+\]
+Now the partial derivative of the Hamilton function is needed:
+\[
+    \pd{H}{\pi_j} = \frac{\pi_j}m - \frac qm A_j.
+\]
+This one is simply
+\[
+    \pd{\pi_i}{\pi_j} = \delta_i^j.
+\]
+The last partial derivative requires the most work:
 \begin{align*}
-    \dot \pi_i
-    &=
+    \pd{H}{x^j}
+    &= \frac{1}{2m} \pd{}{x^j} \sbr{ \sbr{\vec \pi - q \vec A}^2 + q U}. \\
+    \intertext{%
+        We expand the square, which is a scalar product, into two brackets with
+        summation convention:
+    }
+    &= \frac{1}{2m} \pd{}{x^j} \sbr{\pi_i - q A_i} \sbr{\pi^i - q A^i} + q
+    \pd{U}{x^j}. \\
+    \intertext{%
+        Using the product rule we can cancel the $1/2$ in front and apply the
+        derivatives to the first bracket:
+    }
+    &= \frac{1}{m} \sbr{\pd{\pi_i}{x^j} - q \pd{A_i}{x^j}} \sbr{\pi^i - q A^i} + q
+    \pd{U}{x^j}. \\
+    \intertext{%
+        We can now insert the derivatives of $\vec \pi$ since we have
+        calculated them earlier on. We also factored out a $q$ to the front:
+    }
+    &= \frac{q}{m} \sbr{\pd{A_i}{x^j} - \pd{A_i}{x^j}} \sbr{\pi^i - q A^i} + q
+    \pd{U}{x^j}. \\
+    \intertext{%
+        This way, it is easy to see that the whole expression simplifies to the
+        scalar potential term:
+    }
+    &= q \pd{U}{x^j}.
+    %&= - \frac qm \pi_i \pd{A^i}{x^j} + \frac{q^2}m A_j \pd{A^i}{x^j} +
+    %q \pd{U}{x^j}
 \end{align*}
+
+Now that we have the parts together, we can put it all together:
+\begin{align*}
+    m \ddot x_i - q \dot A_i &= 
+    q \pd{A_i}{x^j}
+    \sbr{\frac{\pi_j}m - \frac qm A_j}
+    -
+    \delta_i^j
+    q \pd{U}{x^j}. \\
+    \intertext{%
+        We start by putting the $\dot A$ term to the right. Then we extract a
+        factor $1/m$ out of the bracket:
+    }
+    m \ddot x_i &= \frac qm \pd{A_i}{x^j} \sbr{\pi_j - q
+    A_j} - \delta_i^j q \pd{U}{x^j} + q \dot A_i. \\
+    \intertext{%
+        The right side is just $\dot p_j$, the linear momentum. On the right
+        side, we can insert the velocity for the bracket. We also take care of
+        the $\delta$ finally:
+    }
+    \dot p_i &= q \pd{A_i}{x^j} \dot x_j - q \pd{U}{x^i} + q \dot A_i. \\
+    \dot p_i &= q \sbr{- \pd{U}{x^i} + \dot A_i + \pd{A_i}{x^j} \dot x_j}. \\
+    \intertext{%
+        We now use the second relation. The proof is at the end of this
+        subsection. The equation now is
+    }
+    \dot p_i &= q \sbr{- \pd{U}{x^i} + \pd{A_i}t + \dot x^j \pd{A_i}{x^j} + \pd{A_i}{x^j} \dot x_j}. \\
+    \dot p_i &= q \sbr{- \pd{U}{x^i} + \pd{A_i}t + 2 \dot x^j \pd{A_i}{x^j}}. \\
+\end{align*}
+
+\fehlt
+
+There is still the proof of the given relation left:
+
+\begin{proof}
+    \begin{align*}
+        \dot A_i
+        &= \pd{A_i}t + \pd{A_i}{x^j} \pd{x^j}{t}. \\
+        \intertext{%
+            Since the trajectories only depend on the time, that last
+            derivative is a total one. We can therefore write it as $\dot x^j$.
+        }
+        &= \pd{A_i}t + \pd{A_i}{x^j} \dot x^j. \\
+        \intertext{%
+            We can also write this in a suggestive way like this:
+        }
+        &= \pd{A_i}t + \dot x^j \pd{}{x^j} A_i.
+    \end{align*}
+    Now one can see the whole vector identity:
+    \[
+        \dot{\vec A} = \pd{\vec A}{t} + [\dot{\vec x} \vnabla] \vec A.
+    \]
+\end{proof}
 
 \section{Charge conservation} % GH-9
 
