@@ -227,6 +227,84 @@ There is still the proof of the given relation left:
 
 \section{Some Gaussian integrals} % GH-10
 
+\subsection{First integral}
+
+We are asked to solve
+\[
+    \int_0^\infty \dif x \, x \exp(-ax^2)
+\]
+by calculating the indefinite integral first. So we do this by using
+substitution with
+\[
+    z := x^2
+    \eqnsep
+    \dif z = 2 x \, \dif x.
+\]
+Using that, we yield
+\[
+    \int \dif x \, x \exp(-ax^2) = \frac{1}{2} \int \dif z \, \exp(-az) = -
+    \frac{1}{2a} \exp(-az).
+\]
+Evaluating this at the boundary $[0, \infty)$ we obtain the result
+\[
+    \frac{1}{2a}.
+\]
+
+\subsection{2D Gaussian integral}
+
+\begin{align*}
+    |I_0(a)|^2
+    &=
+    \int_{_\infty}^\infty \dif x \exp(-ax^2)
+    \int_{_\infty}^\infty \dif y \exp(-ay^2) \\
+    &=
+    \int_{_\infty}^\infty \dif x \int_{_\infty}^\infty \dif y \exp(-a[x^2+y^2]) \\
+    \intertext{%
+        Now $x^2 + y^2 = r^2$ in polar coordinates. The measure of the
+        integration, which can be derived from Gram's determinant of the
+        metric tensor, is $r \dif r \dif \phi$.
+    }
+    &= \int_0^\infty r \dif r \int_0^{2\piup} \dif \phi \exp(-ar^2) \\
+    \intertext{%
+        Since the integrand does not depend on $\phi$, we will get a simple
+        scalar factor:
+    }
+    &= 2 \piup \int_0^\infty r \dif r \exp(-ar^2). \\
+    \intertext{%
+        Using the previously derived fact that this integral is $1/2a$ we can
+        write down the result:
+    }
+    &= \frac{\piup}a.
+\end{align*}
+That was the square of the integral to be calculated, so the integral itself is
+\[
+    \sqrt{\frac\piup a}.
+\]
+
+\subsection{Third integral}
+
+We shall compute
+\begin{align*}
+    I_2(a)
+    &= \int_{-\infty}^\infty \dif x \, x^2 \exp(-ax^2). \\
+    \intertext{%
+        We can obtain a $x^2$ from the exponential function via a
+        differentiation:
+    }
+    &= - \int_{-\infty}^\infty \dif x \od{}a \exp(-ax^2). \\
+    \intertext{%
+        Using the Lebeque's theorem, without checking the prerequisites, we get
+    }
+    &= - \od{}a \int_{-\infty}^\infty \dif x \exp(-ax^2). \\
+    \intertext{%
+        We already solved that integral, so we get
+    }
+    &= - \od{}a \sqrt{\frac{\piup}{a}}. \\
+    \intertext{%
+        One way of writing this would be
+    }
+    &= \frac 12 \sqrt{\frac{\piup}{a^3}}. \\
+\end{align*}
 
 \end{document}
 
