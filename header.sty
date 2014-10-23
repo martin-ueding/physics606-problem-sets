@@ -32,6 +32,12 @@
   \@bibatendtrue
 }
 
+% Declare a switch for a colored document.
+\newif\if@color\@colorfalse
+\DeclareOption{color}{
+  \@colortrue
+}
+
 \ProcessOptions\relax
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -118,13 +124,25 @@
 % change it, just override it with another ``\hypersetup`` call.
 \hypersetup{
     breaklinks=false,
-    citecolor=darkgreen,
     colorlinks=true,
-    linkcolor=darkblue,
-    menucolor=black,
     pdfauthor={Martin Ueding},
-    urlcolor=darkblue,
 }
+
+\if@color
+    \hypersetup{
+        citecolor=darkgreen,
+        linkcolor=darkblue,
+        menucolor=black,
+        urlcolor=darkblue,
+    }
+\else
+    \hypersetup{
+        citecolor=black,
+        linkcolor=black,
+        menucolor=black,
+        urlcolor=black,
+    }
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                               Math Operators                                %
