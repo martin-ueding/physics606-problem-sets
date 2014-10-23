@@ -246,11 +246,11 @@ Now that we have the parts together, we can put it into a single equation:
     \iff \dot p_i &= q \sbr{- \pd{U}{x^i} - \pd{A_i}t}. \\
 \end{align*}
 
-\begin{note}
-    So far, this has not worked out to be the solution given on the problem
-    set. I (MU) assume that I overlooked some part where I had to use product
-    rule or so.
-\end{note}
+% FIXME This is not correct so far.
+
+So far, this has not worked out to be the solution given on the problem
+set. I, MU, assume that I overlooked some part where I had to use product
+rule or so.
 
 \subsubsection{Proof of relations}
 
@@ -258,7 +258,7 @@ The first identity can be shown with index notation.
 \begin{proof}
     We start in index notation:
     \begin{align*}
-        \sbr{\dot{\vec x} \times [\vnabla \times \vec A]}_i.
+        \sbr{\dot{\vec x} \times [\vnabla \times \vec A]}_i
         &= \epsilon_{ijk} \dot x_j \epsilon_{kmn} \partial_m A_n. \\
         \intertext{%
             The $\tens \epsilon$ commute to
@@ -319,9 +319,21 @@ There is still the proof of the second relation left.
 
 \subsection{Analogy in quantum mechanics}
 
-\begin{note}
-    This part is missing.
-\end{note}
+In quantum mechanics, the commutator
+\[
+    [x^i, p_j] = \iup \hbar \delta^i_j
+\]
+is expected. In classical mechanics, the Poisson bracket
+\[
+    \{x^i, \pi_j\} = \delta^i_j
+\]
+should hold for the canonical coordinates.
+
+This problem might be solved by comparing $\{\vec x, \vec p\}$ with $\{\vec x,
+\vec \pi\}$. We got that $\delta^i_j$ in both cases, so we are not sure whether
+this is really the right way to handle this problem.
+
+% TODO Become sure about this.
 
 \section{Charge conservation} % GH-9
 
@@ -330,9 +342,22 @@ There is still the proof of the second relation left.
 
 \subsection{Current density}
 
-\begin{note}
-    This part is missing.
-\end{note}
+The probability current density, which is proportional to the electric current
+density (omit $q$) can be derived by introducing the continuity equation and
+constructing the probability current density in a way such that it fulfils the
+continuity equation. Since one has to show that said equation is fulfilled in
+the next part of this problem, this is not the way to go.
+
+From classical electrodynamics, the current density is defined as $\vec j :=
+\vec v \rho$ where $\vec v$ is velocity field. Due to the uncertainty relation,
+it is impossible to give an exact $\vec v(\vec x)$ which would proportional to
+$\vec p(\vec x)$, since we are only dealing with non-relativistic quantum
+mechanics.
+
+So frankly, we have no idea what we are supposed to do in this part of the
+problem.
+
+% TODO Have an idea.
 
 \subsection{Satisfaction of the continuity equation}
 
@@ -351,6 +376,8 @@ From that, we can write down the partial derivatives:
     \dot \psi^* = \frac{\iup}{\hbar} H^* \psi^*.
 \]
 
+We now start with the time derivative of $\varrho$ in order to match it against
+the divergence of $\vec j$ later on.
 \begin{align*}
     \pd{\varrho}{t}
     &= q \pd{}t \psi^* \psi \\
@@ -455,6 +482,9 @@ definition:
     \\
     &= - \frac{q^2}{2m} \vnabla \vec A \psi^* \psi
 \end{align*}
+
+% XXX There are some slight glitches in the derivation. It might be good to
+% work out the things the “+ h.c.” explicitly in the equations.
 
 The sum of the derived $\dot\varrho$ and this $\vnabla \vec j$ add up to zero,
 fulfilling the continuity equation.
