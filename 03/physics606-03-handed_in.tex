@@ -1,6 +1,6 @@
 \documentclass[11pt, english, fleqn, DIV=15, headinclude, BCOR=1cm]{scrartcl}
 
-\usepackage[bibatend]{../header}
+\usepackage[bibatend, color]{../header}
 
 \usepackage{tikz}
 
@@ -118,27 +118,41 @@ would be missing, but that is another story.
 \subsection{Einstein-Lorentz-equation}
 
 The Poisson bracket to evaluate is
-\[
+\begin{equation}
+    \label{eq:1-3-bracket}
     \dot{\vec \pi} = \{\vec \pi, H\} = \pd{\vec \pi}{x^j} \pd{H}{\pi_j} -
     \pd{\vec \pi}{\pi_j} \pd{H}{x^j}.
-\]
-We will do this in small parts since there are a lot of terms here. The left
-side of the equation is
+\end{equation}
+We will do this in small parts since there are a lot of terms here. For
+convenience, these are the momenta and Hamilton function again:
 \[
-    \dot \pi_i = m \ddot x_i - q \dot A_i.
+    \pi_i = m \dot x_i + q A_i
+    \eqnsep
+    H = \frac 1{2m} [\vec \pi - q \vec A]^2 + qU.
 \]
-The first partial derivative in the Poisson bracket is
+
+The left side of the equation~\eqref{eq:1-3-bracket} is
 \[
-    \pd{\pi_i}{x^j} = \pd{}{x^j} \sbr{m x_i + q A_i(x)} = q \pd{A_i}{x^j}.
+    \dot \pi_i = m \ddot x_i + q \dot A_i.
 \]
+
+The first partial derivative in equation~\eqref{eq:1-3-bracket} is
+\[
+    \pd{\pi_i}{x^j} = \pd{}{x^j} \sbr{m \dot x_i + q A_i(x)} = q \pd{A_i}{x^j}.
+\]
+
 Now the partial derivative of the Hamilton function is needed:
 \[
-    \pd{H}{\pi_j} = \frac{\pi_j}m - \frac qm A_j.
+    \pd{H}{\pi_j}
+    = \frac 1{2m} \pd{}{\pi_j} [\pi_k - q A_k][\pi^k - q A^k]
+    = \frac{\pi_j}m - \frac qm A_j.
 \]
-This one is simply
+
+The next one is simply
 \[
     \pd{\pi_i}{\pi_j} = \delta_i^j.
 \]
+
 The last partial derivative requires the most work:
 \begin{align*}
     \pd{H}{x^j}
@@ -169,12 +183,22 @@ The last partial derivative requires the most work:
     %&= - \frac qm \pi_i \pd{A^i}{x^j} + \frac{q^2}m A_j \pd{A^i}{x^j} +
     %q \pd{U}{x^j}
 \end{align*}
+This vanishing of the first part can also be made plausible when one recalls
+that
+\[
+    \dot x_i = \frac 1m [\pi_i - q A_i].
+\]
+From that,
+\[
+    \pd{\dot x^i}{x^j} = 0
+\]
+can be understood faster.
 
 Now that we have the parts together, we can put it all together:
 \begin{align*}
     m \ddot x_i - q \dot A_i &= 
     q \pd{A_i}{x^j}
-    \sbr{\frac{\pi_j}m - \frac qm A_j}
+    \sbr{\frac{\pi_j}m + \frac qm A_j}
     -
     \delta_i^j
     q \pd{U}{x^j}. \\
@@ -182,21 +206,25 @@ Now that we have the parts together, we can put it all together:
         We start by putting the $\dot A$ term to the right. Then we extract a
         factor $1/m$ out of the bracket:
     }
-    m \ddot x_i &= \frac qm \pd{A_i}{x^j} \sbr{\pi_j - q
-    A_j} - \delta_i^j q \pd{U}{x^j} + q \dot A_i. \\
+    \iff m \ddot x_i &= \frac qm \pd{A_i}{x^j} \sbr{\pi_j - q
+    A_j} - \delta_i^j q \pd{U}{x^j} - q \dot A_i. \\
     \intertext{%
         The right side is just $\dot p_j$, the linear momentum. On the right
         side, we can insert the velocity for the bracket. We also take care of
         the $\delta$ finally:
     }
-    \dot p_i &= q \pd{A_i}{x^j} \dot x_j - q \pd{U}{x^i} + q \dot A_i. \\
-    \dot p_i &= q \sbr{- \pd{U}{x^i} + \dot A_i + \pd{A_i}{x^j} \dot x_j}. \\
+    \iff \dot p_i &= q \pd{A_i}{x^j} \dot x_j - q \pd{U}{x^i} - q \dot A_i. \\
+    \intertext{%
+        We factor out the $q$ and rearrange the summands:
+    }
+    \iff \dot p_i &= q \sbr{- \pd{U}{x^i} - \dot A_i + \pd{A_i}{x^j} \dot x_j}. \\
     \intertext{%
         We now use the second relation. The proof is at the end of this
         subsection. The equation now is
     }
-    \dot p_i &= q \sbr{- \pd{U}{x^i} + \pd{A_i}t + \dot x^j \pd{A_i}{x^j} + \pd{A_i}{x^j} \dot x_j}. \\
-    \dot p_i &= q \sbr{- \pd{U}{x^i} + \pd{A_i}t + 2 \dot x^j \pd{A_i}{x^j}}. \\
+    \iff \dot p_i &= q \sbr{- \pd{U}{x^i} - \sbr{\pd{A_i}t + \dot x^j
+    \pd{A_i}{x^j}} + \pd{A_i}{x^j} \dot x_j} \\
+    \iff \dot p_i &= q \sbr{- \pd{U}{x^i} - \pd{A_i}t}. \\
 \end{align*}
 
 \fehlt
