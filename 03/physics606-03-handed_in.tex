@@ -379,12 +379,43 @@ From that, we can write down the partial derivatives:
         leave only
     }
     &= - \frac{\iup q}{\hbar} \sbr{ \psi^* \frac{1}{2m} [\vec p - q \vec
-    A]^2 \psi - \hc}.
+    A]^2 \psi - \hc}. \\
+    &= - \frac{\iup q}{2m \hbar} \sbr{ \psi^* [\vec p^2 - q \vec p \vec A - q
+    \vec A \vec p + q^2 \vec A^2] \psi - \hc}. \\
+    \intertext{%
+        By using the real/imaginary argument again, we can say that $\vec p^2$
+        and $\vec A^2$ vanish since they are purely real.
+    }
+    &= \frac{\iup q^2}{2m \hbar} \sbr{ \psi^* [\vec p \vec A + \vec A \vec p]
+    \psi}. \\
+    \intertext{%
+        We insert $\vec p = - \iup \hbar \vnabla$.
+    }
+    &= \frac{q^2}{2m} \sbr{ \psi^* [\vnabla \vec A + \vec A \vnabla] \psi}. \\
+    \intertext{%
+        The commutator of $\vec A$ and $\vnabla$ is
+        \[
+            [\vnabla, \vec A] = \vnabla\vec A.
+        \]
+        This can be seen by applying it to a wave function:
+        \[
+            \vnabla \vec A \psi - \vec A \vnabla \psi = [\vnabla \vec A] \psi +
+            \vec A \vnabla \psi - \vec A \vnabla \psi = [\vnabla \vec A] \psi.
+        \]
+        Using the commutator we can simplify:
+    }
+    &= \frac{q^2}{2m} \sbr{\psi^* [2 \vec A \vnabla + [\vnabla \vec A]] \psi}. \\
+    \intertext{%
+        Now we write this in index notation, using the general relativity
+        notation. There,
+        \[
+            Z_{,i} := \pd{Z}{x^i}.
+        \]
+        We end up with
+    }
+    &= \frac{q^2}{2m} \sbr{2 A^i \psi^* \psi_{,i} + \psi^* A^i_{,i} \psi}
+    &= \frac{q^2}{2m} \vnabla \vec A \psi^* \psi.
 \end{align*}
-
-\begin{note}
-    This probably needs to be simplified further.
-\end{note}
 
 Now we will tend to the current density $\vec j$. The continuity equation
 contains the divergence of the it, so we need to compute it. We start with the
@@ -394,10 +425,7 @@ definition:
     &= \frac{q}{2m} \sbr{\psi^* \sbr{-\iup \hbar \partial^i - q A^i} \psi + \hc} \\
     \intertext{%
         We take the divergence. Here we have used a notation that is common in
-        general relativity where there are lots of partial derivatives. There,
-        \[
-            Z_{,i} = \pd{Z}{x^i}.
-        \]
+        general relativity where there are lots of partial derivatives.
         Using that notation makes it possible to get everything into one line
         without huge brackets. Summation convention is again implied.
     }
@@ -422,8 +450,14 @@ definition:
         \psi^*_{,i} A^i \psi
         + \psi^* A^i_{,i} \psi
         + \psi^* A^i \psi_{,i}
-    } + \hc \\
+    } \\
+    &= - \frac{q^2}{2m} \sbr{A^i \partial_i \psi^* \psi + A^i_{,i} \psi^* \psi}
+    \\
+    &= - \frac{q^2}{2m} \vnabla \vec A \psi^* \psi
 \end{align*}
+
+The sum of the derived $\dot\varrho$ and this $\vnabla \vec j$ add up to zero,
+fulfilling the continuity equation.
 
 \subsection{Gauge invariance}
 
