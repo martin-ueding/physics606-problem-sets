@@ -325,8 +325,110 @@ There is still the proof of the second relation left.
 
 \section{Charge conservation} % GH-9
 
+\newcommand\cc{\mathop{}\text{c.c.}}
+\newcommand\hc{\mathop{}\text{h.c.}}
+
+\subsection{Current density}
+
 \begin{note}
-    This problem is missing.
+    This part is missing.
+\end{note}
+
+\subsection{Satisfaction of the continuity equation}
+
+The Schrödinger equation says in a compact notation:
+\[
+    \iup \hbar \partial_0 \psi = H \psi.
+\]
+The complex conjugate of this gives
+\[
+    - \iup \hbar \partial_0 \psi^* = \psi^* H^*.
+\]
+From that, we can write down the partial derivatives:
+\[
+    \dot \psi = - \frac{\iup}{\hbar} H \psi
+    \eqnsep
+    \dot \psi^* = \frac{\iup}{\hbar} H^* \psi^*.
+\]
+
+\begin{align*}
+    \pd{\varrho}{t}
+    &= q \pd{}t \psi^* \psi \\
+    \intertext{%
+        The first steps needs the product rule:
+    }
+    &= q \sbr{\dot \psi^* \psi + \psi^* \dot \psi}. \\
+    \intertext{%
+        Then we can use the Schrödinger equation to give the time derivative of
+        the wavefunction:
+    }
+    &= \frac{\iup q}{\hbar} \sbr{\psi H^* \psi^*  - \psi^* H \psi}. \\
+    \intertext{%
+        Factoring out a minus sign lets us write this in the notation that is
+        introduced in the first part of this problem.
+    }
+    &= - \frac{\iup q}{\hbar} \sbr{ \psi^* H \psi - \hc} \\
+    \intertext{%
+        We insert the full hamiltonian:
+    }
+    &= - \frac{\iup q}{\hbar} \sbr{ \psi^* \sbr{\frac{1}{2m} [\vec p - q \vec
+    A]^2 + q U} \psi - \hc}. \\
+    \intertext{%
+        The part $qU$ of the Hamiltonian is real, such that the subtraction of
+        the hermitean conjugate will eliminate it. We therefore drop it and
+        leave only
+    }
+    &= - \frac{\iup q}{\hbar} \sbr{ \psi^* \frac{1}{2m} [\vec p - q \vec
+    A]^2 \psi - \hc}.
+\end{align*}
+
+\begin{note}
+    This probably needs to be simplified further.
+\end{note}
+
+Now we will tend to the current density $\vec j$. The continuity equation
+contains the divergence of the it, so we need to compute it. We start with the
+definition:
+\begin{align*}
+    j^i
+    &= \frac{q}{2m} \sbr{\psi^* \sbr{-\iup \hbar \partial^i - q A^i} \psi + \hc} \\
+    \intertext{%
+        We take the divergence. Here we have used a notation that is common in
+        general relativity where there are lots of partial derivatives. There,
+        \[
+            Z_{,i} = \pd{Z}{x^i}.
+        \]
+        Using that notation makes it possible to get everything into one line
+        without huge brackets. Summation convention is again implied.
+    }
+    j^i_{,i}
+    &= \frac{q}{2m} \partial_i \sbr{\psi^* \sbr{-\iup \hbar \partial^i - q A^i} \psi + \hc} \\
+    \intertext{%
+        Using product rule, we obtain more terms. We also but the hermitean
+        conjugate to the very end outside of the brackets, the prefixed scalar
+        factors are also implied.
+    }
+    &= \frac{q}{2m} \sbr{
+        \psi^*_{,i} \sbr{-\iup \hbar \partial^i - q A^i} \psi
+        + \psi^* \sbr{-\iup \hbar \laplace - q A^i_{,i}} \psi
+        + \psi^* \sbr{-\iup \hbar \partial^i - q A^i} \psi_{,i}
+    } + \hc \\
+    \intertext{%
+        The hermitean conjugate is added to this. Therefore, terms that are
+        purely imaginary will be cancelled out. We do this step here to get rid
+        of all the terms without $A$ in it.
+    }
+    &= - \frac{q^2}{2m} \sbr{
+        \psi^*_{,i} A^i \psi
+        + \psi^* A^i_{,i} \psi
+        + \psi^* A^i \psi_{,i}
+    } + \hc \\
+\end{align*}
+
+\subsection{Gauge invariance}
+
+\begin{note}
+    This part is missing.
 \end{note}
 
 \section{Some Gaussian integrals} % GH-10
