@@ -1,6 +1,9 @@
 \documentclass[11pt, english, fleqn, DIV=15, headinclude, BCOR=1cm]{scrartcl}
 
-\usepackage[bibatend, color]{../header}
+\usepackage[
+    bibatend,
+    color,
+]{../header}
 
 \usepackage{tikz}
 
@@ -210,7 +213,7 @@ can be understood faster.
 
 \subsubsection{Combined equation}
 
-Now that we have the parts together, we can put it all together:
+Now that we have the parts together, we can put it into a single equation:
 \begin{align*}
     m \ddot x_i - q \dot A_i &= 
     q \pd{A_i}{x^j}
@@ -243,7 +246,11 @@ Now that we have the parts together, we can put it all together:
     \iff \dot p_i &= q \sbr{- \pd{U}{x^i} - \pd{A_i}t}. \\
 \end{align*}
 
-\fehlt
+\begin{warning}
+    So far, this has not worked out to be the solution given on the problem
+    set. I (MU) assume that I overlooked some part where I had to use product
+    rule or so.
+\end{warning}
 
 \subsubsection{Proof of relation}
 
@@ -268,11 +275,23 @@ There is still the proof of the given relation left:
     \]
 \end{proof}
 
+\subsection{Analogy in quantum mechanics}
+
+\begin{warning}
+    This part of the problem is still missing completely.
+\end{warning}
+
 \section{Charge conservation} % GH-9
+
+\begin{warning}
+    This problem is missing.
+\end{warning}
 
 \section{Some Gaussian integrals} % GH-10
 
 \subsection{First integral}
+
+\subsubsection{The integral}
 
 We are asked to solve
 \[
@@ -294,6 +313,8 @@ Evaluating this at the boundary $[0, \infty)$ we obtain the result
 \[
     \frac{1}{2a}.
 \]
+
+\subsubsection{Constraints on $a$}
 
 If the real part of $a$ is negative, the integrand is not bounded any more and
 the function is not integrable any more. The result
@@ -361,7 +382,7 @@ We shall compute
     \intertext{%
         One way of writing this would be
     }
-    &= \frac 12 \sqrt{\frac{\piup}{a^3}}. \\
+    &= \frac 12 \sqrt{\frac{\piup}{a^3}}.
 \end{align*}
 
 \subsection{Fourth integral}
@@ -401,7 +422,7 @@ The integral to compute is
         The integral is well known by now, we can just insert it and obtain the
         final result of
     }
-    &= \exp\del{\frac{b^2}{4a}} \sqrt{\frac\piup a}. \\
+    &= \exp\del{\frac{b^2}{4a}} \sqrt{\frac\piup a}.
 \end{align*}
 
 \end{document}
