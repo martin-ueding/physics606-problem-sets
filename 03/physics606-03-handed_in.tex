@@ -461,9 +461,33 @@ fulfilling the continuity equation.
 
 \subsection{Gauge invariance}
 
-\begin{note}
-    This part is missing.
-\end{note}
+$\varrho$ does not change because the added phase for $\psi$ has unit modulus.
+
+For the current density, we have
+\begin{align*}
+    \vec j'
+    &= \frac{q}{2m} \exp\del{- \iup \frac{q}{\hbar} \lambda} \psi^* \sbr{-\iup
+    \hbar \vnabla - q \sbr{\vec A + [\vnabla \lambda]}} \exp\del{\iup
+    \frac{q}{\hbar} \lambda} \psi + \hc.
+    \intertext{%
+        Note that the first $\vnabla$ is supposed to act on the remainder of
+        the line, the $[\vnabla \lambda]$ is supposed to be self-contained. It
+        is a little hard to put the scope of the differential operators into
+        this when not using the component notation of general relativity.
+        Either way, there will be two additional terms here. One will come from
+        the product and chain rule by the first $\vnabla$. The second will come
+        from the gauge field itself.
+    }
+    &= \vec j + \sbr{\frac{q}{2m} \psi^* \sbr{-\iup \hbar \iup \frac{q}{\hbar}
+    \vnabla \lambda - q [\vnabla \lambda]}  \psi + \hc}.
+    \intertext{%
+        Cleaning up, it will become apparent that $\vec j$ is invariant under
+        such gauge transformations.
+    }
+    &= \vec j +\sbr{ \frac{q}{2m} \psi^* \sbr{q [\vnabla \lambda] - q [\vnabla
+    \lambda]}  \psi + \hc} \\
+    &= \vec j.
+\end{align*}
 
 \section{Some Gaussian integrals} % GH-10
 
