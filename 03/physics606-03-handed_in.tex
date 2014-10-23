@@ -246,15 +246,54 @@ Now that we have the parts together, we can put it into a single equation:
     \iff \dot p_i &= q \sbr{- \pd{U}{x^i} - \pd{A_i}t}. \\
 \end{align*}
 
-\begin{warning}
+\begin{note}
     So far, this has not worked out to be the solution given on the problem
     set. I (MU) assume that I overlooked some part where I had to use product
     rule or so.
-\end{warning}
+\end{note}
 
-\subsubsection{Proof of relation}
+\subsubsection{Proof of relations}
 
-There is still the proof of the given relation left:
+The first identity can be shown with index notation.
+\begin{proof}
+    We start in index notation:
+    \begin{align*}
+        \sbr{\dot{\vec x} \times [\vnabla \times \vec A]}_i.
+        &= \epsilon_{ijk} \dot x_j \epsilon_{kmn} \partial_m A_n. \\
+        \intertext{%
+            The $\tens \epsilon$ commute to
+        }
+        &= \epsilon_{ijk} \epsilon_{kmn} \dot x_j \partial_m A_n. \\
+        \intertext{%
+            We do a cyclic permutation in the indices which does not change the
+            value.
+        }
+        &= \epsilon_{ijk} \epsilon_{mnk} \dot x_j \partial_m A_n. \\
+        \intertext{%
+            Now we can contract the two Levi-Civita-symbols and obtain
+        }
+        &= [\delta_{im} \delta_{jn} - \delta_{in} \delta_{jm}] \dot x_j
+        \partial_m A_n. \\
+        \intertext{%
+            Applying those to the remainder gives us less indices:
+        }
+        &= \dot x_j \partial_i A_j - \dot x_j \partial_j A_i. \\
+        \intertext{%
+            In order for the derivative appearing in front of the $\dot x_j$ we
+            would need to subtract the term that the product rule would
+            introduce. However, that term is zero in this case since $\dot x_j$
+            does not explicitly depend on $x_i$. The second summand in the
+            above line can already be written in vector notation again. We
+            obtain
+        }
+        &= \partial_i \dot x_j A_j  - \sbr{[\dot{\vec x} \vnabla] \vec A}_i. \\
+        &= \sbr{\vnabla \dot{\vec x} \vec A - [\dot{\vec x} \vnabla] \vec A}_i
+    \end{align*}
+    That is the right side of the identity on the problem set, just with
+    slightly different notation.
+\end{proof}
+
+There is still the proof of the second relation left.
 \begin{proof}
     \begin{align*}
         \dot A_i
@@ -277,15 +316,15 @@ There is still the proof of the given relation left:
 
 \subsection{Analogy in quantum mechanics}
 
-\begin{warning}
+\begin{note}
     This part of the problem is still missing completely.
-\end{warning}
+\end{note}
 
 \section{Charge conservation} % GH-9
 
-\begin{warning}
+\begin{note}
     This problem is missing.
-\end{warning}
+\end{note}
 
 \section{Some Gaussian integrals} % GH-10
 
