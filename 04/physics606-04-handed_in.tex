@@ -84,7 +84,107 @@
     \end{tabular}
 \end{center}
 
+In order to make this document a bit more self-sufficient, we summarize the
+problem statements in front of our solutions. That will hopefully allow for
+better presentation of the results.
+
 \section{Propagator of the harmonic oscillator} % GH-11
+
+\begin{problem}
+    Let $L$ be the Lagrangian of the harmonic oscillator in one dimension:
+    \[
+        L = \frac 12 m [\dot x^2 - \omega^2 x^2].
+    \]
+\end{problem}
+
+\subsection{Classical action}
+
+\begin{problem}
+    Show that the classical action $S_\text{cl}(x, x', t)$ has the given form.
+\end{problem}
+
+The action is defined as:
+\[
+    S = \int_0^t \dif t' \, L\del{x(t'), \dot x(t'), t'}.
+\]
+
+We use the hint that is given on the problem set and express the trajectory as
+a linear combination of basis trajectories:
+\[
+    x(t') = a \cos(\omega t') + b \sin(\omega t').
+\]
+The boundary conditions are a little strange. In the wording, it says that the
+particle goes from point $x_0$ at $t = 0$ to the point $x$ at time $t$. Then
+the action is written with dependency on $x$ and $x'$. We will use $x(0) =:
+x_0$ and $x(t) =: x_1$ here. This already is the boundary condition, so $a$ and
+$b$ are:
+\[
+    a = x_0
+    \eqnsep
+    b = \frac{x_1 - x_0 \cos(\omega t)}{\sin(\omega t)}.
+\]
+
+This can now be inserted into the Lagrangian function:
+\begin{align*}
+    S_\text{cl}(x_0, x_1, t)
+    &= \int_0^t \dif t' \, L\del{x(t'), \dot x(t'), t'} \\
+    &= \frac{m}{2} \int_0^t \dif t' \,
+    \sbr{
+        \sbr{- a \omega \sin(\omega t') + b \omega \cos(\omega t')}^2
+        - \omega^2 \sbr{a \cos(\omega t') + b \sin(\omega t')}^2
+    } \\
+    \intertext{%
+        We expand all the squares and regroup the terms again. Currently, all
+        arguments for sine and cosine are $\omega t'$, so we will omit them for
+        a more compact view of the expression. When the arguments change in the
+        next steps, we will show them explicitly.
+    }
+    &= \frac{m}{2} \int_0^t \dif t' \,
+    \sbr{
+        [a^2 - b^2][\sin^2 - \cos^2] - 4 a b \cos \sin
+    } \\
+    \intertext{%
+        Now we perform the integration. The indefinite integral to $\sin^2 -
+        \cos^2$ is given by
+        \[
+            - \frac{\sin(2\omega t')}{2\omega} = - \frac{2 \cos \sin}{2\omega}.
+        \]
+        The integral of $\cos\sin$ is given by
+        \[
+            - \frac{\cos^2}{2\omega}.
+        \]
+        The use those and insert into the previous equation.
+    }
+    &= - \frac{m \omega^2}{2}
+    \sbr{
+        [a^2 - b^2]\frac{\cos\sin}{\omega} - 2 a b \frac{\cos^2}{\omega}
+    }_0^t \\
+    \intertext{%
+        Now we evaluate at $t' = t$ and $t' = 0$. Since all the arguments
+        change from $\omega t'$ to $\omega t$, we redefine the omission and
+        still omit all the arguments.
+    }
+    &= - \frac{m \omega^2}{2}
+    \sbr{
+        [a^2 - b^2]\frac{\cos\sin}{\omega} - 2 a b \frac{\cos^2 - 1}{\omega}
+    } \\
+    \intertext{%
+        Now we insert $a$ and $b$ explicitly.
+    }
+    &= - \frac{m \omega^2}{2}
+    \sbr{
+        \sbr{x_0^2 - \sbr{\frac{x_1 - x_0 \cos}{\sin}}^2}\frac{\cos\sin}{\omega} -
+        2 x_0 \frac{x_1 - x_0 \cos}{\sin} \frac{\cos^2 - 1}{\omega}
+    } \\
+    \intertext{%
+        We get rid of the minus in front and cancel one $\omega$.
+    }
+    &= \frac{m \omega}{2}
+    \sbr{
+        \sbr{- x_0^2 + \sbr{\frac{x_1 - x_0 \cos}{\sin}}^2}\cos\sin +
+        2 x_0 \frac{x_1 - x_0 \cos}{\sin} [\cos^2 - 1]
+    } \\
+\end{align*}
 
 \section{Ordinary path integral from phase space path integral} % GH-12
 
