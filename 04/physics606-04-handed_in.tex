@@ -230,6 +230,90 @@ This can now be inserted into the Lagrangian function:
     } \\
 \end{align*}
 
+\subsection{Separation}
+
+\begin{problem}
+    Show that the quantum mechanical propagator can be split up into a product
+    of a time-only factor and the classical action:
+    \[
+        U(x_0, x_1, t) := \int_{x_0}^{x_1} \mathcal D x \,
+        \exp\del{\frac\iup\hbar \int_0^t \dif t' \, L\del{x(t'), \dot x(t')}} =
+        F(t) \exp\del{\frac\iup\hbar S_\text{cl}}.
+    \]
+\end{problem}
+
+We begin with the definition:
+\begin{align*}
+    U(x_0, x_1, t) 
+    &= \int_{x_0}^{x_1} \mathcal D x \,
+    \exp\del{\frac\iup\hbar \int_0^t \dif t' \, L\del{x(t'), \dot x(t')}}.
+    \intertext{%
+        It is suggested to write $x(t') = x_\text{sc}(t') + y(t)$ where $y(0) =
+        y(t) = 0$ is fulfilled.
+    }
+    &= \int_{x_0}^{x_1} \mathcal D x \,
+    \exp\del{\frac\iup\hbar \int_0^t \dif t' \, L\del{x_\text{sc}(t') + y(t'), \dot
+    x_\text{sc}(t') + \dot y(t')}}. \\
+    \intertext{%
+        This looks a bit like the variational calculus approach that one can
+        take to derive the Euler Lagrange equations. To obtain terms that are
+        linear in $y$ and $\dot y$, we do an expansion of $L$ around $y \equiv
+        0$. All instances of $L$ are meant to be evaluated like
+        \[
+            L\del{x_\text{sc}(t'), \dot x_\text{sc}(t')}.
+        \]
+        This gives:
+    }
+    &= \int_{x_0}^{x_1} \mathcal D x \,
+    \exp\del{\frac\iup\hbar \int_0^t \dif t' \, \sbr{
+        L
+        + \pd Lx y + \pd L{\dot x} \dot y
+        + \mathcal O(y^2) + \mathcal O(\dot y^2)
+    }}. \\
+    \intertext{%
+        Since the first part, the $L$, does not depend on the non-classical
+        component of $x$ any more, we can pull in front of the $\mathcal D x$
+        integral. The time integration of the Lagrangian over the classical
+        path just gives the classical action.
+    }
+    &= \exp\del{\frac\iup\hbar S_\text{cl}} \int_{x_0}^{x_1} \mathcal D x \,
+    \exp\del{\frac\iup\hbar \int_0^t \dif t' \, \sbr{
+        \pd Lx y + \pd L{\dot x} \dot y
+        + \mathcal O(y^2) + \mathcal O(\dot y^2)
+    }}. \\
+    \intertext{%
+        The term linear in $\dot y$ will now be partially integrated. The total
+        time derivative is contained in the bracket and does not act on the $y$
+        outside of the bracket. Looking at the interesting part, we have
+        \[
+            \int_0^t \dif t' \, \sbr{
+                \pd Lx y + \pd L{\dot x} \dot y
+            }
+            =
+            \int_0^t \dif t' \, \sbr{
+                \sbr{\pd Lx - \od{}{t'} \pd L{\dot x}} y
+            } + \sbr{\pd{L}{\dot x} y}_0^t.
+        \]
+        The term 
+        \[
+            \sbr{\pd Lx - \od{}{t'} \pd L{\dot x}} y
+        \]
+        is zero since the $L$ are evaluated at the classical trajectory only.
+        There, the Euler Lagrange equations hold. The surface term
+        \[
+            \sbr{\pd{L}{\dot x} y}_0^t
+        \]
+        is also zero because of the definition of $y$. The remainder of the
+        integral therefore is:
+    }
+    &= \exp\del{\frac\iup\hbar S_\text{cl}} \int_{x_0}^{x_1} \mathcal D x \,
+    \exp\del{\frac\iup\hbar \int_0^t \dif t' \, \sbr{
+        \mathcal O(y^2) + \mathcal O(\dot y^2)
+    }}. \\
+    %
+    %&= F(t) \exp\del{\frac\iup\hbar S_\text{cl}}.
+\end{align*}
+
 \section{Ordinary path integral from phase space path integral} % GH-12
 
 \section{Path integral with vector potential} % GH-13
