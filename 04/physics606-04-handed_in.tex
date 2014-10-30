@@ -227,8 +227,10 @@ This can now be inserted into the Lagrangian function:
         x_0^2 \cos [\cos^2 - 3 \sin^2]
         + x_1^2 \cos
         + 2 x_0 x_1 [\sin^2 - \cos^2]
-    } \\
+    }
 \end{align*}
+
+This does not quite work out.
 
 \subsection{Separation}
 
@@ -251,7 +253,7 @@ We begin with the definition:
         It is suggested to write $x(t') = x_\text{sc}(t') + y(t)$ where $y(0) =
         y(t) = 0$ is fulfilled.
     }
-    &= \int_{x_0}^{x_1} \mathcal D x \,
+    &= \int_0^0 \mathcal D y \,
     \exp\del{\frac\iup\hbar \int_0^t \dif t' \, L\del{x_\text{sc}(t') + y(t'), \dot
     x_\text{sc}(t') + \dot y(t')}}. \\
     \intertext{%
@@ -264,7 +266,7 @@ We begin with the definition:
         \]
         This gives:
     }
-    &= \int_{x_0}^{x_1} \mathcal D x \,
+    &= \int_0^0 \mathcal D y \,
     \exp\del{\frac\iup\hbar \int_0^t \dif t' \, \sbr{
         L
         + \pd Lx y + \pd L{\dot x} \dot y
@@ -272,11 +274,11 @@ We begin with the definition:
     }}. \\
     \intertext{%
         Since the first part, the $L$, does not depend on the non-classical
-        component of $x$ any more, we can pull in front of the $\mathcal D x$
+        component of $x$ any more, we can pull in front of the $\mathcal D y$
         integral. The time integration of the Lagrangian over the classical
         path just gives the classical action.
     }
-    &= \exp\del{\frac\iup\hbar S_\text{cl}} \int_{x_0}^{x_1} \mathcal D x \,
+    &= \exp\del{\frac\iup\hbar S_\text{cl}} \int_0^0 \mathcal D y \,
     \exp\del{\frac\iup\hbar \int_0^t \dif t' \, \sbr{
         \pd Lx y + \pd L{\dot x} \dot y
         + \mathcal O(y^2) + \mathcal O(\dot y^2)
@@ -306,12 +308,18 @@ We begin with the definition:
         is also zero because of the definition of $y$. The remainder of the
         integral therefore is:
     }
-    &= \exp\del{\frac\iup\hbar S_\text{cl}} \int_{x_0}^{x_1} \mathcal D x \,
+    &= \exp\del{\frac\iup\hbar S_\text{cl}} \int_0^0 \mathcal D y \,
     \exp\del{\frac\iup\hbar \int_0^t \dif t' \, \sbr{
         \mathcal O(y^2) + \mathcal O(\dot y^2)
     }}. \\
-    %
-    %&= F(t) \exp\del{\frac\iup\hbar S_\text{cl}}.
+    \intertext{%
+        The remaining integration that is denoted with $\int \mathcal D y$ does
+        not depend on the starting and ending points $x_0$ and $x_1$ since it
+        is only concerned with the finite variation $y$. The only free variable
+        in there is the $t$, so we can write this whole thing, whatever it
+        actually is, as an ominous $F(t)$:
+    }
+    &= \exp\del{\frac\iup\hbar S_\text{cl}} F(t).
 \end{align*}
 
 \section{Ordinary path integral from phase space path integral} % GH-12
