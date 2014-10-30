@@ -326,7 +326,46 @@ We begin with the definition:
 
 \section{Path integral with vector potential} % GH-13
 
+\begin{problem}
+    Show that
+    \[
+        \psi(x, \epsilon)
+        = \int_\R \dif \eta \, \psi(x + \eta, 0) \exp\del{
+            \frac\iup\hbar \sbr{\frac{m \eta^2}{2\epsilon} + q \epsilon
+            \frac\eta\epsilon A(x + \alpha \eta, 0)}
+        }
+    \]
+    is equivalent to
+    \[
+        \psi(x, \epsilon) = \psi(x, 0) - \iup \frac\epsilon\hbar \hat H \psi(x, 0).
+    \]
+\end{problem}
 
+The expansions are:
+\begin{gather*}
+    \psi(x + \eta, 0) = \psi(x, 0) + \psi'(x, 0) \eta + \frac 12 \psi''(x, 0)
+    \eta^2 + \mathcal O(\eta^3) \\
+    A(x + \eta, 0) = A(x, 0) + A'(x, 0) \alpha \eta + \frac 12 A''(x, 0)
+    [\alpha\eta]^2 + \mathcal O(\eta^3)
+\end{gather*}
+
+We start with the given expression,
+\begin{align*}
+    \psi(x, \epsilon)
+    &= \int_\R \dif \eta \, \psi(x + \eta, 0) \exp\del{
+        \frac\iup\hbar \sbr{\frac{m \eta^2}{2\epsilon} + q \epsilon
+        \frac\eta\epsilon A(x + \alpha \eta, 0)}
+    }. \\
+    \intertext{%
+        We insert the expansion of $\psi$ and $A$.
+    }
+    &\approx \int_\R \dif \eta \, \sbr{\psi(x, 0) + \psi'(x, 0) \eta + \frac 12 \psi''(x, 0) \eta^2} \\
+    &\quad\cdot\exp\del{ \frac\iup\hbar \sbr{\frac{m \eta^2}{2\epsilon} + q \epsilon \frac\eta\epsilon \sbr{A(x, 0) + A'(x, 0) \alpha \eta + \frac 12 A''(x, 0) [\alpha\eta]^2}} } \\
+    \intertext{%
+        Since all the function arguments are $(x, 0)$, we drop them.
+    }
+    &= \int_\R \dif \eta \, \sbr{\psi + \psi' \eta + \frac 12 \psi'' \eta^2} \exp\del{ \frac\iup\hbar \sbr{\frac{m \eta^2}{2\epsilon} + q \epsilon \frac\eta\epsilon \sbr{A + A' \alpha \eta + \frac 12 A'' [\alpha\eta]^2}} }
+\end{align*}
 
 \end{document}
 
