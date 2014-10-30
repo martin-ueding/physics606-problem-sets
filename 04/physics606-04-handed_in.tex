@@ -137,7 +137,9 @@ This can now be inserted into the Lagrangian function:
         We expand all the squares and regroup the terms again. Currently, all
         arguments for sine and cosine are $\omega t'$, so we will omit them for
         a more compact view of the expression. When the arguments change in the
-        next steps, we will show them explicitly.
+        next steps, we will show them explicitly. Functional arguments will
+        always be denoted with round parentheses and never with square
+        brackets.
     }
     &= \frac{m}{2} \int_0^t \dif t' \,
     \sbr{
@@ -183,6 +185,48 @@ This can now be inserted into the Lagrangian function:
     \sbr{
         \sbr{- x_0^2 + \sbr{\frac{x_1 - x_0 \cos}{\sin}}^2}\cos\sin +
         2 x_0 \frac{x_1 - x_0 \cos}{\sin} [\cos^2 - 1]
+    } \\
+    \intertext{%
+        The sine in the first denominator is squared out. Then the first
+        summand will be brought up to a fraction with the denominator $\sin^2$.
+        One sine is pulled out front, the other cancels the sine behind the
+        bracket. The sine in the second term is pulled out as well.
+    }
+    &= \frac{m \omega}{2 \sin}
+    \sbr{
+        \sbr{- x_0^2 \sin^2 + [x_1 - x_0 \cos]^2}\cos +
+        2 x_0 [x_1 - x_0 \cos][\cos^2 - 1]
+    } \\
+    \intertext{%
+        We swap summands, and replace the very last bracket with a sine
+        squared.
+    }
+    &= \frac{m \omega}{2 \sin}
+    \sbr{
+        \sbr{[x_1 - x_0 \cos]^2 - x_0^2 \sin^2}\cos +
+        2 x_0 [x_1 - x_0 \cos]\sin^2
+    } \\
+    &= \frac{m \omega}{2 \sin}
+    \sbr{
+        \sbr{x_1^2 - 2 x_0 x_1 \cos + x_0^2 \cos^2 - x_0^2 \sin^2}\cos +
+        [2 x_0 x_1 - 2 x_0^2 \cos] \sin^2
+    } \\
+    &= \frac{m \omega}{2 \sin}
+    \sbr{
+        x_1^2 \cos - 2 x_0 x_1 \cos^2 + x_0^2 \cos^3 - x_0^2 \cos \sin^2 +
+        2 x_0 x_1 \sin^2 - 2 x_0^2 \cos \sin^2
+    } \\
+    &= \frac{m \omega}{2 \sin}
+    \sbr{
+        x_0^2 [\cos^3 - 2 \cos \sin^2 - \cos \sin^2]
+        + x_1^2 \cos
+        + 2 x_0 x_1 [\sin^2 - \cos^2]
+    } \\
+    &= \frac{m \omega}{2 \sin}
+    \sbr{
+        x_0^2 \cos [\cos^2 - 3 \sin^2]
+        + x_1^2 \cos
+        + 2 x_0 x_1 [\sin^2 - \cos^2]
     } \\
 \end{align*}
 
