@@ -1,4 +1,4 @@
-\documentclass[11pt, english, fleqn, DIV=15, headinclude, BCOR=1cm]{scrartcl}
+\documentclass[11pt, english, fleqn, DIV=15, headinclude, BCOR=1.5cm]{scrartcl}
 
 \usepackage[
     bibatend,
@@ -6,6 +6,7 @@
 ]{../header}
 
 \usepackage{tikz}
+\usepackage{pdflscape}
 
 \usepackage[tikz]{mdframed}
 \newmdtheoremenv[%
@@ -323,6 +324,136 @@ We begin with the definition:
 \end{align*}
 
 \section{Ordinary path integral from phase space path integral} % GH-12
+
+\begin{problem}
+    Given the relation
+    \[
+        \lim_{N \to \infty} \prod_{k=1}^{N-1} \int \dif x_k \prod_{k=1}^N \int
+        \frac{\dif p_k}{2\piup \hbar} \exp\del{
+            -\frac\iup\hbar \sum_{k = 1}^N \sbr{
+                \frac{\epsilon p_k^2}{2m} - p_k [x_k - x_{k - 1}] + \epsilon
+        V(x_{k-1})}}.
+    \]
+    Show that this reduces to
+    \[
+        \frac 1B \lim_{N \to \infty} \prod_{k=1}^{N-1} \int \frac{\dif x_k}{B} 
+        \exp\del{
+            \frac\iup\hbar \sum_{k = 1}^N \sbr{
+                \frac{m}{2} \frac{[x_k - x_{k - 1}]^2}\epsilon - \epsilon
+        V(x_{k-1})}}
+    \]
+    where
+    \[
+        B = \sqrt{\frac{2\piup \hbar \iup}{m}}.
+    \]
+\end{problem}
+
+\begin{landscape}
+It was not quite clear to us, how the multiple usages of the index $k$ are
+meant. The interpretation that got us to the right result is written in our
+notation as
+\begin{align*}
+    U(x, x', t)
+    &= \lim_{N \to \infty} \sbr{\prod_{k=1}^{N-1} \int \dif x_k}
+    \sbr{\prod_{k=1}^N \int \frac{\dif p_k}{2\piup \hbar}} \exp\del{
+    -\frac\iup\hbar \sum_{k = 1}^N \sbr{ \frac{\epsilon p_k^2}{2m} - p_k [x_k -
+    x_{k - 1}] + \epsilon V(x_{k-1})}}. \\
+    \intertext{%
+        That way, the $k$ of each summation or product sign are contained
+        within a scope. The sum in the exponential function can be expanded
+        into a product of exponential functions. The resulting product sign
+        would be the same as the one for the $\dif p_k$, so we join those
+        together. The second product sign is meant to act on all the factors
+        behind it, i.e.\ to the next plus or minus sign. We yield
+    }
+    &= \lim_{N \to \infty} \sbr{\prod_{k=1}^{N-1} \int \dif x_k}
+    \prod_{k=1}^N \int \frac{\dif p_k}{2\piup \hbar}
+    \exp\del{
+    -\frac\iup\hbar \sbr{ \frac{\epsilon p_k^2}{2m} - p_k [x_k -
+    x_{k - 1}] + \epsilon V(x_{k-1})}}
+    . \\
+    \intertext{%
+        We rearrange the terms in the exponential function a bit to give the
+        same signature the Gaussian integrals on problem set~3 have. Since the
+        potential $V$ term does not depend on any of the momenta, we can safely
+        pull this in front of the integral. Now we have
+    }
+    &= \lim_{N \to \infty} \sbr{\prod_{k=1}^{N-1} \int \dif x_k}
+    \prod_{k=1}^N
+    \exp\del{ -\frac{\iup\epsilon}\hbar V(x_{k-1})}
+    \int \frac{\dif p_k}{2\piup \hbar}
+    \exp\del{
+        -\frac{\iup\epsilon}{2m\hbar} p_k^2 + \frac{\iup}{\hbar} [x_k -
+    x_{k - 1}] p_k }
+    , \\
+    \intertext{%
+        where we identify
+        \[
+            a := \frac{\iup\epsilon}{2m\hbar}
+            \eqnsep
+            b := \frac{\iup}{\hbar} [x_k - x_{k - 1}].
+        \]
+        Using the results from problem set~3, we get
+    }
+    &= \lim_{N \to \infty} \sbr{\prod_{k=1}^{N-1} \int \dif x_k}
+    \prod_{k=1}^N
+    \sqrt{\frac{m}{2 \piup \iup \epsilon \hbar}}
+    \exp\del{ -\frac{\iup\epsilon}\hbar V(x_{k-1})}
+    \exp\del{ \frac{\iup m}{2\epsilon \hbar} [x_k - x_{k - 1}]^2 }
+    . \\
+    \intertext{%
+        We pull the square root in front of the product sign, adding the power
+        $N$. Then we collapse the two exponential functions into a single one.
+        To match the form given on the problem set we factor out $\iup/\hbar$.
+        Then we incorporate the product sign into the exponential function in
+        the form of a summation sign. With these modifications, we obtain
+    }
+    &= \lim_{N \to \infty} \sbr{\prod_{k=1}^{N-1} \int \dif x_k}
+    \sqrt{\frac{m}{2 \piup \iup \epsilon \hbar}}^N
+    \exp\del{
+        \frac{\iup}{\hbar}
+        \sum_{k=1}^N
+        \del{
+            \frac{m}{2} \frac{[x_k - x_{k - 1}]^2}\epsilon
+            - \epsilon V(x_{k-1})
+        }
+    }
+    . \\
+    \intertext{%
+        The product sign that is left only goes up to $N-1$, so that it only
+        contains the power $N-1$. Therefore, we need to split up the square
+        root into two parts.
+    }
+    &= \lim_{N \to \infty} \sqrt{\frac{m}{2 \piup \iup \epsilon \hbar}}
+    \sbr{\prod_{k=1}^{N-1} \sqrt{\frac{m}{2 \piup \iup \epsilon \hbar}} \int \dif x_k}
+        \exp\del{
+        \frac{\iup}{\hbar}
+        \sum_{k=1}^N
+        \sbr{
+            \frac{m}{2} \frac{[x_k - x_{k - 1}]^2}\epsilon
+            - \epsilon V(x_{k-1})
+        }
+    }
+    . \\
+    \intertext{%
+        The definition of $B$ on the problem set does not have the $\epsilon$
+        we have. We cannot pull it in front of the limit since $\epsilon$
+        depends on $N$. Other than that, we got the result from the problem
+        set.
+    }
+    &= \lim_{N \to \infty} \frac{1}{B \sqrt\epsilon}
+    \sbr{\prod_{k=1}^{N-1} \int \frac{\dif x_k}{B \sqrt\epsilon}}
+        \exp\del{
+        \frac{\iup}{\hbar}
+        \sum_{k=1}^N
+        \sbr{
+            \frac{m}{2} \frac{[x_k - x_{k - 1}]^2}\epsilon
+            - \epsilon V(x_{k-1})
+        }
+    }
+    .
+\end{align*}
+\end{landscape}
 
 \section{Path integral with vector potential} % GH-13
 
