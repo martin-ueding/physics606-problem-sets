@@ -496,6 +496,44 @@ We start with the given expression,
         Since all the function arguments are $(x, 0)$, we drop them.
     }
     &= \int_\R \dif \eta \, \sbr{\psi + \psi' \eta + \frac 12 \psi'' \eta^2} \exp\del{ \frac\iup\hbar \sbr{\frac{m \eta^2}{2\epsilon} + q \epsilon \frac\eta\epsilon \sbr{A + A' \alpha \eta + \frac 12 A'' [\alpha\eta]^2}} }
+    \intertext{%
+        We rearrange the terms in the exponential function. While we do that,
+        we drop the $\eta^3$ term that would come with $A''$. Then we bring it
+        into the $\exp(-ax^2 + bx)$ form to use the solution formulas later on.
+    }
+    &= \int_\R \dif \eta \, \sbr{\psi + \psi' \eta + \frac 12 \psi'' \eta^2}
+    \exp\del{
+        - \sbr{ - \frac{\iup m}{2 \epsilon \hbar} - \frac{\iup q \alpha A'}{\hbar}}
+        \eta^2 + \frac{\iup q A}{\hbar} \eta
+    } \\
+    \intertext{%
+        We now expand the first bracket and use the linearity of the integral
+        to get three of them.
+    }
+    &= \psi \int_\R \dif \eta \, \exp(\ldots)
+    + \psi' \int_\R \dif \eta \, \eta \exp(\ldots)
+    + \frac 12 \psi'' \int_\R \dif \eta \, \eta^2 \exp(\ldots)
+    \intertext{%
+        We now explicitly define $a$ and $b$ to be
+        \[
+            a := - \frac{\iup m}{2 \epsilon \hbar} - \frac{\iup q \alpha A'}{\hbar}
+            \eqnsep
+            b := \frac{\iup q A}{\hbar}.
+        \]
+        Then we can use the different solutions formulas for the various
+        integrals:
+    }
+    &= \psi \exp\del{\frac{b^2}{4a}} \sqrt{\frac{\piup}{a}}
+    + \psi' \exp\del{\frac{b^2}{4a}} \frac{b \sqrt\piup}{2 a^{3/2}}
+    + \psi'' \exp\del{\frac{b^2}{4a}} \frac{[2a + b^2] \sqrt\piup}{8 a^{5/2}}
+    \intertext{%
+        We pull out the common terms to the front.
+    }
+    &= \sqrt\piup \exp\del{\frac{b^2}{4a}} \sbr{
+        \psi \frac{1}{\sqrt a}
+        + \psi' \frac{b }{2 a^{3/2}}
+        + \psi'' \frac{[2a + b^2]}{8 a^{5/2}}
+    }
 \end{align*}
 
 \end{document}
