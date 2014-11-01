@@ -536,6 +536,56 @@ We start with the given expression,
     }
 \end{align*}
 
+We can compute the inverse of $a$:
+\[
+    a = - \frac{\iup m + 2 \iup \epsilon q \alpha A'}{2 \epsilon \hbar}
+    \iff
+    \frac 1a
+    = - \frac{2 \epsilon \hbar}{\iup m + 2 \iup \epsilon q \alpha A'}
+    = \frac{2 \iup \epsilon \hbar}{m + 2 \epsilon q \alpha A'}.
+\]
+This does not have a singularity at $\epsilon = 0$ any more, which is
+probably a good thing.
+
+The $b^2$ is
+\[
+    b^2 = - \frac{q^2A^2}{\hbar^2}
+\]
+such that
+\[
+    \frac{b^2}{4a} = - \frac{\iup \epsilon q^2A^2}{2
+    \hbar [m + 2 \epsilon q \alpha A']}.
+\]
+
+Since we are only interested in the first order of $\epsilon$, we can
+expand the exponential function into a “$1 + x$” linear fashion. The
+problem is that the $\sqrt{1/a}$ terms cannot be expanded because the first
+derivative has a singularity at $\epsilon = 0$. So it could only be expanded in
+terms of $\sqrt\epsilon$ which does not allow use to get an expansion in terms
+of $\epsilon$. To give the form of equation~(6) from the problem set, we will
+still have to get rid of the $\sqrt\pi$ that we got from the Gaussian
+integration. This is where we do not know how to proceed.
+
+To motivate equation~(6) a bit: Starting from the Schrödinger equation
+\[
+    \iup \hbar \pd{}t \psi(x, t) = \hat H \psi(x, t),
+\]
+we can derive the time evolution operator of a time-independent Hamiltonian
+operator by solving the differential equation formally:
+\[
+    \psi(x, t) = \underbrace{\exp\del{-\frac{\iup}{\hbar} \hat H t}}_{U(t)}
+    \psi(x, 0).
+\]
+Now we can expand this to first order around $t = 0$ and then relabel it with
+$\epsilon$.
+\[
+    \psi(x, \epsilon) = \sbr{1 - \frac{\iup}{\hbar} \hat H \epsilon} \psi(x, 0).
+\]
+Rearranging the terms, we yield the version on the problem set:
+\[
+    \psi(x, \epsilon) = \psi(x, 0) - \iup \frac{\epsilon}{\hbar} \hat H \psi(x, 0).
+\]
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
