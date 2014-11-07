@@ -294,9 +294,20 @@ We start with the left side of this equation:
             \eqnsep
             n := d + f
         \]
+        and get
     }
-    &= \sum_{n=0}^\infty \sum_{i=0}^n \frac{1}{f!d!} A^d B [-A]^f \\
+    &= \sum_{n=0}^\infty \sum_{i=0}^n \frac{1}{i![n-i]!} A^d B [-A]^f. \\
+    \intertext{%
+        Now we introduce a factor of $n!$.
+    }
+    &= \sum_{n=0}^\infty \frac{1}{n!} \sum_{i=0}^n \frac{n!}{i![n-i]!} A^d B [-A]^f \\
+    \intertext{%
+        Using the identity we proved at the beginning of this exercise, we can
+        write this as
+    }
+    &= \sum_{n=0}^\infty \frac{1}{n!} [A, B]_n
 \end{align*}
+which is what we wanted to show.
 
 \section{First order time dependent perturbation theory}
 
