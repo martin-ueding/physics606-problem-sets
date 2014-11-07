@@ -81,11 +81,63 @@
         2 & & \punkte{10} \\
         3 & & \punkte{13} \\
         \midrule
-        Total & & \arabic{totalpoints}
+        total & & \arabic{totalpoints}
     \end{tabular}
 \end{center}
 
 \section{Exponentiating operators}
+
+\begin{problem}
+    The exponential of an operator is defined as
+    \[
+        \eup^A = \sum_{n=0}^\infty \frac{A^n}{n!}.
+    \]
+\end{problem}
+
+\subsection{Inverse}
+
+\begin{problem}
+    Show that $\eup^A \eup^{-A} = 1$ using only the definition.
+\end{problem}
+
+We start with the definition
+\begin{align*}
+    \eup^A \eup^{-A}
+    &= \sum_{n=0}^\infty \frac{A^n}{n!} \sum_{m=0}^\infty \frac{[-A]^m}{m!} \\
+    \intertext{%
+        and move the terms.
+    }
+    &= \sum_{n=0}^\infty \sum_{m=0}^\infty \frac{A^n}{n!} \frac{[-A]^m}{m!} \\
+    &= \sum_{n=0}^\infty \sum_{m=0}^\infty \frac{[-1]^m A^{m+n}}{m!n!} \\
+    \intertext{%
+        We now think about those two sums as of a lattice where each point can
+        be labelled using $(m, n)$. Currently, the summation is done in rows
+        and columns. We change this to a diagonal iterations. A new parameter
+        $a := m + n$ is introduced to change the summation to:
+    }
+    &= \sum_{a=0}^\infty \sum_{m=0}^a \frac{[-1]^m A^a}{m![a-m]!} \\
+    \intertext{%
+        This is somewhat related to the argument to show that $\Q$ is still
+        countable infinite. The case $a = 0$ is special and will be taken out
+        of the sum, it will be just 1. We now rearrange the terms bit more and
+        introduce $a!$ which cancels in total.
+    }
+    &= 1 + \sum_{a=1}^\infty \frac{A^a}{a!} \sum_{m=0}^a \frac{a!}{m![a-m]!} [-1]^m \\
+    \intertext{%
+        The large fraction is just the binomial coefficient. We also add a
+        $1^{a-m}$.
+    }
+    &= 1 + \sum_{a=0}^\infty \frac{A^a}{a!} \sum_{m=0}^a \binom{a}{m} [-1]^m
+    1^{a-m} \\
+    \intertext{%
+        Using the binomial theorem, we can write this more compact as
+    }
+    &= 1 + \sum_{a=0}^\infty \frac{A^a}{a!} \underbrace{[-1 + 1]^a}_{=0} \\
+    \intertext{%
+        which means that the second part vanishes for any $a$. We are left with
+    }
+    &= 1.
+\end{align*}
 
 \section{First oder time dependent perturbation theory}
 
