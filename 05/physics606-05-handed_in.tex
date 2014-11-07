@@ -42,6 +42,7 @@
     splittopskip=\topskip,
     frametitle={Problem statement},
     frametitlerule=true,
+    nobreak=true,
 ]{problem}
 
 \newmdenv[%
@@ -54,7 +55,6 @@
     splittopskip=\topskip,
     frametitle={Side question},
     frametitlerule=true,
-    nobreak=true,
 ]{question}
 
 
@@ -142,6 +142,51 @@ We start with the definition
     }
     &= 1.
 \end{align*}
+
+\subsection{Sum in exponent}
+
+\begin{problem}
+    Show that
+    \[
+        \eup^{A+B} = \eup^A \eup^B \eup^{[A,B]}
+    \]
+    if the commutator $[A,B] =: c$ is a complex number.
+\end{problem}
+
+\subsection{Commutation of exponentials}
+
+\begin{problem}
+    Show that
+    \[
+        \eup^A \eup^B = \eup^B \eup^A \eup^{[A,B]}.
+    \]
+\end{problem}
+
+In the previous problem we got
+\[
+    \eup^{A + B} = \eup^A \eup^B \eup^{-c/2}
+\]
+where $c := [A, B] \in \C$. We can just exchange $A$ and $B$ and obtain
+\[
+    \eup^{B + A} = \eup^B \eup^A \eup^{c/2}.
+\]
+
+Using the first equation, we can move the $\eup^{-c/2}$ to the other side and
+get
+\begin{align*}
+    \eup^A \eup^B &= \eup^{A + B} \eup^{c/2} \\
+    \intertext{%
+        There, we can commute $A$ and $B$ in the \emph{sum} in the exponent.
+    }
+    \iff \eup^A \eup^B &= \eup^{B + A} \eup^{c/2} \\
+    \intertext{%
+        Using the equation we obtained from exchanging $A$ and $B$, we yield
+    }
+    &= \eup^B \eup^A \eup^{c/2} \eup^{c/2} \\
+    &= \eup^B \eup^A \eup^{c},
+\end{align*}
+which is the desired result.
+
 
 \section{First oder time dependent perturbation theory}
 
