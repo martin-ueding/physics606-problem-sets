@@ -196,15 +196,26 @@ which is the desired result.
     \]
 \end{problem}
 
-The way the problem is given, a $n!$ could be canceled. We think that this
-looks so close to the binomial coefficient which was already used much in the
-previous problems that it probably should be $i!$ in the denominator. Using
-that, we can proof the identity using induction. Therefore, we assume the
-following relation:
+The way the problem is given, a $n!$ could be canceled. It can be seen for $n =
+2$ that the relation given does not hold. The left side is
+\[
+    [A, B]_2 = A^2 B - 2 ABA + BA^2.
+\]
+The right side with $n!/n!$ canceled gives
+\[
+    \sum_{i=0}^2 \frac{1}{[2-i]!} A^{2-i} B [-A]^i
+    = \frac12 A^2 B - ABA + B^2.
+\]
+The powers are right, just the prefactors are off.
+
+We think that this looks so close to the binomial coefficient which was already
+used much in the previous problems that it probably should be $i!$ in the
+denominator. Using $i!$ in the denominator, we can proof the identity using
+induction. Therefore, we assume the following relation:
 \[
     [A, B]_n
     = \sum_{i=0}^n \frac{n!}{i![n-i]!} A^{n-i} B [-A]^i
-    = \sum_{i=0}^n \binom ni A^{n-i} B [-A]^i.
+    = \sum_{i=0}^n \binom ni \, A^{n-i} B [-A]^i.
 \]
 
 \begin{proof}
@@ -212,7 +223,7 @@ following relation:
     \[
         [A, B]_0 = B
         \eqnsep
-        \sum_{i=0}^0 \binom00 A^0 B [-A]^0 = B.
+        \sum_{i=0}^0 \binom00 \, A^0 B [-A]^0 = B.
     \]
     This holds. Next is the induction step.
     \begin{align*}
@@ -223,12 +234,12 @@ following relation:
             We use the relation that we want to show, this is allowed in
             induction.
         }
-        &= A \sum_{i=0}^n \binom{n}{i} A^{n-i} B [-A]^i - \sum_{i=0}^n
+        &= A \sum_{i=0}^n \binom{n}{i} \, A^{n-i} B [-A]^i - \sum_{i=0}^n
         \binom{n}{i} A^{n-i} B [-A]^i A \\
         \intertext{%
             We factor the additional factors $A$ into the expression.
         }
-        &= \sum_{i=0}^n \binom{n}{i} A^{n+1-i} B [-A]^i + \sum_{i=0}^n
+        &= \sum_{i=0}^n \binom{n}{i} \, A^{n+1-i} B [-A]^i + \sum_{i=0}^n
         \binom{n}{i} A^{n-i} B [-A]^{i+1} \\
         \intertext{%
             Now we can shift the indices a bit. We introduce
@@ -239,8 +250,8 @@ following relation:
             \]
             and put that into the expression.
         }
-        &= \sum_{i=0}^n \binom{n}{i} A^{n+1-i} B [-A]^i + \sum_{j=1}^{n+1}
-        \binom{n}{j-1} A^{n+1-j} B [-A]^{j} \\
+        &= \sum_{i=0}^n \binom{n}{i} \, A^{n+1-i} B [-A]^i + \sum_{j=1}^{n+1}
+        \binom{n}{j-1} \, A^{n+1-j} B [-A]^{j} \\
         \intertext{%
             We branch off the first and last summand of the first and last sum,
             \emph{respectively}. Then we combine the middle part.
