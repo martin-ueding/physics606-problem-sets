@@ -192,9 +192,20 @@ which is the desired result.
 \begin{problem}
     Show by induction that
     \[
-        [A, B]_n = \sum{i=0}^n \binom ni A^{n-i} B [-A]^i.
+        [A, B]_n = \sum_{i=0}^n \frac{n!}{n![n-i]!} A^{n-i} B [-A]^i.
     \]
 \end{problem}
+
+The way the problem is given, a $n!$ could be canceled. We think that this
+looks so close to the binomial coefficient which was already used much in the
+previous problems that it probably should be $i!$ in the denominator. Using
+that, we can proof the identity using induction. Therefore, we assume the
+following relation:
+\[
+    [A, B]_n
+    = \sum_{i=0}^n \frac{n!}{i![n-i]!} A^{n-i} B [-A]^i
+    = \sum_{i=0}^n \binom ni A^{n-i} B [-A]^i.
+\]
 
 \begin{proof}
     We show that the relation holds for $n = 0$:
@@ -255,6 +266,37 @@ which is the desired result.
     That is exactly what has to be shown. Therefore, this relation holds for
     any $n$.
 \end{proof}
+
+Now that we got this identity at our hands, we can aim for the actual task at
+hand:
+
+\begin{problem}
+    Show that
+    \[
+        \eup^A B \eup^{-A} = \sum_{n = 0}^\infty \frac{1}{n!} [A, B]_n.
+    \]
+\end{problem}
+
+We start with the left side of this equation:
+\begin{align*}
+    \eup^A B \eup^{-A}
+    &= \sum_{d=0}^\infty \frac{A^d}{d!} B \sum_{f=0}^\infty \frac{[-A]^f}{f!}.
+    \\
+    \intertext{%
+        We interchange the summations again and group the terms.
+    }
+    &= \sum_{d=0}^\infty \sum_{f=0}^\infty \frac{1}{f!d!} A^d B [-A]^f \\
+    \intertext{%
+        By now, the change in the lattice traversal was applied many times. We
+        introduce
+        \[
+            i := f
+            \eqnsep
+            n := d + f
+        \]
+    }
+    &= \sum_{n=0}^\infty \sum_{i=0}^n \frac{1}{f!d!} A^d B [-A]^f \\
+\end{align*}
 
 \section{First oder time dependent perturbation theory}
 
