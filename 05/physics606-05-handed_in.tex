@@ -187,6 +187,74 @@ get
 \end{align*}
 which is the desired result.
 
+\subsection{Generalized commutator}
+
+\begin{problem}
+    Show by induction that
+    \[
+        [A, B]_n = \sum{i=0}^n \binom ni A^{n-i} B [-A]^i.
+    \]
+\end{problem}
+
+\begin{proof}
+    We show that the relation holds for $n = 0$:
+    \[
+        [A, B]_0 = B
+        \eqnsep
+        \sum_{i=0}^0 \binom00 A^0 B [-A]^0 = B.
+    \]
+    This holds. Next is the induction step.
+    \begin{align*}
+        [A, B]_{n+1}
+        &= [A, [A,B]_n] \\
+        &= A [A,B]_n - [A,B]_n A \\
+        \intertext{%
+            We use the relation that we want to show, this is allowed in
+            induction.
+        }
+        &= A \sum_{i=0}^n \binom{n}{i} A^{n-i} B [-A]^i - \sum_{i=0}^n
+        \binom{n}{i} A^{n-i} B [-A]^i A \\
+        \intertext{%
+            We factor the additional factors $A$ into the expression.
+        }
+        &= \sum_{i=0}^n \binom{n}{i} A^{n+1-i} B [-A]^i + \sum_{i=0}^n
+        \binom{n}{i} A^{n-i} B [-A]^{i+1} \\
+        \intertext{%
+            Now we can shift the indices a bit. We introduce
+            \[
+                j := i + 1
+                \eqnsep
+                i = j - 1
+            \]
+            and put that into the expression.
+        }
+        &= \sum_{i=0}^n \binom{n}{i} A^{n+1-i} B [-A]^i + \sum_{j=1}^{n+1}
+        \binom{n}{j-1} A^{n+1-j} B [-A]^{j} \\
+        \intertext{%
+            We branch off the first and last summand of the first and last sum,
+            \emph{respectively}. Then we combine the middle part.
+        }
+        &= A^{n+1} B +  \sum_{i=1}^n \sbr{\binom{n}{i} + \binom{n}{i-1}}
+        A^{n+1-i} B [-A]^i + B [-A]^{n+1} \\
+        \intertext{%
+            There is a handy addition theorem for binomial coefficients which
+            we will use for the bracket.
+        }
+        &= A^{n+1} B +  \sum_{i=1}^n \binom{n+1}{i} \, A^{n+1-i} B [-A]^i
+        + B [-A]^{n+1} \\
+        \intertext{%
+            We add ones to the stray summands.
+        }
+        &= \binom{n+1}{0} A^{n+1} B + \sum_{i=1}^n \binom{n+1}{i} \, A^{n+1-i} B [-A]^i
+        + \binom{n+1}{n+1} B [-A]^{n+1} \\
+        \intertext{%
+            Now we can combine it into a single sum.
+        }
+        &= \sum_{i=0}^{n+1} \binom{n+1}{i} \, A^{n+1-i} B [-A]^i \\
+    \end{align*}
+    That is exactly what has to be shown. Therefore, this relation holds for
+    any $n$.
+\end{proof}
 
 \section{First oder time dependent perturbation theory}
 
