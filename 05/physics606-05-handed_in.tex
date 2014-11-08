@@ -470,7 +470,7 @@ expression:
         of the scalar product. We combine the two exponential functions and use
         the $\omega_{fn}$ that is given on the problem set as well.
     }
-    &= 2 d_f(t) E_f\0 + 2 \sum_n d_n(t) \braket{f\0 | H_1(t) | n\0} \exp\del{-\iup \omega_{fn}[t-t_0]}
+    &= 2 d_f(t) E_f\0 + 2 \sum_n \braket{f\0 | H_1(t) | n\0} \exp\del{\iup \omega_{fn}[t-t_0]} d_n(t)
 \end{align*}
 
 Apart from an additional term and a factor of 2, this is the term we end up
@@ -480,6 +480,8 @@ with.
     What do we need to do differently to get rid of that additional summand and
     the factor of 2?
 \end{question}
+
+\subsection{First order expression}
 
 \section{Perturbed harmonic oscillator}
 
