@@ -346,6 +346,32 @@ intergral:
     &= |c_f(t)|^2.
 \end{align*}
 
+\subsection{Relation}
+
+\begin{problem}
+    What is the relation between $d_n(t)$ and $c_n(t)$?
+\end{problem}
+
+We have
+\[
+    \ket{\psi(t)} = \sum_n d_n(t) \ket{\psi_n(t)}.
+\]
+The states $\ket{\psi_n(t)}$ are defined as the unperturbed time evolution of
+the basis states $\ket{n\0}$. Using the time evolution operator, we can write
+this as
+\[
+    \ket{\psi_n(t)} = U\0(t-t_0) \ket{n\0}.
+\]
+Now we insert this into the above relation:
+\[
+    \ket{\psi(t)} = \sum_n d_n(t) U\0(t-t_0) \ket{n\0}.
+\]
+By comparison, we get
+\[
+    c_n(t) = d_n(t) U\0(t-t_0) = d_n(t) \exp\del{-\frac\iup\hbar E_n\0
+    [t-t_0]}.
+\]
+
 \section{Perturbed harmonic oscillator}
 
 
