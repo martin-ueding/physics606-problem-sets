@@ -322,6 +322,30 @@ which is what we wanted to show.
 
 \section{First order time dependent perturbation theory}
 
+\newcommand\0{^{(0)}}
+
+\subsection{Argumentation}
+
+\begin{problem}
+    Argue that $P_{fi}(t) = |c_f(t)|^2$.
+\end{problem}
+
+The probability that the system will transition from $\ket{i\0}$ to $\ket{f\0}$
+in the time interval $[t_0, t]$ is given by the modulus squared of the overlap
+intergral:
+\begin{align*}
+    P_{fi}(t)
+    &= |\braket{f\0 | \psi(t)}|^2. \\
+    \intertext{%
+        We can insert the definition of $\psi(t)$ and get
+    }
+    &= \left| \sum_n c_n(t) \braket{f\0 | n\0} \right|^2. \\
+    \intertext{%
+        The scalar product gives a $\delta_{fn}$, reducing the sum to
+    }
+    &= |c_f(t)|^2.
+\end{align*}
+
 \section{Perturbed harmonic oscillator}
 
 
