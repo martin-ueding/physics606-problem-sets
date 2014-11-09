@@ -563,10 +563,62 @@ case that $\omega_0 = \omega$, the second summand will be a constant 1.
     &= \frac{a}{8\hbar\omega_0 m}
     \sbr{ \iup \frac{1 - \exp(\iup [\omega_0+\omega] t)}{\omega_0+\omega} + t}
     \sbr{- \iup \frac{1 - \exp(-\iup [\omega_0+\omega] t)}{\omega_0+\omega} + t}
-    \\
+    \intertext{%
+        After expanding all the terms and grouping them in cosine and sine
+        terms again, we obtain
+    }
+    &= \frac{a}{4\hbar\omega_0 m} \sbr{\frac{1-\cos([\omega_0+\omega]t)}{[\omega_0+\omega]} -
+    \frac{2t}{\omega_0+\omega} \sin([\omega_0+\omega]t) + t^2}.
 \end{align*}
 
-% TODO Finish this branch
+\paragraph{Off resonance}
+
+In this branch we assume that $\omega_0 \neq \omega$. Then we can start off
+with the intermediate result
+\begin{align*}
+    P_{1,0}(t)
+    &= \frac{a}{8\hbar\omega_0 m} \abs{\int_{0}^t \dif t' \,
+    \exp(\iup [\omega_0+\omega] t') + \exp(\iup [\omega_0-\omega] t')}^2.
+    \intertext{%
+        We carry out the integration and yield
+    }
+    &= \frac{a}{8\hbar\omega_0 m} \abs{
+    \frac{\exp(\iup [\omega_0+\omega] t) - 1}{\iup[\omega_0 + \omega]} +
+    \frac{\exp(\iup [\omega_0-\omega] t) - 1}{\iup[\omega_0 - \omega]}}^2.
+    \intertext{%
+        We factor out the $\iup$ in the denominators. The absolute value will
+        remove it, so we just drop it then.
+    }
+    &= \frac{a}{8\hbar\omega_0 m} \abs{
+    \frac{\exp(\iup [\omega_0+\omega] t) - 1}{\omega_0 + \omega} +
+    \frac{\exp(\iup [\omega_0-\omega] t) - 1}{\omega_0 - \omega}}^2
+    \intertext{%
+        In order to get the modulus squared, we need to multiply this with its
+        complex conjugate. There will be four terms. Since this is rather
+        straightforward, but lengthy, we just show the result here.
+    }
+    &= \frac{a}{4\hbar\omega_0 m} \left[
+    \frac{1 + \cos([\omega_0+\omega]t)}{[\omega_0+\omega]^2}
+    + \frac{1 + \cos([\omega_0-\omega]t)}{[\omega_0-\omega]^2} \right.
+    \\ & \qquad \left.
+    + \frac{\cos(2 \omega t) + 2 \cos(\omega t) \cos(\omega_0
+    t)}{\omega_0^2-\omega^2} \right]
+\end{align*}
+
+\begin{problem}
+    Show that for $T \to \infty$ the transition probability per unit time
+    vanishes unless $\omega = \omega_0$.
+\end{problem}
+
+In any case, the probability that the system will end up in the excited state
+is given by $P_{1, 0}(T)$. The probability per unit time is then given as
+\[
+    \frac{P_{1, 0}(T)}{T}.
+\]
+In case of resonance, the term with the sine will stay stay in the same order
+of magnitude for any $T$. The $t^2$ term will grow without bounds, with seems a
+bit strange. If there is no resonance, $P_{1,0}(t)$ will bounded. Dividing that
+by $T$ will make it vanish for $T \to \infty$.
 
 \end{document}
 
