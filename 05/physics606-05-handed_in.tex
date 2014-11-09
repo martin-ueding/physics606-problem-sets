@@ -485,6 +485,57 @@ with.
 
 \section{Perturbed harmonic oscillator}
 
+\subsection{Explicit time dependence}
+
+\begin{problem}
+    Consider
+    \[
+        H_1(t) = a x \cos(\omega t)
+        \eqnsep
+        t \in [0, T]
+    \]
+    and $H_1(t) = 0$ outside. Compute the time dependence of $P_{1,0}(t)$.
+\end{problem}
+
+We start again with the expression
+\begin{align*}
+    P_{1,0}(t)
+    &= \abs{\frac{1}{\hbar} \int_{t_0}^t \dif t' \, \exp\del{\frac\iup\hbar
+    [E_1 - E_0] t'} \braket{1 | H_1(t') | 0}}^2. \\
+    \intertext{%
+        Since $H_1$ is zero outside the interval $[0, T]$, we can limit the
+        integration there. If $t < 0$, then $P = 0$. Also if $t > T$, then
+        $P(t) = P(T)$ since the integral does not change beyond $t' = T$.
+    }
+    &= \abs{\frac{1}{\hbar} \int_{0}^t \dif t' \, \exp\del{\frac\iup\hbar
+    [E_1 - E_0] t'} \braket{1 | H_1(t') | 0}}^2 \\
+    \intertext{%
+        We put in $H_1$. The operator $x$ is again expressed using the ladder
+        operators. The contributing term with $a^\dagger$ just gives
+        prefactors, which we put up front.
+    }
+    &= \frac{a}{2\hbar\omega_0 m} \abs{\int_{0}^t \dif t' \, \exp\del{\frac\iup\hbar
+    [E_1 - E_0] t'} \cos(\omega t')}^2 \\
+    \intertext{%
+        Using
+        \[
+            E_n = \hbar \omega_0 \sbr{n + \frac12}
+        \]
+        we can write the difference in energies simpler.
+    }
+    &= \frac{a}{2\hbar\omega_0 m} \abs{\int_{0}^t \dif t' \,
+    \exp(\iup \omega_0 t') \cos(\omega t')}^2 \\
+    \intertext{%
+        The cosine needs to be expanded, we get
+    }
+    &= \frac{a}{8\hbar\omega_0 m} \abs{\int_{0}^t \dif t' \,
+    \exp(\iup \omega_0 t') \exp(\iup \omega t) + \exp(\iup \omega_0 t') \exp(-
+    \iup \omega t')}^2 \\
+    &= \frac{a}{8\hbar\omega_0 m} \abs{\int_{0}^t \dif t' \,
+    \exp(\iup [\omega_0+\omega] t') + \exp(\iup [\omega_0-\omega] t')}^2.
+\end{align*}
+That is the expression that we will work with through the cases now. In the
+case that $\omega_0 = \omega$, the second summand will be a constant 1.
 
 \end{document}
 
