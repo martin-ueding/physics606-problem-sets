@@ -485,6 +485,58 @@ with.
 
 \section{Perturbed harmonic oscillator}
 
+\subsection{First order perturbation theory}
+
+\begin{problem}
+    Consider a perturbation
+    \[
+        H_1(t) = a x^p \exp\del{- \frac{t^2}{\tau^2}}
+    \]
+    and show that to first order perturbation theory the perturbation does not
+    populate states $\ket{f\0}$ with $f > p$.
+\end{problem}
+
+We directly start with the appropriate formula which we take from
+\parencite[equation~(16.30)]{Schwabl/Quantenmechanik}:
+\begin{align*}
+    P_{nm}(t)
+    &= \abs{\frac1\hbar \int_{t_0}^t \dif t' \, \exp\del{\frac\iup\hbar [E_n -
+    E_m] t'} \braket{n | V(t') | m}}^2.
+    \intertext{%
+        There, we insert everything that is given in this problem.
+    }
+    P_{f0}(t)
+    &= \abs{\frac a\hbar \int_{t_0}^t \dif t' \, \exp(\iup\omega_0 f t')
+    \exp\del{-\frac{t^2}{\tau^2}} \braket{f | x^p | 0}}^2.
+\end{align*}
+We can express $x$ via the ladder operators as
+\[
+    x = \sqrt{\frac{\hbar}{2\omega_0 m}} [a + a\dagger].
+\]
+Please do not mix that up with the real constant $a$. The power $x^p$ will
+contain at most ${a^\dagger}^p$, such that the highest possible state
+${a^\dagger}^p \ket{0}$ can contain is $\ket{p}$. Therefore, there are no
+states with $f > p$, since then $\braket{f | p}$ would be zero.
+
+\subsection{Parity arguments}
+
+\begin{problem}
+    Use parity arguments to further reduce the number of states that can be
+    populated.
+\end{problem}
+
+$\braket{f | x^p | 0}$ will only be nonzero if $n + p$ is even. That means that
+either $n$ and $p$ are both odd or $n$ and $p$ are both even. Consider
+\[
+    x^p \propto [a + a^\dagger]^p.
+\]
+There will be products that for $k = 0, \ldots, p$ that have the order $k$ in
+$a$ and the order $p-k$ in $a^\dagger$. The total number of state raises is
+$[p-k] - k = p - 2k$. Since it always starts at the state $\ket 0$, $p$
+determines the parity of the resulting state alone.
+
+\subsection{Transition probability}
+
 \subsection{Explicit time dependence}
 
 \begin{problem}
