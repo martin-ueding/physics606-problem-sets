@@ -534,8 +534,39 @@ We start again with the expression
     &= \frac{a}{8\hbar\omega_0 m} \abs{\int_{0}^t \dif t' \,
     \exp(\iup [\omega_0+\omega] t') + \exp(\iup [\omega_0-\omega] t')}^2.
 \end{align*}
-That is the expression that we will work with through the cases now. In the
+That is the expression that we will work with through the cases now.
+
+\paragraph{Resonance}
+
+In the
 case that $\omega_0 = \omega$, the second summand will be a constant 1.
+\begin{align*}
+    P_{1,0}(t)
+    &= \frac{a}{8\hbar\omega_0 m} \abs{\int_{0}^t \dif t' \,
+    \exp(\iup [\omega_0+\omega] t') + 1}^2 \\
+    &= \frac{a}{8\hbar\omega_0 m} \abs{\sbr{
+        \frac1{\iup [\omega_0+\omega]} \exp(\iup [\omega_0+\omega] t') +
+    t'}_{0}^t}^2 \\
+    &= \frac{a}{8\hbar\omega_0 m} \abs{
+    \frac{\exp(\iup [\omega_0+\omega] t) - 1}{\iup [\omega_0+\omega]} +
+    t}^2 \\
+    \intertext{%
+        We make the denominator real.
+    }
+    &= \frac{a}{8\hbar\omega_0 m} \abs{
+    \iup \frac{1 - \exp(\iup [\omega_0+\omega] t)}{\omega_0+\omega} +
+    t}^2 \\
+    &= \frac{a}{8\hbar\omega_0 m}
+    \sbr{ \iup \frac{1 - \exp(\iup [\omega_0+\omega] t)}{\omega_0+\omega} + t}
+    \sbr{- \iup \frac{1 - \exp(-\iup [\omega_0+\omega] t)}{\omega_0+\omega} + t}
+    \\
+    &= \frac{a}{8\hbar\omega_0 m}
+    \sbr{ \iup \frac{1 - \exp(\iup [\omega_0+\omega] t)}{\omega_0+\omega} + t}
+    \sbr{- \iup \frac{1 - \exp(-\iup [\omega_0+\omega] t)}{\omega_0+\omega} + t}
+    \\
+\end{align*}
+
+% TODO Finish this branch
 
 \end{document}
 
