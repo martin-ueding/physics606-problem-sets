@@ -537,6 +537,54 @@ determines the parity of the resulting state alone.
 
 \subsection{Transition probability}
 
+\begin{problem}
+    Explicitly compute $P_{1,0}$ for $p=1$.
+\end{problem}
+
+We continue with the expression from the first section of this problem, and set
+$f = 1$ and $p = 1$:
+\begin{align*}
+    P_{1,0}
+    &= \abs{\frac a\hbar \int_{-\infty}^\infty \dif t' \, \exp(\iup\omega_0 t')
+    \exp\del{-\frac{t'^2}{\tau^2}} \braket{1 | x | 0}}^2.
+    \intertext{%
+        Then we replace $x$ by 
+        \[
+            x = \sqrt{\frac{\hbar}{2\omega_0 m}} [a + a\dagger].
+        \]
+        The term $\braket{1|a|0}$ does not contribute, so we just drop it.
+    }
+    &= \frac{a}{2\hbar\omega_0 m} \abs{\int_{-\infty}^\infty \dif t' \, \exp(\iup\omega_0 t')
+    \exp\del{-\frac{t'^2}{\tau^2}} \braket{1 | a^\dagger | 0}}^2.
+    \intertext{%
+        The eigenvalue of this is $\sqrt 1$, and the resulting scalar product
+        is just 1 as well. So the whole matrix element is just 1.
+    }
+    &= \frac{a}{2\hbar\omega_0 m} \abs{\int_{-\infty}^\infty \dif t' \, \exp(\iup\omega_0 t')
+    \exp\del{-\frac{t'^2}{\tau^2}}}^2.
+    \intertext{%
+        The exponential functions can be brought together. We write it in a
+        suggestive way, like so
+    }
+    &= \frac{a}{2\hbar\omega_0 m} \abs{\int_{-\infty}^\infty \dif t' \,
+    \exp(-\tau^{-2} t'^2 + \iup\omega_0 t') }^2.
+    \intertext{%
+        This is again a Gaussian integral where we can write down the solution
+        directly. We obtain
+    }
+    &= \frac{a^2 \pi \tau^2}{2\hbar\omega_0 m} \exp\del{- \frac{\omega_0^2
+    \tau^2}{2}}.
+\end{align*}
+
+\begin{problem}
+    What happends for $\tau \to 0$ if $a$ remains constant or $a$ is varied
+    proportional to $1/\sqrt\tau$?
+\end{problem}
+
+When we take $\lim_{\tau \to 0}$, it will just go to zero. If $a$ is varied
+with proportion to $1/\sqrt \tau$, this will only take away one $\tau$ in the
+fraction in front. The whole expression will still go to zero.
+
 \subsection{Explicit time dependence}
 
 \begin{problem}
