@@ -317,7 +317,7 @@ the problem set.
 
 Physical reality should not change with a (passive) basis transformation. If
 that would be the case, the different pictures would not be legitimate and not
-taught at University. (Occam's razor.)
+taught at university. (Occam's razor.)
 
 Mathematically, the expectation value is a scalar product where an operator is
 pre- and postmultiplied by the same wavefunction. Unitary transformations of
@@ -327,6 +327,39 @@ definition of the operators the way we wrote in the very first part of this
 problem.
 
 \section{Selection rules}
+
+\subsection{Forbidden transitions}
+
+$[H_1, O] = 0$ means that both operators have the same set of eigenfunctions.
+Since the state on the right has eigenvalue $o_i$ of the operator $O$, they are
+eigenfunctions of $O$. Therefore, they are also eigenfunctions to $H_1$. $H_1$
+cannot change the $o_i$ therefore, since it is diagonal in this eigenbasis of
+$O$. So $\braket{o_f | H_1 | o_i} = \lambda \braket{o_f | o_i} = 0$, where
+$\lambda$ is the unknown eigenvalue of $H_1$ to $\ket{o_i}$.
+
+\subsection{All orders of perturbation theory}
+
+“All orders” sounds like the Dyson series. There, the perturbation is
+exponentiated. Since the perturbation itself is diagonal in the space spanned
+by the eigenstates of $O$, there is no way (infinitely) repeated application
+could get it off-diagonal. I do not see how our argument is limited to first
+order.
+
+\subsection{Angular momentum}
+
+\begin{question}
+    Is that really $[H_0, \vec L] = 0$? If so, it should be the null vector,
+    like $[H_0, \vec L] = \vec 0$ in the first place. Then, this would imply
+    that all the components of the angular momentum can be measured at the same
+    time with arbitrary precision. This would only work if there is no
+    potential. To us, $[H_0, \vec L^2] = 0$ looks more familiar. Is it really
+    $[H_0, \vec L]$?
+\end{question}
+
+If it was $[H_0, \vec L^2] = 0$, then the eigenstates would be $\ket{n, l,
+m_l}$. With a perturbation $H_1 = f(z, t)$ the commutator $[H_1, L_3]$ would be
+zero, forcing $m_l$ to stay unchanged in transitions. The second perturbation
+depends only on the radius and would $l$ and $m_l$ unchanged.
 
 \section{Atomic radiative transitions}
 
