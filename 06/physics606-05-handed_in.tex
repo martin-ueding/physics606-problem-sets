@@ -87,6 +87,72 @@
 
 \section{Transitions between general states}
 
+\newcommand\IP{{}_\text I}
+\newcommand\SP{{}_\text S}
+\newcommand\0{{}^{(0)}}
+
+\subsection{Equivalence of pictures}
+
+\begin{problem}
+    Show that $H_0$ is the same in the Schrödinger and interaction pictures.
+\end{problem}
+
+In the interaction picture, the operators are defined as
+\[
+    O\IP(t) = U_0^\dagger(t, t_0) O\SP(t) U_0(t, t_0)
+\]
+because the states are defined as
+\[
+    \ket{\psi, t}\IP = U_0^\dagger(t, t_0) \ket{\psi, t}\SP.
+\]
+
+In the short form without functional dependence, we have:
+\begin{align*}
+    H\IP
+    &= U_0^\dagger H_0\SP U_0 \\
+    \intertext{%
+        $U_0$ and $H_0$ commute since $U_0$ is a smooth function of $H_0$ only.
+    }
+    &= U_0^\dagger U_0 H_0\SP
+    \intertext{%
+        Now $U_0U_0^\dagger = 1$. We have
+    }
+    &= H_0\SP.
+\end{align*}
+So $H\IP = H\SP$.
+
+\subsection{Orthogonality and coefficients}
+
+\begin{problem}
+    In order to make contact with the results derived in class, express the
+    states $\ket\alpha$ and $\ket\beta$ as linear superpositions of eigenstates
+    $\ket{n\0}$ of $H_0$.
+\end{problem}
+
+We call those coefficients $c$ and $d$:
+\[
+    \ket\alpha = \sum_i c_i \ket{i\0}
+    \eqnsep
+    \ket\beta = \sum_i d_i \ket{i\0}.
+\]
+
+Since they are eigenstates to the operator $O$, which seems to be time
+independent, the states do not depend on the time, just like the eigenstates of
+the Hamiltonian do not either.
+
+The overlap between the two states is
+\begin{align*}
+    \braket{\alpha|\beta}
+    &= \sum_i \sum_j c_i^* d_j \braket{i\0 | j\0} \\
+    &= \sum_i \sum_j c_i^* d_j \delta_{ij} \\
+    &= \sum_i c_i^* d_i.
+\end{align*}
+The desired orthogonality of the states $\ket\alpha$ and $\ket\beta$ requires
+\[
+    \sum_i c_i^* d_i = 0
+\]
+since the $c$ and $d$ are considered to belong to two different states.
+
 \section{Selection rules}
 
 \section{Atomic radiative transitions}
