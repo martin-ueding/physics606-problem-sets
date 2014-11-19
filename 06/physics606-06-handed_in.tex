@@ -23,7 +23,7 @@
 \newcommand\punkte[1]{#1\addtocounter{totalpoints}{#1}}
 
 \newcounter{problemset}
-\setcounter{problemset}{5}
+\setcounter{problemset}{6}
 
 \subject{physics606 -- Advanced Quantum Theory}
 \ihead{physics606 -- Problem Set \arabic{problemset}}
@@ -363,6 +363,54 @@ depends only on the radius and would $l$ and $m_l$ unchanged.
 
 \section{Atomic radiative transitions}
 
+\subsection{Expansion}
+
+We chose the coordinate system such that $\vec \epsilon \parallel \ev_3$. Then
+the scalar product is
+\begin{align*}
+    \vec \epsilon \vec x_\text{e}
+    &= \epsilon_3 x_{\text e, 3}. \\
+    \intertext{%
+        Then we can use spherical coordinates:
+    }
+    &= \epsilon_3 r_\text e \cos(\theta_\text e). \\
+    \intertext{%
+        Since $Y_{1,0}(\theta, \phi) \propto \cos(\theta)$ and the $\phi$ part
+        is arbitrary, we can write this as
+    }
+    &= r_\text e c_0(\vec \epsilon) Y_{1,0}(\theta_\text e, \phi_\text e) \\
+    \intertext{%
+        where we moved the $\epsilon_3$ component into the coefficient. From
+        there, one can just add more terms to it, the coefficients just have to
+        match.
+    }
+    &= r_\text e \sum_m c_m(\vec \epsilon) Y_{1,m}(\theta_\text e, \phi_\text e)
+\end{align*}
+
+\subsection{Magnetic moment}
+\subsection{Absorption}
+\subsection{Second order}
+\subsection{Rydberg states}
+
+Since $n$ and $l$ is large, and likely transitions only decrease $l$ by one, it
+will take many transitions. Also, $l \leq n$ has to hold, so $n$ cannot
+decrease arbitrarily, just along with $n$. Then the energy differences between
+states is given by
+\[
+    \Deltaup E = E_\text{Ryd} \sbr{\frac{1}{m^2} - \frac1{n^2}}.
+\]
+Since $m$ and $n$ are both large in the involved transitions, $\Deltaup E$ will
+be small. Then
+\[
+    \Deltaup E = \hbar \omega
+    \iff
+    \omega = \frac{\Deltaup E}{\hbar}
+\]
+such that the frequency is small as well. The transition rate goes with
+$\omega^3$, which is even smaller than small.
+
+The combination of a large number of transitions and the unlikeliness together
+make for a long lifetime.
 
 \end{document}
 
