@@ -34,8 +34,8 @@
 \ofoot{Group 2 -- Dilege Gülmez}
 
 \newmdenv[%
-    backgroundcolor=black!5,
-    frametitlebackgroundcolor=black!10,
+    backgroundcolor=black!0,
+    frametitlebackgroundcolor=black!0,
     roundcorner=5pt,
     skipabove=\topskip,
     innertopmargin=\topskip,
@@ -47,7 +47,7 @@
 
 \newmdenv[%
     backgroundcolor=white,
-    frametitlebackgroundcolor=black!10,
+    frametitlebackgroundcolor=black!0,
     roundcorner=5pt,
     skipabove=\topskip,
     innertopmargin=\topskip,
@@ -519,6 +519,46 @@ radial part will then only have these equations:
     \eqnsep
     \mathcal M_{fi}\ra = \braket{f|r_\text e|i}
 \]
+
+\begin{problem}
+    Prove (by induction) and use the following result when evaluation the
+    integrals:
+    \[
+        \int_0^\infty \dif x \, x^n \exp\del{- \frac{x}{x_0}} = n! x_0^{n+1}.
+    \]
+\end{problem}
+
+\begin{proof}
+    We first show that this holds for $n = 0$.
+    \[
+        \int_0^\infty \dif x \, \exp\del{- \frac{x}{x_0}}
+        = \sbr{-x_0 \exp\del{- \frac{x}{x_0}}}_0^\infty
+        = x_0
+    \]
+
+    Next is the induction step. We start with the left hand side at $n + 1$ and
+    try to recover the right hand side at $n+1$ by using the equation at $n$.
+    \begin{align*}
+        \operatorname{LHS}(n+1)
+        &= \int_0^\infty \dif x \, x^{n+1} \exp\del{- \frac{x}{x_0}} \\
+        \intertext{%
+            Now we use partial integration.
+        }
+        &= \sbr{- x_0 n^{x+1} \exp\del{- \frac{x}{x_0}}}_0^\infty + [n+1] x_0
+        \int_0^\infty \dif x \, x^{n} \exp\del{- \frac{x}{x_0}} \\
+        \intertext{%
+            The surface term vanishes.
+        }
+        &= [n+1] x_0 \int_0^\infty \dif x \, x^{n} \exp\del{- \frac{x}{x_0}} \\
+        \intertext{%
+            Now we use the theorem at $n$.
+        }
+        &= [n+1] x_0 n! x_0^{n+1} \\
+        &= [n+1]! x_0^{[n+1]+1} \\
+        &= \operatorname{RHS}(n+1)
+    \end{align*}
+    By the principle of induction, this equation holds for any $n \geq 0$.
+\end{proof}
 
 \end{document}
 
