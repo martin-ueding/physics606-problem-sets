@@ -212,24 +212,192 @@ The second one is very similar.
 \subsection{Evaluation of the integrals}
 
 Now we got the middle of the braket in terms of the angles. Next are initial
-and final states. Since there are a lot of combinations of $m_1$ and $\vec
+and final states. Since there are a lot of combinations of $m_i$ and $\vec
 \epsilon$, we will do this in sections.
 
 \subsubsection{Case $\vec \epsilon = \vec \epsilon_1$}
 
+\paragraph{Case $m_i = 0$}
+
+We start by calculating the matrix element
+\begin{align*}
+    \mathcal M_{fi}
+    &= - \frac{\omega_{if}}c \braket{f|\vec \epsilon_1 \vec x_e | i}. \\
+    \intertext{%
+        In the first step, we insert the knowns. $\bra f$ just gives a factor.
+        The scalar product is inserted. $\ket i$ gives us a factor, the
+        exponential function is 1 since $m_i = 0$ is assumed. In $f$, we get
+        another $\cos(\te)$ and a factor.
+    }
+    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
+    \intop_{\Omega_\text e} \dif \Omega_\text e \, \sin(\te) \sin(\phe - \phg) \cos(\te)
+    \intertext{%
+        The volume element is $\dif \Omega = \dif \theta \, \dif \phi \,
+        \sin(\theta)$.
+    }
+    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
+    \int_0^\piup \dif \te \, \int_0^{2\piup} \dif \phe \, \sin(\te)^2 \sin(\phe - \phg) \cos(\te)
+    \intertext{%
+        We move the second integral as far back as possible.
+    }
+    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
+    \int_0^\piup \dif \te \, \sin(\te)^2 \cos(\te) \int_0^{2\piup} \dif \phe \, \sin(\phe - \phg)
+    \intertext{%
+        The last integral will give zero.
+    }
+    &= 0
+\end{align*}
+From this, $\Gamma_{if} = 0$ as well.
+
+\paragraph{Case $|m_i| = 1$}
+
+For this case, we start similarly.
+\begin{align*}
+    \mathcal M_{fi}
+    &= - m_i \frac{\omega_{if}}c \braket{f|\vec \epsilon_1 \vec x_e | i}. \\
+    \intertext{%
+        $\ket i$ gives us the exponential function. In $f$, we get another $m_i
+        \sin(\te)$. There are three $\sin(\te)$, one from the integration
+        measure, one from $f$ and another from $\vec \epsilon_1 \vec x_\text
+        e$.
+    }
+    &= m_i \frac{\sqrt 3}{4 \piup \sqrt 2} \frac{\omega_{if}}c r_\text e
+    \int_0^\piup \dif \te \, \int_0^{2\piup} \dif \phe \, \sin(\te)^3 \sin(\phe
+    - \phg) \exp(-\iup m_i \phe)
+    \intertext{%
+        We do the same reordering.
+    }
+    &= m_i \frac{\sqrt 3}{4 \piup \sqrt 2} \frac{\omega_{if}}c r_\text e
+    \int_0^\piup \dif \te \, \sin(\te)^3 \int_0^{2\piup} \dif \phe \, \sin(\phe
+    - \phg) \exp(-\iup m_i \phe) 
+    \intertext{%
+        The first and second integral are completely independent now. We just
+        insert the result for the first one, $4/3$, to get a bit more space on
+        the line without loosing the chain of equalities.
+    }
+    &= m_i \frac{1}{\piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+    \int_0^{2\piup} \dif \phe \, \sin(\phe
+    - \phg) \exp(-\iup m_i \phe) 
+    \intertext{%
+        Now we expand the sine in terms of the exponential functions.
+    }
+    &= m_i \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+    \int_0^{2\piup} \dif \phe \,
+    \sbr{
+        \exp\del{\iup [\phe - \phg]} - \exp\del{- \iup [\phe - \phg]}
+    } \exp(-\iup m_i \phe) 
+    \intertext{%
+        The last exponential can be moved into the first two.
+    }
+    &= m_i \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+    \int_0^{2\piup} \dif \phe \,
+    \sbr{
+        \exp\del{\iup \sbr{[1-m_i]\phe - \phg}} - \exp\del{- \iup \sbr{[1+m_i]\phe - \phg}}
+    }
+\end{align*}
+
+From here, we have to discuss two cases. In either case, only one of the most
+inner square brackets will be nonzero.
+
+\begin{description}
+    \item[Sub case $m_i = 1$] 
+
+        \begin{align*}
+            \mathcal M_{fi}
+            &= \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+            \int_0^{2\piup} \dif \phe \,
+            \sbr{
+                \exp\del{- \iup \phg} - \exp\del{- \iup \sbr{2\phe - \phg}}
+            } \\
+            \intertext{%
+                We use the linearity in the integration.
+            }
+            &= \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+            \sbr{
+                \int_0^{2\piup} \dif \phe \,
+                \exp\del{- \iup \phg}
+                -
+                \int_0^{2\piup} \dif \phe \,
+                \exp\del{- \iup \sbr{2\phe - \phg}}
+            } \\
+            \intertext{%
+                The first integrand does not depend on the integration
+                variable, the integral is therefore trivial. In the second
+                integral, we pull out the term that does not depend on the
+                integration variable.
+            }
+            &= \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+            \sbr{
+                2 \piup \exp\del{- \iup \phg}
+                -
+                \exp(\iup \phg)
+                \int_0^{2\piup} \dif \phe \,
+                \exp\del{- 2 \iup \phe}
+            } \\
+            \intertext{%
+                The last integral will give zero, since the exponential will
+                give 1 at 0 and $2\piup$. Only the first term will contribute.
+            }
+            &= \frac{1}{\iup \sqrt 6} \frac{\omega_{if}}c r_\text e \exp\del{- \iup \phg}
+        \end{align*}
+
+    \item[Sub case $m_i = -1$]
+
+        Here, the terms are the other way around.
+        \begin{align*}
+            \mathcal M_{fi}
+            &= - \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+            \int_0^{2\piup} \dif \phe \,
+            \sbr{
+                \exp\del{\iup [2\phe - \phg]} - \exp(\iup \phg)
+            }
+            \intertext{%
+                We use the same linearity.
+            }
+            &= - \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+            \sbr{
+                \int_0^{2\piup} \dif \phe \,
+                \exp\del{\iup [2\phe - \phg]}
+                -
+                \int_0^{2\piup} \dif \phe \,
+                \exp(\iup \phg)
+            } \\
+            \intertext{%
+                We do the same steps, the first integral will yield zero. The
+                second gives an additional factor of $2 \piup$.
+            }
+            &= \frac{1}{\iup \sqrt 6} \frac{\omega_{if}}c r_\text e \exp(\iup \phg)
+        \end{align*}
+\end{description}
+
+We can now see that the two results we have are almost complex conjugates.
+Their absolute value will be the same. We continue to compute the transition
+ratio.
+\begin{align*}
+    \Gamma_{fi}
+    &= \frac{\alpha}{2\piup} \omega_{if} \int \dif \Omega_\gammaup \,
+    |\mathcal M_{fi}|^2. \\
+    \intertext{%
+        The modulus squared of the matrix element does not have any angular
+        dependence now. The angular integration will yield a factor of $4
+        \piup$.
+    }
+    &= \frac{\alpha}{3c^2} \omega_{if}^3 r_\text e^2
+\end{align*}
+
 \subsubsection{Case $\vec \epsilon = \vec \epsilon_2$}
 
-\paragraph{Case $m_1 = 0$}
+\paragraph{Case $m_i = 0$}
 
 We start by calculating the matrix element
 \begin{align*}
     \mathcal M_{fi}
     &= - \frac{\omega_{if}}c \braket{f|\vec \epsilon_2 \vec x_e | i}. \\
     \intertext{%
-        In the first step, we insert the knowns. $\bra f$ just gives a
-        prefactor. The scalar product is inserted. $\ket i$ gives us a
-        prefactor, the exponential function is 1 since $m_i = 0$ is assumed. In
-        $f$, we get another $\cos(\te)$ and a prefactor.
+        In the first step, we insert the knowns. $\bra f$ just gives a factor.
+        The scalar product is inserted. $\ket i$ gives us a factor, the
+        exponential function is 1 since $m_i = 0$ is assumed. In $f$, we get
+        another $\cos(\te)$ and a factor.
     }
     &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
     \int \dif \Omega_\text e \,
@@ -291,6 +459,10 @@ From here, we compute the rate
     }
     &= \frac{4\alpha}{9c} \omega_{if}^3 r_\text e^2
 \end{align*}
+
+\paragraph{Case $|m_i| = 1$}
+
+% TODO This part is missing.
 
 \end{document}
 
