@@ -57,6 +57,9 @@
     frametitlerule=true,
 ]{question}
 
+\newcommand\an{^\text{angular}}
+\newcommand\ra{^\text{radial}}
+
 
 \author{
     Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
@@ -213,13 +216,20 @@ The second one is very similar.
 
 Now we got the middle of the braket in terms of the angles. Next are initial
 and final states. Since there are a lot of combinations of $m_i$ and $\vec
-\epsilon$, we will do this in sections. The radial part, $r_\text e$ will be
-set to $1$ here. Since part five of this problem takes care of the radial part,
-we will only look at the angular part here. Luckily, radial and angular part
-are independent, so that the actual transition rates are the product of both.
-In this part, we will take care of all the factors from the equation, such that
-in part five we only have to carry the factors that come from the Laguerre
-polynomials later on.
+\epsilon$, we will do this in sections.
+
+The radial part, $r_\text e$ will be set to $1$ here. Since part five of this
+problem takes care of the radial part, we will only look at the angular part
+here. Luckily, radial and angular part are independent, so that the actual
+transition rates are the product of both:
+\[
+    \Gamma_{fi} = \Gamma_{fi}\ra \Gamma_{fi}\an
+    \eqnsep
+    \mathcal M_{fi} = \mathcal M_{fi}\ra \mathcal M_{fi}\an.
+\]
+In this part, we will take care of
+all the factors from the equation, such that in part five we only have to carry
+the factors that come from the Laguerre polynomials later on.
 
 \subsubsection{Case $\vec \epsilon = \vec \epsilon_1$}
 
@@ -227,13 +237,14 @@ polynomials later on.
 
 We start by calculating the matrix element
 \begin{align*}
-    \mathcal M_{fi}
+    \mathcal M_{fi}\an
     &= - \frac{\omega_{if}}c \braket{f|\vec \epsilon_1 \vec x_e | i}. \\
     \intertext{%
         In the first step, we insert the knowns. $\bra f$ just gives a factor.
-        The scalar product is inserted. $\ket i$ gives us a factor, the
-        exponential function is 1 since $m_i = 0$ is assumed. In $f$, we get
-        another $\cos(\te)$ and a factor.
+        The scalar product is inserted, $r_\text e$ is omitted since this
+        belongs to the radial part. $\ket i$ gives us a factor, the exponential
+        function is 1 since $m_i = 0$ is assumed. In $f$, we get another
+        $\cos(\te)$ and a factor.
     }
     &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c 
     \intop_{\Omega_\text e} \dif \Omega_\text e \, \sin(\te) \sin(\phe - \phg) \cos(\te)
@@ -253,13 +264,13 @@ We start by calculating the matrix element
     }
     &= 0
 \end{align*}
-From this, $\Gamma_{if} = 0$ as well.
+From this, $\Gamma_{if}\ra = 0$ as well.
 
 \paragraph{Case $|m_i| = 1$}
 
 For this case, we start similarly.
 \begin{align*}
-    \mathcal M_{fi}
+    \mathcal M_{fi}\an
     &= - m_i \frac{\omega_{if}}c \braket{f|\vec \epsilon_1 \vec x_e | i}. \\
     \intertext{%
         $\ket i$ gives us the exponential function. In $f$, we get another $m_i
@@ -309,7 +320,7 @@ inner square brackets will be nonzero.
     \item[Sub case $m_i = 1$] 
 
         \begin{align*}
-            \mathcal M_{fi}
+            \mathcal M_{fi}\an
             &= \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c 
             \int_0^{2\piup} \dif \phe \,
             \sbr{
@@ -351,7 +362,7 @@ inner square brackets will be nonzero.
 
         Here, the terms are the other way around.
         \begin{align*}
-            \mathcal M_{fi}
+            \mathcal M_{fi}\an
             &= - \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c 
             \int_0^{2\piup} \dif \phe \,
             \sbr{
@@ -380,9 +391,9 @@ We can now see that the two results we have are almost complex conjugates.
 Their absolute value will be the same. We continue to compute the transition
 ratio.
 \begin{align*}
-    \Gamma_{fi}
+    \Gamma_{fi}\an
     &= \frac{\alpha}{2\piup} \omega_{if} \int \dif \Omega_\gammaup \,
-    |\mathcal M_{fi}|^2. \\
+    |\mathcal M_{fi}\an|^2. \\
     \intertext{%
         The modulus squared of the matrix element does not have any angular
         dependence now. The angular integration will yield a factor of $4
@@ -397,7 +408,7 @@ ratio.
 
 We start by calculating the matrix element
 \begin{align*}
-    \mathcal M_{fi}
+    \mathcal M_{fi}\an
     &= - \frac{\omega_{if}}c \braket{f|\vec \epsilon_2 \vec x_e | i}. \\
     \intertext{%
         In the first step, we insert the knowns. $\bra f$ just gives a factor.
@@ -437,9 +448,9 @@ We start by calculating the matrix element
 
 From here, we compute the rate
 \begin{align*}
-    \Gamma_{fi}
+    \Gamma_{fi}\ra
     &= \frac{\alpha}{2\piup} \omega_{if} \int \dif \Omega_\gammaup \,
-    |\mathcal M_{fi}|^2. \\
+    |\mathcal M_{fi}\an|^2. \\
     \intertext{%
         We insert our previous result
     }
@@ -503,13 +514,11 @@ As hinted in the third part of this problem, we took care of all the factors in
 equations~(1) and (2) from the problem set already in the angular part. The
 radial part will then only have these equations:
 \[
-    \Gamma_{fi} = \intop_{\Omega_\gammaup} \dif \Omega_\gammaup \, |\mathcal
-    M_{fi}|^2
+    \Gamma_{fi}\ra = \intop_{\Omega_\gammaup} \dif \Omega_\gammaup \, |\mathcal
+    M_{fi}\ra|^2
     \eqnsep
-    \mathcal M_{fi} = \braket{f|r_\text e|i}
+    \mathcal M_{fi}\ra = \braket{f|r_\text e|i}
 \]
-It is really sloppy to call the angular part, the radial part and the actual
-thing the same name.
 
 \end{document}
 
