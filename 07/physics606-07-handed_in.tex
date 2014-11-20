@@ -208,6 +208,58 @@ The second one is very similar.
     }
 \end{align*}
 
+\subsection{Evaluation of the integrals}
+
+Now we got the middle of the braket in terms of the angles. Next are initial
+and final states. Since there are a lot of combinations of $m_1$ and $\vec
+\epsilon$, we will do this in sections.
+
+\subsubsection{Case $\vec \epsilon = \vec \epsilon_1$}
+
+\subsubsection{Case $\vec \epsilon = \vec \epsilon_2$}
+
+\paragraph{Case $m_1 = 0$}
+
+We start by calculating the matrix element
+\begin{align*}
+    \mathcal M_{fi}
+    &= - \frac{\omega_{if}}c \braket{f|\vec \epsilon_2 \vec x_e | i}. \\
+    \intertext{%
+        In the first step, we insert the knowns. $\bra f$ just gives a
+        prefactor. The scalar product is inserted. $\ket i$ gives us a
+        prefactor, the exponential function is 1 since $m_i = 0$ is assumed. In
+        $f$, we get another $\cos(\te)$ and a prefactor.
+    }
+    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
+    \int \dif \Omega_\text e \,
+    \sbr{
+        \sin(\te) \cos(\tg) \int_0^{2\piup} \dif \phe \cos(\phe - \phg)
+        - \cos(\te) \sin(\tg)
+    } \cos(\te)
+    \intertext{%
+        The volume element is $\dif \Omega = \dif \theta \, \dif \phi \,
+        \sin(\theta)$. We insert this.
+    }
+    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
+    \int_0^\pi \dif \te \, \sin(\te) \\&\qquad \cdot \int_0^{2\piup} \dif \phe \,
+    \sbr{
+        \sin(\te) \cos(\tg) \cos(\phe - \phg)
+        - \cos(\te) \sin(\tg)
+    } \cos(\te)
+    \intertext{%
+        The integral over $\phe$ will give zero for the first summand in the
+        square bracket. For the second, it will just contribute a factor of $2
+        \piup$ since there is no dependence on $\phe$.
+    }
+    &= \frac{\sqrt 3}{2} \frac{\omega_{if}}c r_\text e \sin(\tg)
+    \int_0^\pi \dif \te \, \sin(\te) \cos(\te)^2
+    \intertext{%
+        This integral can be solved using the substitution $z := \cos(\te)$
+        and gives the value $2/3$. Our final result is
+    }
+    &= \frac{1}{\sqrt 3} \frac{\omega_{if}}c r_\text e \sin(\tg).
+\end{align*}
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
