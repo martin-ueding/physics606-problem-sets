@@ -605,7 +605,79 @@ The transition rate is this squared:
 
 \subsubsection{Transition $(3P) \to (1S)$}
 
+This one works similarly.
+\begin{align*}
+    \mathcal M_{fi}\ra
+    &= \int_0^\infty \dif \re \, \re^2 \re R_{31}(\re)^* R_{10}(\re) \\
+    \intertext{%
+        We insert the Laguerre polynomials.
+    }
+    &= \frac{2}{a_0^{3/2}} \frac{4 \sqrt 2}{27 \sqrt 3 \, a_0^{5/2}}
+    \int_0^\infty \dif \re
+    \, \re^4 \exp\del{-\frac{\re}{a_0}} \sbr{1 - \frac\re{6a_0}} \exp\del{-\frac{\re}{3a_0}} \\
+    \intertext{%
+        Then we simplify as much as possible, bringing it into a form that
+        makes the application of the theorem easy.
+    }
+    &= \frac{2^3 \sqrt 2}{3^3 \sqrt 3 \, a_0^4} 
+    \int_0^\infty \dif \re
+    \, \sbr{\re^4 - \frac{\re^5}{6a_0}} \exp\del{-\frac{\re}{\frac34 a_0}} \\
+    \intertext{%
+        Applying the theorem …
+    }
+    &= \frac{2^3 \sqrt 2}{3^3 \sqrt 3 \, a_0^4} 
+    \sbr{4! \sbr{\frac34 a_0}^5 - \frac{5!}{6 a_0} \sbr{\frac34 a_0}^6} \\
+    \intertext{%
+        The order of $a_0$ is the same in both terms, we can pull this out.
+    }
+    &= \frac{2^3 \sqrt 2}{3^3 \sqrt 3} 
+    \sbr{4! \sbr{\frac34}^5 - \frac{5!}{6} \sbr{\frac34}^6} a_0
+\end{align*}
+
+% TODO Simplify.
+
+% TODO Compute transition rate.
+
 \subsubsection{Transition $(3P) \to (2S)$}
+
+This one is the most convoluted one to compute.
+\begin{align*}
+    \mathcal M_{fi}\ra
+    &= \int_0^\infty \dif \re \, \re^2 \re R_{31}(\re)^* R_{20}(\re) \\
+\end{align*}
+
+% TODO
+
+\subsection{Complete transition rate}
+
+The factors $\omega_{if}$ can be computed like so:
+\[
+    \frac{E_i - E_f}\hbar.
+\]
+The energies of the hydrogen atom are
+\[
+    E_n = \frac{E_\text{Ryd}}{n^2}.
+\]
+Using all this, we can write the angular frequency as
+\[
+    \omega_{if} = \frac{E_\text{Ryd}}\hbar \sbr{\frac{1}{i^2} - \frac{1}{f^2}}.
+\]
+
+The factor we are looking for is:
+\[
+    \frac{\omega_{13}}{\omega_{12}}
+    = \frac{\frac{1}{1^2} - \frac{1}{3^2}}{\frac{1}{1^2} - \frac{1}{2^2}}
+    = \frac{1 - \frac{1}{9}}{1 - \frac{1}{4}}
+    = \frac{\frac{8}{9}}{\frac{3}{4}}
+    = \frac{8 \cdot 4}{9 \cdot 3}
+    = \frac{2^5}{3^3}.
+\]
+The difference between the rate of $(3P) \to (1S)$ and $(3P) \to (2S)$ is this
+cubed,
+\[
+    \sbr{\frac{\omega_{13}}{\omega_{12}}}^3
+    = \frac{2^{15}}{3^9} \approx \num{1.66}.
+\]
 
 \end{document}
 
