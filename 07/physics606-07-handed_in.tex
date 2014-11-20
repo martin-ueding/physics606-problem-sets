@@ -94,6 +94,7 @@
 \newcommand\phg{\phi_\gammaup}
 \newcommand\te{\theta_\text e}
 \newcommand\phe{\phi_\text e}
+\newcommand\re{r_\text e}
 
 Given is the wave vector
 \[
@@ -559,6 +560,52 @@ radial part will then only have these equations:
     \end{align*}
     By the principle of induction, this equation holds for any $n \geq 0$.
 \end{proof}
+
+\subsubsection{Transition $(2P) \to (1S)$}
+
+The radial part of the matrix element is
+\begin{align*}
+    \mathcal M_{fi}\ra
+    &= \int_0^\infty \dif \re \, \re^2 \re R_{21}(\re)^* R_{10}(\re).
+    \intertext{%
+        The first $\re^2$ comes from the integration measure, the second $\re$
+        comes from the braket that we are supposed to compute. Another one will
+        come from $R_{21}$. Then there are the radial wave functions according
+        to the Hilbert $L^2$ scalar product. Since they are completely real,
+        the complex conjugation does not have any effect. We insert the wave
+        functions.
+    }
+    &= \frac{2}{a_0^{3/2}} \frac{1}{2 \sqrt 6 a_0^{5/2}} \int_0^\infty \dif \re
+    \, \re^4 \exp\del{-\frac{\re}{a_0}} \exp\del{-\frac{\re}{2a_0}} \\
+    \intertext{%
+        Before we look at the integration, we simplify everything.
+    }
+    &= \frac{1}{\sqrt 6 \, a_0^4} \int_0^\infty \dif \re
+    \, \re^4 \exp\del{-\frac{3\re}{2a_0}} \\
+    \intertext{%
+        To apply the formula we just proved, we move the factor 3 into the
+        denominator.
+    }
+    &= \frac{1}{\sqrt 6 \, a_0^4} \int_0^\infty \dif \re
+    \, \re^4 \exp\del{-\frac{\re}{\frac23 a_0}} \\
+    \intertext{%
+        Now we apply the theorem …
+    }
+    &= \frac{1}{\sqrt 6 \, a_0^4} 4! \sbr{\frac23 a_0}^5 \\
+    \intertext{%
+        … and simplify again.
+    }
+    &= \frac{2^8}{3^4 \sqrt 6} a_0
+\end{align*}
+
+The transition rate is this squared:
+\[
+    \Gamma_{fi}\ra = \frac{2^{15}}{3^9} a_0^2
+\]
+
+\subsubsection{Transition $(3P) \to (1S)$}
+
+\subsubsection{Transition $(3P) \to (2S)$}
 
 \end{document}
 
