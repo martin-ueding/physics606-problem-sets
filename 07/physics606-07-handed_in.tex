@@ -23,7 +23,7 @@
 \newcommand\punkte[1]{#1\addtocounter{totalpoints}{#1}}
 
 \newcounter{problemset}
-\setcounter{problemset}{6}
+\setcounter{problemset}{7}
 
 \subject{physics606 -- Advanced Quantum Theory}
 \ihead{physics606 -- Problem Set \arabic{problemset}}
@@ -213,7 +213,13 @@ The second one is very similar.
 
 Now we got the middle of the braket in terms of the angles. Next are initial
 and final states. Since there are a lot of combinations of $m_i$ and $\vec
-\epsilon$, we will do this in sections.
+\epsilon$, we will do this in sections. The radial part, $r_\text e$ will be
+set to $1$ here. Since part five of this problem takes care of the radial part,
+we will only look at the angular part here. Luckily, radial and angular part
+are independent, so that the actual transition rates are the product of both.
+In this part, we will take care of all the factors from the equation, such that
+in part five we only have to carry the factors that come from the Laguerre
+polynomials later on.
 
 \subsubsection{Case $\vec \epsilon = \vec \epsilon_1$}
 
@@ -229,18 +235,18 @@ We start by calculating the matrix element
         exponential function is 1 since $m_i = 0$ is assumed. In $f$, we get
         another $\cos(\te)$ and a factor.
     }
-    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
+    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c 
     \intop_{\Omega_\text e} \dif \Omega_\text e \, \sin(\te) \sin(\phe - \phg) \cos(\te)
     \intertext{%
         The volume element is $\dif \Omega = \dif \theta \, \dif \phi \,
         \sin(\theta)$.
     }
-    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
+    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c 
     \int_0^\piup \dif \te \, \int_0^{2\piup} \dif \phe \, \sin(\te)^2 \sin(\phe - \phg) \cos(\te)
     \intertext{%
         We move the second integral as far back as possible.
     }
-    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
+    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c 
     \int_0^\piup \dif \te \, \sin(\te)^2 \cos(\te) \int_0^{2\piup} \dif \phe \, \sin(\phe - \phg)
     \intertext{%
         The last integral will give zero.
@@ -261,13 +267,13 @@ For this case, we start similarly.
         measure, one from $f$ and another from $\vec \epsilon_1 \vec x_\text
         e$.
     }
-    &= m_i \frac{\sqrt 3}{4 \piup \sqrt 2} \frac{\omega_{if}}c r_\text e
+    &= m_i \frac{\sqrt 3}{4 \piup \sqrt 2} \frac{\omega_{if}}c 
     \int_0^\piup \dif \te \, \int_0^{2\piup} \dif \phe \, \sin(\te)^3 \sin(\phe
     - \phg) \exp(-\iup m_i \phe)
     \intertext{%
         We do the same reordering.
     }
-    &= m_i \frac{\sqrt 3}{4 \piup \sqrt 2} \frac{\omega_{if}}c r_\text e
+    &= m_i \frac{\sqrt 3}{4 \piup \sqrt 2} \frac{\omega_{if}}c 
     \int_0^\piup \dif \te \, \sin(\te)^3 \int_0^{2\piup} \dif \phe \, \sin(\phe
     - \phg) \exp(-\iup m_i \phe) 
     \intertext{%
@@ -275,13 +281,13 @@ For this case, we start similarly.
         insert the result for the first one, $4/3$, to get a bit more space on
         the line without loosing the chain of equalities.
     }
-    &= m_i \frac{1}{\piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+    &= m_i \frac{1}{\piup \sqrt 6} \frac{\omega_{if}}c 
     \int_0^{2\piup} \dif \phe \, \sin(\phe
     - \phg) \exp(-\iup m_i \phe) 
     \intertext{%
         Now we expand the sine in terms of the exponential functions.
     }
-    &= m_i \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+    &= m_i \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c 
     \int_0^{2\piup} \dif \phe \,
     \sbr{
         \exp\del{\iup [\phe - \phg]} - \exp\del{- \iup [\phe - \phg]}
@@ -289,7 +295,7 @@ For this case, we start similarly.
     \intertext{%
         The last exponential can be moved into the first two.
     }
-    &= m_i \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+    &= m_i \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c 
     \int_0^{2\piup} \dif \phe \,
     \sbr{
         \exp\del{\iup \sbr{[1-m_i]\phe - \phg}} - \exp\del{- \iup \sbr{[1+m_i]\phe - \phg}}
@@ -304,7 +310,7 @@ inner square brackets will be nonzero.
 
         \begin{align*}
             \mathcal M_{fi}
-            &= \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+            &= \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c 
             \int_0^{2\piup} \dif \phe \,
             \sbr{
                 \exp\del{- \iup \phg} - \exp\del{- \iup \sbr{2\phe - \phg}}
@@ -312,7 +318,7 @@ inner square brackets will be nonzero.
             \intertext{%
                 We use the linearity in the integration.
             }
-            &= \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+            &= \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c 
             \sbr{
                 \int_0^{2\piup} \dif \phe \,
                 \exp\del{- \iup \phg}
@@ -326,7 +332,7 @@ inner square brackets will be nonzero.
                 integral, we pull out the term that does not depend on the
                 integration variable.
             }
-            &= \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+            &= \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c 
             \sbr{
                 2 \piup \exp\del{- \iup \phg}
                 -
@@ -338,7 +344,7 @@ inner square brackets will be nonzero.
                 The last integral will give zero, since the exponential will
                 give 1 at 0 and $2\piup$. Only the first term will contribute.
             }
-            &= \frac{1}{\iup \sqrt 6} \frac{\omega_{if}}c r_\text e \exp\del{- \iup \phg}
+            &= \frac{1}{\iup \sqrt 6} \frac{\omega_{if}}c \exp\del{- \iup \phg}
         \end{align*}
 
     \item[Sub case $m_i = -1$]
@@ -346,7 +352,7 @@ inner square brackets will be nonzero.
         Here, the terms are the other way around.
         \begin{align*}
             \mathcal M_{fi}
-            &= - \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+            &= - \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c 
             \int_0^{2\piup} \dif \phe \,
             \sbr{
                 \exp\del{\iup [2\phe - \phg]} - \exp(\iup \phg)
@@ -354,7 +360,7 @@ inner square brackets will be nonzero.
             \intertext{%
                 We use the same linearity.
             }
-            &= - \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c r_\text e
+            &= - \frac{1}{2 \iup \piup \sqrt 6} \frac{\omega_{if}}c 
             \sbr{
                 \int_0^{2\piup} \dif \phe \,
                 \exp\del{\iup [2\phe - \phg]}
@@ -366,7 +372,7 @@ inner square brackets will be nonzero.
                 We do the same steps, the first integral will yield zero. The
                 second gives an additional factor of $2 \piup$.
             }
-            &= \frac{1}{\iup \sqrt 6} \frac{\omega_{if}}c r_\text e \exp(\iup \phg)
+            &= \frac{1}{\iup \sqrt 6} \frac{\omega_{if}}c \exp(\iup \phg)
         \end{align*}
 \end{description}
 
@@ -382,7 +388,7 @@ ratio.
         dependence now. The angular integration will yield a factor of $4
         \piup$.
     }
-    &= \frac{\alpha}{3c^2} \omega_{if}^3 r_\text e^2
+    &= \frac{\alpha}{3c^2} \omega_{if}^3
 \end{align*}
 
 \subsubsection{Case $\vec \epsilon = \vec \epsilon_2$}
@@ -399,7 +405,7 @@ We start by calculating the matrix element
         exponential function is 1 since $m_i = 0$ is assumed. In $f$, we get
         another $\cos(\te)$ and a factor.
     }
-    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
+    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c 
     \int \dif \Omega_\text e \,
     \sbr{
         \sin(\te) \cos(\tg) \int_0^{2\piup} \dif \phe \cos(\phe - \phg)
@@ -409,7 +415,7 @@ We start by calculating the matrix element
         The volume element is $\dif \Omega = \dif \theta \, \dif \phi \,
         \sin(\theta)$. We insert this.
     }
-    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c r_\text e
+    &= - \frac{\sqrt 3}{4 \piup} \frac{\omega_{if}}c 
     \int_0^\pi \dif \te \, \sin(\te) \\&\qquad \cdot \int_0^{2\piup} \dif \phe \,
     \sbr{
         \sin(\te) \cos(\tg) \cos(\phe - \phg)
@@ -420,13 +426,13 @@ We start by calculating the matrix element
         square bracket. For the second, it will just contribute a factor of $2
         \piup$ since there is no dependence on $\phe$.
     }
-    &= \frac{\sqrt 3}{2} \frac{\omega_{if}}c r_\text e \sin(\tg)
+    &= \frac{\sqrt 3}{2} \frac{\omega_{if}}c 
     \int_0^\pi \dif \te \, \sin(\te) \cos(\te)^2
     \intertext{%
         This integral can be solved using the substitution $z := \cos(\te)$
         and gives the value $2/3$. Our final result is
     }
-    &= \frac{1}{\sqrt 3} \frac{\omega_{if}}c r_\text e \sin(\tg).
+    &= \frac{1}{\sqrt 3} \frac{\omega_{if}}c 
 \end{align*}
 
 From here, we compute the rate
@@ -438,18 +444,18 @@ From here, we compute the rate
         We insert our previous result
     }
     &= \frac{\alpha}{2\piup} \omega_{if} \int \dif \Omega_\gammaup \,
-    \abs{\frac{1}{\sqrt 3} \frac{\omega_{if}}c r_\text e \sin(\tg)}^2 \\
+    \abs{\frac{1}{\sqrt 3} \frac{\omega_{if}}c \sin(\tg)}^2 \\
     \intertext{%
         and simplify
     }
-    &= \frac{\alpha}{6\piup} \frac{\omega_{if}^3}{c} r_\text e^2
+    &= \frac{\alpha}{6\piup} \frac{\omega_{if}^3}{c} 
     \int \dif \Omega_\gammaup \, \sin(\tg)^2. \\
     \intertext{%
         The integration has to be rewritten in terms of the chosen coordinates,
         the spherical polar coordinates. We already carry out the integration
         in $\phg$ which only gives a factor $2\piup$.
     }
-    &= \frac{\alpha}{3} \frac{\omega_{if}^3}{c} r_\text e^2
+    &= \frac{\alpha}{3} \frac{\omega_{if}^3}{c} 
     \int \dif \tg \, \sin(\tg)^3. \\
     \intertext{%
         This integral can be solved with the power reduction formulas. Those
@@ -457,7 +463,7 @@ From here, we compute the rate
         representation of the sine. All in all, the integral is $4/3$. That
         gives the final result for this choice of $\vec\epsilon$ and $m_i$.
     }
-    &= \frac{4\alpha}{9c} \omega_{if}^3 r_\text e^2
+    &= \frac{4\alpha}{9c} \omega_{if}^3 
 \end{align*}
 
 \paragraph{Case $|m_i| = 1$}
@@ -490,6 +496,20 @@ which is $L_3 / \hbar$, it has certain emission characteristics. It cannot
 emit light in any direction. However, when all values of $L_3$---and therefore
 all orientations in space---are accounted for, it will be spherically
 symmetric.
+
+\subsection{Radial part}
+
+As hinted in the third part of this problem, we took care of all the factors in
+equations~(1) and (2) from the problem set already in the angular part. The
+radial part will then only have these equations:
+\[
+    \Gamma_{fi} = \intop_{\Omega_\gammaup} \dif \Omega_\gammaup \, |\mathcal
+    M_{fi}|^2
+    \eqnsep
+    \mathcal M_{fi} = \braket{f|r_\text e|i}
+\]
+It is really sloppy to call the angular part, the radial part and the actual
+thing the same name.
 
 \end{document}
 
