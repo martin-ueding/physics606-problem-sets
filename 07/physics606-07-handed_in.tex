@@ -102,8 +102,9 @@ Given is the wave vector
     \end{pmatrix}
 \]
 where we have used the notation where a vector in non-bold type is its absolute
-value, consistent with its look as a scalar. Then there are also two
-polarization basis vectors given:
+value, consistent with its look as a scalar. We hope this becomes apparent on
+this ink jet printout. Then there are also two polarization basis vectors
+given:
 \[
     \vec \epsilon_1 =
     \begin{pmatrix}
@@ -258,6 +259,37 @@ We start by calculating the matrix element
         and gives the value $2/3$. Our final result is
     }
     &= \frac{1}{\sqrt 3} \frac{\omega_{if}}c r_\text e \sin(\tg).
+\end{align*}
+
+From here, we compute the rate
+\begin{align*}
+    \Gamma_{fi}
+    &= \frac{\alpha}{2\piup} \omega_{if} \int \dif \Omega_\gammaup \,
+    |\mathcal M_{fi}|^2. \\
+    \intertext{%
+        We insert our previous result
+    }
+    &= \frac{\alpha}{2\piup} \omega_{if} \int \dif \Omega_\gammaup \,
+    \abs{\frac{1}{\sqrt 3} \frac{\omega_{if}}c r_\text e \sin(\tg)}^2 \\
+    \intertext{%
+        and simplify
+    }
+    &= \frac{\alpha}{6\piup} \frac{\omega_{if}^3}{c} r_\text e^2
+    \int \dif \Omega_\gammaup \, \sin(\tg)^2. \\
+    \intertext{%
+        The integration has to be rewritten in terms of the chosen coordinates,
+        the spherical polar coordinates. We already carry out the integration
+        in $\phg$ which only gives a factor $2\piup$.
+    }
+    &= \frac{\alpha}{3} \frac{\omega_{if}^3}{c} r_\text e^2
+    \int \dif \tg \, \sin(\tg)^3. \\
+    \intertext{%
+        This integral can be solved with the power reduction formulas. Those
+        can be derived using the binomial theorem and the exponential
+        representation of the sine. All in all, the integral is $4/3$. That
+        gives the final result for this choice of $\vec\epsilon$ and $m_i$.
+    }
+    &= \frac{4\alpha}{9c} \omega_{if}^3 r_\text e^2
 \end{align*}
 
 \end{document}
