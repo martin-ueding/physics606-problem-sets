@@ -85,6 +85,129 @@
 
 \section{Rate for (nP) to (n'S) transitions}
 
+\subsection{Orthogonality}
+
+\newcommand\tg{\theta_\gammaup}
+\newcommand\phg{\phi_\gammaup}
+\newcommand\te{\theta_\text e}
+\newcommand\phe{\phi_\text e}
+
+Given is the wave vector
+\[
+    \vec k_\gammaup = k_\gammaup
+    \begin{pmatrix}
+        \sin(\tg) \sin(\phg) \\
+        \sin(\tg) \cos(\phg) \\
+        \cos(\tg)
+    \end{pmatrix}
+\]
+where we have used the notation where a vector in non-bold type is its absolute
+value, consistent with its look as a scalar. Then there are also two
+polarization basis vectors given:
+\[
+    \vec \epsilon_1 =
+    \begin{pmatrix}
+        \cos(\phg) \\
+        - \sin(\phg) \\
+        0
+    \end{pmatrix}
+    \eqnsep
+    \vec \epsilon_2 =
+    \begin{pmatrix}
+        \cos(\tg) \sin(\phg) \\
+        \cos(\tg) \cos(\phg) \\
+        - \cos(\tg)
+    \end{pmatrix}.
+\]
+
+Checking for orthonormality among the $\vec \epsilon_i$ is $X - X = 0$. We done
+that, it checks out. It is also easy to see that $\vec \epsilon_1 \vec
+k_\gammaup = 0$. The last one requires application of the so called
+trigonometric identities. We present all the steps here in painstaking detail:
+\begin{align*}
+    \vec \epsilon_2 \vec k_\gamma
+    &= \cos(\tg) \sin(\tg) \sin(\phg)^2 + \sin(\tg) \cos(\tg) \cos(\phg)^2 -
+    \sin(\tg) \cos(\tg) \\
+    \intertext{%
+        The first two terms contain common factors. We factor those out to get
+        a more compact expression.
+    }
+    &= \cos(\tg) \sin(\tg) \sbr{ \sin(\phg)^2 + \cos(\phg)^2} - \sin(\tg) \cos(\tg)
+    \\
+    \intertext{%
+        Here we use $\sin(\phg)^2 + \cos(\phg)^2 = 1$. This leaves us with
+    }
+    &= \cos(\tg) \sin(\tg) - \sin(\tg) \cos(\tg). \\
+    \intertext{%
+        After using commutation law of the product we have to equal terms. They
+        cancel each other and just gives us
+    }
+    &= 0.
+\end{align*}
+
+The more interesting question, which was not asked in this problem, is “Why do
+the polarization vectors have to be perpendicular to the wave vector?”. This is
+because electromagnetic radiation is vector-polarized and a transverse wave.
+Therefore the polarization is perpendicular to the direction of propagation.
+This also means that the photon has spin 1. Gravitational waves are
+tensor-polarized and the graviton would have spin 2.
+
+\subsection{Angular part of integrands}
+
+We begin by copying the terms.
+\begin{align*}
+    \vec x_\text e \vec \epsilon_1
+    &= r_\text e
+    \begin{pmatrix}
+        \sin(\te) \sin(\phe) \\
+        \sin(\te) \cos(\phe) \\
+        \cos(\te)
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos(\phg) \\
+        - \sin(\phg) \\
+        0
+    \end{pmatrix} \\
+    &= r_\text e \sbr{
+        \sin(\te) \sin(\phe) \cos(\phg) - \sin(\te) \sin(\phe) \sin(\phg)
+    } \\
+    &= r_\text e \sin(\te) \sbr{
+        \sin(\phe) \cos(\phg) - \sin(\phe) \sin(\phg)
+    } \\
+    \intertext{%
+        Now we apply the addition theorem.
+    }
+    &= r_\text e \sin(\te) \sin(\phe - \phg)
+\end{align*}
+
+The second one is very similar.
+\begin{align*}
+    \vec x_\text e \vec \epsilon_2
+    &= r_\text e
+    \begin{pmatrix}
+        \sin(\te) \sin(\phe) \\
+        \sin(\te) \cos(\phe) \\
+        \cos(\te)
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos(\tg) \sin(\phg) \\
+        \cos(\tg) \cos(\phg) \\
+        - \cos(\tg)
+    \end{pmatrix} \\
+    &= r_\text e \sbr{
+        \sin(\te) \sin(\phe) \cos(\tg) \sin(\phg)
+        + \sin(\te) \cos(\phe) \cos(\tg) \cos(\phg)
+        - \cos(\te) \sin(\tg)
+    }
+    \intertext{%
+        We also apply the addition theorem here.
+    }
+    &= r_\text e \sbr{
+        \sin(\te) \cos(\tg) \cos(\phe - \phg)
+        - \cos(\te) \sin(\tg)
+    }
+\end{align*}
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
