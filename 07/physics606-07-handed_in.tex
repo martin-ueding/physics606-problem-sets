@@ -703,8 +703,39 @@ This one is the most convoluted one to compute.
 
 The transition rate is this squared:
 \[
-    \Gamma_{fi}\ra = \num{3357526405939200} \, a_0^2 \approx \num{3.358e15} \, a_0^2
+    \Gamma_{fi}\ra = \num{3357526405939200} \, a_0^2
+    \approx \num{3.358e15} \, a_0^2
 \]
+
+\begin{problem}
+    You should find that the matrix element for $(2P) \to (1S)$ transitions is
+    significantly \emph{larger} than that for $(3P) \to (1S)$ transitions. […].
+    $(3P) \to (2S)$ transitions have the largest matrix element.
+\end{problem}
+
+Just looking at this radial part, where we have taken out all the factors from
+the angular part, we do see that the last transition does have the largest
+matrix element. However, the first should be larger than the second, and we got
+it the other way around. We either did make a mistake or the factors from the
+angular part have to be included here.
+
+In table~\ref{tab:Gamma}, we collected all the transition rates that we have
+computed.
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{lcS}
+        Transition & {$\Gamma_{fi}\an$} & {$\Gamma_{fi}\ra / a_0^2$} \\
+        \midrule
+        $(2P) \to (1S)$ & & 1.665 \\
+        $(3P) \to (1S)$ & & 415.973 \\
+        $(3P) \to (2S)$ & & 3.358e15
+    \end{tabular}
+    \caption{%
+        Collection of computed transition rates.
+    }
+    \label{tab:Gamma}
+\end{table}
 
 \subsection{Complete transition rate}
 
