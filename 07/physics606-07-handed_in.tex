@@ -595,12 +595,13 @@ The radial part of the matrix element is
     \intertext{%
         … and simplify again.
     }
-    &= \frac{2^8}{3^4 \sqrt 6} a_0
+    &= \frac{2^8}{3^4 \sqrt 6} a_0 \\
+    &\approx \num{1.290} \, a_0
 \end{align*}
 
 The transition rate is this squared:
 \[
-    \Gamma_{fi}\ra = \frac{2^{15}}{3^9} a_0^2
+    \Gamma_{fi}\ra = \frac{2^{15}}{3^9} a_0^2 \approx \num{1.665} \, a_0^2
 \]
 
 \subsubsection{Transition $(3P) \to (1S)$}
@@ -632,11 +633,17 @@ This one works similarly.
     }
     &= \frac{2^3 \sqrt 2}{3^3 \sqrt 3} 
     \sbr{4! \sbr{\frac34}^5 - \frac{5!}{6} \sbr{\frac34}^6} a_0
+    \intertext{%
+        We used Maxima to simplify this.
+    }
+    &= - \frac{1199}{2^{7/2} 3^{3/2}} a_0 \\
+    &\approx - \num{20.395} \, a_0
 \end{align*}
 
-% TODO Simplify.
-
-% TODO Compute transition rate.
+The transition rate is this squared:
+\[
+    \Gamma_{fi}\ra = \frac{1437601}{3456} a_0^2 \approx \num{415.973} \, a_0^2
+\]
 
 \subsubsection{Transition $(3P) \to (2S)$}
 
@@ -685,9 +692,17 @@ This one is the most convoluted one to compute.
     \sbr{
         5! \, 6^6 - \frac{6!}{6} 6^7 + \frac{7!}{12} 6^8
     } a_0
+    \intertext{%
+        We simplify with Maxima as well.
+    }
+    &= \num{1239040} \cdot 3^{7/2} \, a_0 \\
+    &\approx \num{5.794e7} \, a_0
 \end{align*}
 
-% TODO
+The transition rate is this squared:
+\[
+    \Gamma_{fi}\ra = \num{3357526405939200} \, a_0^2 \approx \num{3.358e15} \, a_0^2
+\]
 
 \subsection{Complete transition rate}
 
