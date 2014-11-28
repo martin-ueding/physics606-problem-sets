@@ -305,6 +305,90 @@ Taking the limits is not really difficult since nothing diverges. We obtain
     \lim_{k \to 0} v_\text{gr} = 0.
 \]
 
+\section{Scattering on a constant potential}
+
+\subsection{Scattering amplitude}
+
+Given is
+\[
+    f_{\vec k}(\theta) = - \frac{2MV_0}{q \hbar^2} \int_0^\infty \dif r' \, r
+    \sin(qr')
+\]
+and the following potential:
+\[
+    V(\vec x) =
+    \begin{cases}
+        V_0 & x < r_0 \\
+        0 & \text{else}
+    \end{cases}
+\]
+In this part of the problem, we have to compute $f_{\vec k}$ explicitly.
+
+Well, this does not make too much sense as the problem is posed. The integral
+does not converse, since the integrand oscillates badly, see
+figure~\ref{fig:divergence}. It is not \emph{Mathematica} integrable either.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\linewidth]{divergence.pdf}
+    \caption{%
+        Plot of $r \sin(r)$.
+    }
+    \label{fig:divergence}
+\end{figure}
+
+We try to salvage this problem and assume that the $V_0$ should be a $V(x)$
+within the integral. Then the only difference is that integration bounds are
+from 0 to $r_0$ instead of $\infty$, like so:
+\[
+    f_{\vec k}(\theta) = - \frac{2MV_0}{q \hbar^2} \int_0^{r_0} \dif r' \, r
+    \sin(qr').
+\]
+Now this integral is actually solvable using partial integration. We obtain
+\[
+    f_{\vec k}(\theta) = - \frac{2MV_0}{q \hbar^2} \sbr{
+        \frac{r_0}{q} \cos(qr_0) + \frac{1}{q^2} \sin(qr_0)
+    }
+\]
+
+The limit $q \to 0$ can be done before and after the integration. Both give the
+same result:
+\begin{align*}
+    \lim_{q \to 0} f_{\vec k}(\theta)
+    &= - \frac{2MV_0}{\hbar_2} \lim_{q \to 0} \frac{1}{q} \int_0^{r_0} \dif r'
+    \, r' \sin(q r') \\
+    \intertext{%
+        We expand the sine.
+    }
+    &= - \frac{2MV_0}{\hbar_2} \lim_{q \to 0} \frac{1}{q} \int_0^{r_0} \dif r'
+    \, r' \sbr{q r' + \frac{1}{6} [qr']^3 + \mathcal O(q^5)} \\
+    \intertext{%
+        Cancel the $q$.
+    }
+    &= - \frac{2MV_0}{\hbar_2} \lim_{q \to 0} \int_0^{r_0} \dif r'
+    \, r' \sbr{r' + \frac{1}{6} q^2 r'^3 + \mathcal O(q^4)} \\
+    \intertext{%
+        Exchange limit and integration. This is allowed because the integrand
+        is out of $C^\infty$.
+    }
+    &= - \frac{2MV_0}{\hbar_2} \int_0^{r_0} \dif r'
+    \, r' \lim_{q \to 0} \sbr{r' + \frac{1}{6} q^2 r'^3 + \mathcal O(q^4)} \\
+    \intertext{%
+        The limit is without any problems.
+    }
+    &= - \frac{2MV_0}{\hbar_2} \int_0^{r_0} \dif r' \, r'^2 \\
+    \intertext{%
+        This integral is trivial.
+    }
+    &= - \frac{2MV_0}{\hbar_2} \frac{1}{3} r_0^3 \\
+    &= - \frac{2MV_0}{3\hbar_2} r_0^3
+\end{align*}
+
+Now this can be done the other way around as well. One just has to apply
+L'Hôspital's rule a couple times. We have tried this and got the same result.
+
+Since the result is $\propto r_0^3$, our salvage of this is not too wrong.
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
