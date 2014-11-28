@@ -1,0 +1,249 @@
+\documentclass[11pt, english, fleqn, DIV=15, headinclude, BCOR=1.5cm]{scrartcl}
+
+\usepackage[
+    bibatend,
+    color,
+]{../header}
+
+\usepackage{tikz}
+\usepackage{pdflscape}
+
+\usepackage[tikz]{mdframed}
+\newmdtheoremenv[%
+    backgroundcolor=black!5,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+]{theorem}{Theorem}[section]
+
+\hypersetup{
+    pdftitle=
+}
+
+\newcounter{totalpoints}
+\newcommand\punkte[1]{#1\addtocounter{totalpoints}{#1}}
+
+\newcounter{problemset}
+\setcounter{problemset}{8}
+
+\subject{physics606 -- Advanced Quantum Theory}
+\ihead{physics606 -- Problem Set \arabic{problemset}}
+
+\title{Problem Set \arabic{problemset}}
+
+\publishers{Group 2 -- Dilege Gülmez}
+\ofoot{Group 2 -- Dilege Gülmez}
+
+\newmdenv[%
+    backgroundcolor=black!0,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+    frametitle={Problem statement},
+    frametitlerule=true,
+    nobreak=true,
+]{problem}
+
+\newmdenv[%
+    backgroundcolor=white,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    innerbottommargin=8cm,
+    splittopskip=\topskip,
+    frametitle={Side question},
+    frametitlerule=true,
+]{question}
+
+\newcommand\an{^\text{angular}}
+\newcommand\ra{^\text{radial}}
+
+
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+    \and
+    Lino Lemmer \\ \small{\href{mailto:l2@uni-bonn.de}{l2@uni-bonn.de}}
+}
+\ifoot{Martin Ueding, Lino Lemmer}
+
+\ohead{\rightmark}
+
+\begin{document}
+
+\maketitle
+
+\vspace{3ex}
+
+\begin{center}
+    \begin{tabular}{rrr}
+        problem number & achieved points & possible points \\
+        \midrule
+        1 & & \punkte{14} \\
+        2 & & \punkte{15} \\
+        \midrule
+        total & & \arabic{totalpoints}
+    \end{tabular}
+\end{center}
+
+\section{Wave packet}
+
+We again write vectors in bold type, like $\vec k$, as opposed to scalars in
+regular italic font, like $k$. We also adopt the notation that $k = |\vec k|$.
+
+\subsection{Phase velocity}
+
+The phase of a single plane wave has to be constant, so
+\[
+    \vec k \vec x - \omega(k) t = c_1.
+\]
+The total time derivative has to be zero, then. $\vec k$ is constant for a
+monochrome wave. This means
+\begin{align*}
+    \vec k \dot{\vec x} &= \omega(k). \\
+    \iff k \frac{\vec k}{k} \dot{\vec x} &= \omega(k) \\
+    \iff \frac{\vec k}{k} \dot{\vec x} &= \frac{\omega(k)}k \\
+    \intertext{%
+        The part of the velocity that is in the direction of $\vec k$ is given
+        by the right hand side. Since the propagation is taken to be this $\vec
+        k$ direction, we can just write down the projection onto $\vec k$.
+    }
+    \iff \vec v_\text{ph} &= \frac{\vec k}{k} \frac{\omega(k)}k \\
+\end{align*}
+
+\subsection{Group velocity}
+
+We start by inserting $\vec k = \vec k_0 + \vec \delta$ into equation~(1) from
+the problem set.
+\begin{align*}
+    \psi(\vec x, t)
+    &= \int \frac{\dif^3 \delta}{[2\piup]^3} a(\vec k_0 + \vec \delta)
+    \exp\del{
+        \iup \sbr{
+            [\vec k_0 + \vec \delta] \vec x - \omega\del{|\vec k_0 + \vec
+            \delta|} t
+        }
+    }
+    \intertext{%
+        We expand the angular frequency around $\vec \delta = \vec 0$:
+        \[
+            \omega\del{|\vec k_0 + \vec \delta|}
+            = \omega(k_0) + \od\omega k \vec \delta \frac{\vec k_0}{k_0} + \mathcal O(\delta^2)
+        \]
+        We insert this into the integral up to first order.
+    }
+    &\approx \int \frac{\dif^3 \delta}{[2\piup]^3} a(\vec k_0 + \vec \delta)
+    \exp\del{
+        \iup \sbr{
+            [\vec k_0 + \vec \delta] \vec x - \sbr{
+                \omega(k_0) + \od\omega k \vec \delta \frac{\vec k_0}{k_0}
+            }
+            t
+        }
+    }
+    \intertext{%
+        The parts that depend on $\vec \delta$ are taken out front.
+    }
+    &=
+    \exp\del{
+        \iup \sbr{
+            \vec k_0 \vec x - \omega(k_0) t
+        }
+    }
+    \int \frac{\dif^3 \delta}{[2\piup]^3} a(\vec k_0 + \vec \delta)
+    \exp\del{
+        \iup \sbr{ \vec \delta \vec x - \od\omega k \vec \delta \frac{\vec
+        k_0}{k_0} t }
+    }
+    \intertext{%
+        Now we can do the same thing as in the first problem where we have
+        factored out $\vec k$.
+    }
+    &=
+    \exp\del{
+        \iup \vec k_0 \sbr{ \vec x - v_\text{ph} t }
+    }
+    \int \frac{\dif^3 \delta}{[2\piup]^3} a(\vec k_0 + \vec \delta)
+    \exp\del{
+        \iup \sbr{ \vec \delta \vec x - \od\omega k \vec \delta \frac{\vec
+        k_0}{k_0} t }
+    }
+    \intertext{%
+        The next thing is to factor out the $\vec \delta$.
+    }
+    &=
+    \exp\del{
+        \iup \vec k_0 \sbr{ \vec x - v_\text{ph} t }
+    }
+    \int \frac{\dif^3 \delta}{[2\piup]^3} a(\vec k_0 + \vec \delta)
+    \exp\del{
+        \iup \vec \delta \sbr{ \vec x - \od\omega k \frac{\vec
+        k_0}{k_0} t }
+    }
+    \intertext{%
+        This is the form that we had to show for the given hint when
+        equation~(4) from the problem set it inserted.
+    }
+    &=
+    \exp\del{
+        \iup \vec k_0 \sbr{ \vec x - v_\text{ph} t }
+    }
+    \int \frac{\dif^3 \delta}{[2\piup]^3} a(\vec k_0 + \vec \delta)
+    \exp\del{
+        \iup \vec \delta \sbr{ \vec x - v_\text{gr} t }
+    }
+\end{align*}
+
+\subsection{Time evolution}
+
+It is easiest to write this as ratio of the given ones. The only difference is
+the velocity in the first exponential function.
+\begin{align*}
+    \frac{\psi(\vec x, t)}{\psi(\vec x - \vec v_\text{gr} t, 0)}
+    &\approx
+    \frac{
+        \exp\del{
+            \iup \vec k_0 \sbr{ \vec x - v_\text{ph} t }
+        }
+        \int \frac{\dif^3 \delta}{[2\piup]^3} a(\vec k_0 + \vec \delta)
+        \exp\del{
+            \iup \vec \delta \sbr{ \vec x - v_\text{gr} t }
+        }
+    }
+    {
+        \exp\del{
+            \iup \vec k_0 \sbr{ \vec x - v_\text{gr} t }
+        }
+        \int \frac{\dif^3 \delta}{[2\piup]^3} a(\vec k_0 + \vec \delta)
+        \exp\del{
+            \iup \vec \delta \sbr{ \vec x - v_\text{gr} t }
+        }
+    }
+    \intertext{%
+        This can be simplified since the integrals are just the exact same.
+    }
+    &=
+    \frac{
+        \exp\del{
+            \iup \vec k_0 \sbr{ \vec x - v_\text{ph} t }
+        }
+    }
+    {
+        \exp\del{
+            \iup \vec k_0 \sbr{ \vec x - v_\text{gr} t }
+        }
+    }
+    \intertext{%
+        The remainder is easy, just put the two exponentials together
+    }
+    &=
+    \exp\del{
+        \iup \vec k_0 \sbr{ \vec v_\text{gr} - v_\text{ph} } t
+    }
+\end{align*}
+This can then we rewritten in the form of equation~(6) from the problem set.
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
