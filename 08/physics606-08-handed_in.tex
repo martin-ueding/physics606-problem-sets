@@ -2,7 +2,7 @@
 
 \usepackage[
     bibatend,
-    color,
+    %color,
 ]{../header}
 
 \usepackage{tikz}
@@ -355,33 +355,33 @@ The limit $q \to 0$ can be done before and after the integration. Both give the
 same result:
 \begin{align*}
     \lim_{q \to 0} f_{\vec k}(\theta)
-    &= - \frac{2MV_0}{\hbar_2} \lim_{q \to 0} \frac{1}{q} \int_0^{r_0} \dif r'
+    &= - \frac{2MV_0}{\hbar^2} \lim_{q \to 0} \frac{1}{q} \int_0^{r_0} \dif r'
     \, r' \sin(q r') \\
     \intertext{%
         We expand the sine.
     }
-    &= - \frac{2MV_0}{\hbar_2} \lim_{q \to 0} \frac{1}{q} \int_0^{r_0} \dif r'
+    &= - \frac{2MV_0}{\hbar^2} \lim_{q \to 0} \frac{1}{q} \int_0^{r_0} \dif r'
     \, r' \sbr{q r' + \frac{1}{6} [qr']^3 + \mathcal O(q^5)} \\
     \intertext{%
         Cancel the $q$.
     }
-    &= - \frac{2MV_0}{\hbar_2} \lim_{q \to 0} \int_0^{r_0} \dif r'
+    &= - \frac{2MV_0}{\hbar^2} \lim_{q \to 0} \int_0^{r_0} \dif r'
     \, r' \sbr{r' + \frac{1}{6} q^2 r'^3 + \mathcal O(q^4)} \\
     \intertext{%
         Exchange limit and integration. This is allowed because the integrand
         is out of $C^\infty$.
     }
-    &= - \frac{2MV_0}{\hbar_2} \int_0^{r_0} \dif r'
+    &= - \frac{2MV_0}{\hbar^2} \int_0^{r_0} \dif r'
     \, r' \lim_{q \to 0} \sbr{r' + \frac{1}{6} q^2 r'^3 + \mathcal O(q^4)} \\
     \intertext{%
         The limit is without any problems.
     }
-    &= - \frac{2MV_0}{\hbar_2} \int_0^{r_0} \dif r' \, r'^2 \\
+    &= - \frac{2MV_0}{\hbar^2} \int_0^{r_0} \dif r' \, r'^2 \\
     \intertext{%
         This integral is trivial.
     }
-    &= - \frac{2MV_0}{\hbar_2} \frac{1}{3} r_0^3 \\
-    &= - \frac{2MV_0}{3\hbar_2} r_0^3
+    &= - \frac{2MV_0}{\hbar^2} \frac{1}{3} r_0^3 \\
+    &= - \frac{2MV_0}{3\hbar^2} r_0^3
 \end{align*}
 
 Now this can be done the other way around as well. One just has to apply
@@ -401,10 +401,34 @@ see the minima and maxima quite well.
     \centering
     \includegraphics[width=.7\linewidth]{logplot.pdf}
     \caption{%
-        Half logarithmic plot of $\od{\sigma}{\cos(\theta)}$ against $q$.
+        Half logarithmic plot of $\od{\sigma}{\cos(\theta)}$ against $q$. All
+        other constants are just set to unity for simplicity.
     }
     \label{fig:logplot}
 \end{figure}
+
+\subsection{Born approximation}
+
+The wavefunctions are \parencite[(18.9)]{Schwabl/Quantenmechanik}:
+\[
+    \psi_{\vec k}(\vec x) = \eup^{\iup \vec k \vec x} + \frac{\eup^{\iup kr}}r
+    f_{\vec k}(\theta, \phi).
+\]
+The Born approximation says that the scattered part only makes up a small part
+of the received wave. So we need
+\begin{align*}
+    \abs{\frac{\eup^{\iup kr}}{r_0} f_{\vec k}(\theta, \phi)} &\ll 1 \\
+    \iff \frac{|f_{\vec k}(\theta, \phi)|}{r_0} &\ll 1 \\
+    \iff |f_{\vec k}(\theta, \phi)| &\ll r_0
+\end{align*}
+
+For small $q$ we already derived the limit. We just need to plug this in for
+$f$ and get:
+\[
+    \abs{\frac{2MV_0}{3\hbar^2} r_0^3} \ll r_0
+    \iff
+    \abs{\frac{2MV_0}{3\hbar^2} r_0^2} \ll 1.
+\]
 
 \end{document}
 
