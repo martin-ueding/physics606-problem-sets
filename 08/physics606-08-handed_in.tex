@@ -109,7 +109,7 @@ monochrome wave. This means
         by the right hand side. Since the propagation is taken to be this $\vec
         k$ direction, we can just write down the projection onto $\vec k$.
     }
-    \iff \vec v_\text{ph} &= \frac{\vec k}{k} \frac{\omega(k)}k \\
+    \iff \vec v_\text{ph} &= \frac{\vec k}{k} \frac{\omega(k)}k
 \end{align*}
 
 \subsection{Group velocity}
@@ -243,6 +243,67 @@ the velocity in the first exponential function.
     }
 \end{align*}
 This can then we rewritten in the form of equation~(6) from the problem set.
+
+\subsection{Massless and massive particles}
+
+The relation between energy and angular frequency is given by
+\[
+    E(k) = \hbar \omega(k).
+\]
+
+\subsubsection{Massless particle}
+
+We have
+\[
+    \omega = ck
+\]
+in this case. Therefore
+\[
+    v_\text{ph} = v_\text{gr} = c
+\]
+which is not really surprising for a massless particle which has to propagate
+with the speed of light regardless of this energy.
+
+\subsubsection{Massive particle}
+
+Here
+\[
+    E = \frac{\hbar^2 k^2}{2m}
+\]
+such that
+\[
+    \omega = \frac{\hbar k^2}{2m}.
+\]
+Then
+\[
+    v_\text{ph} = \frac{\hbar k}{2m}
+    \eqnsep
+    v_\text{gr} = \frac{\hbar k}{m}.
+\]
+
+When this is inserted into the phase factor, one gets the desired result after
+a few simplifications which are hardly worth mentioning here.
+
+\subsection{Relativistic particle}
+
+The angular frequency is
+\[
+    \omega(k) = \frac{1}{\hbar} \sqrt{M^2 c^4 + \hbar^2 k^2 c^2}.
+\]
+From this, computing the velocities can be derived without new principles:
+\[
+    v_\text{ph} = \frac{1}{\hbar k} \sqrt{M^2 c^4 + \hbar^2 k^2 c^2}
+    \eqnsep
+    v_\text{gr} = \frac{\hbar}{\sqrt{M^2 c^4 + \hbar^2 k^2 c^2}} h c^2
+\]
+Taking the limits is not really difficult since nothing diverges. We obtain
+\[
+    \lim_{M \to 0} v_\text{ph} = c
+    \eqnsep
+    \lim_{M \to 0} v_\text{gr} = c
+    \eqnsep
+    \lim_{k \to 0} v_\text{gr} = 0.
+\]
 
 \end{document}
 
