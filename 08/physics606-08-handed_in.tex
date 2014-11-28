@@ -346,7 +346,7 @@ from 0 to $r_0$ instead of $\infty$, like so:
 \]
 Now this integral is actually solvable using partial integration. We obtain
 \[
-    f_{\vec k}(\theta) = - \frac{2MV_0}{q \hbar^2} \sbr{
+    f_{\vec k}(\theta) = \frac{2MV_0}{q \hbar^2} \sbr{
         \frac{r_0}{q} \cos(qr_0) + \frac{1}{q^2} \sin(qr_0)
     }
 \]
@@ -388,6 +388,23 @@ Now this can be done the other way around as well. One just has to apply
 L'Hôspital's rule a couple times. We have tried this and got the same result.
 
 Since the result is $\propto r_0^3$, our salvage of this is not too wrong.
+
+\subsection{Cross section}
+
+We computed the cross section by putting our result from the previous part of
+this problem into equation~(7) from the problem set. Since the expression
+itself was not explicitly asked for, we do not show it here. Then we plotted
+this in a half logarithmic plot, see figure~\ref{fig:logplot}. There one can
+see the minima and maxima quite well.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=.7\linewidth]{logplot.pdf}
+    \caption{%
+        Half logarithmic plot of $\od{\sigma}{\cos(\theta)}$ against $q$.
+    }
+    \label{fig:logplot}
+\end{figure}
 
 \end{document}
 
