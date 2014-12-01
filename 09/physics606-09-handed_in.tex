@@ -1,0 +1,154 @@
+\documentclass[11pt, english, fleqn, DIV=15, headinclude, BCOR=1.5cm]{scrartcl}
+
+\usepackage[
+    bibatend,
+    %color,
+]{../header}
+
+\usepackage{tikz}
+\usepackage{pdflscape}
+
+\usepackage[tikz]{mdframed}
+\newmdtheoremenv[%
+    backgroundcolor=black!5,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+]{theorem}{Theorem}[section]
+
+\hypersetup{
+    pdftitle=
+}
+
+\newcounter{totalpoints}
+\newcommand\punkte[1]{#1\addtocounter{totalpoints}{#1}}
+
+\newcounter{problemset}
+\setcounter{problemset}{9}
+
+\subject{physics606 -- Advanced Quantum Theory}
+\ihead{physics606 -- Problem Set \arabic{problemset}}
+
+\title{Problem Set \arabic{problemset}}
+
+\publishers{Group 2 -- Dilege Gülmez}
+\ofoot{Group 2 -- Dilege Gülmez}
+
+\newmdenv[%
+    backgroundcolor=black!0,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+    frametitle={Problem statement},
+    frametitlerule=true,
+    nobreak=true,
+]{problem}
+
+\newmdenv[%
+    backgroundcolor=white,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    innerbottommargin=8cm,
+    splittopskip=\topskip,
+    frametitle={Side question},
+    frametitlerule=true,
+]{question}
+
+\newcommand\an{^\text{angular}}
+\newcommand\ra{^\text{radial}}
+
+
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+    \and
+    Lino Lemmer \\ \small{\href{mailto:l2@uni-bonn.de}{l2@uni-bonn.de}}
+}
+\ifoot{Martin Ueding, Lino Lemmer}
+
+\ohead{\rightmark}
+
+\begin{document}
+
+\maketitle
+
+\vspace{3ex}
+
+\begin{center}
+    \begin{tabular}{rrr}
+        problem number & achieved points & possible points \\
+        \midrule
+        1 & & \punkte{15} \\
+        2 & & \punkte{15} \\
+        \midrule
+        total & & \arabic{totalpoints}
+    \end{tabular}
+\end{center}
+
+\section{Expansion of a plane wave}
+
+\subsection{Spherical Bessel functions}
+
+We start with the definition.
+\begin{align*}
+    j_l(x)
+    &= - x^l \sbr{\frac 1x \od{}x}^l \frac{\sin(x)}{x} \\
+    \intertext{%
+        Now we insert the series expansion of the sinc function.
+    }
+    &= - x^l \sbr{\frac 1x \od{}x}^l \sum_{n=0}^\infty \frac{[-1]^n}{[2n+1]!}
+    x^{2n} \\
+    \intertext{%
+        Commuting terms.
+    }
+    &= - \sum_{n=0}^\infty \frac{[-1]^n}{[2n+1]!} x^l \sbr{\frac 1x \od{}x}^l
+    x^{2n} \\
+    \intertext{%
+        The big square bracket will decrease the power of $x^{2n}$ by $2l$ in
+        total. Only terms with $n \geq l$ will contribute. We will omit higher
+        terms. This leaves only one interesting term, we can drop the sum and
+        set $n = l$.
+    }
+    &= - \frac{[-1]^l}{[2l+1]!} x^l \sbr{\frac 1x \od{}x}^l x^{2l} + \mathcal O(x^{l + 2}) \\
+    \intertext{%
+        The factors that we get by differentiating is every second of $2l,
+        2l-2, 2l-4, \ldots =: [2l]!!$.
+    }
+    &= - \frac{[-1]^l [2l]!!}{[2l+1]!} x^l + \mathcal O(x^{l + 2}) \\
+    \intertext{%
+        Realizing that
+        \[
+            [2l]!!
+            = [2l][2l-2][2l-4]\ldots
+            = 2 l 2 [l-1] 2 [l-2] \ldots
+            = 2^l l!
+        \]
+        gives
+    }
+    &= [-1]^{l+1} \frac{2^l l!}{[2l+1]!} x^l + \mathcal O(x^{l + 2})
+\end{align*}
+This result differers from the result on the problem set by the $l$ dependent
+sign.
+
+\subsection{Expression of $x^l$}
+
+We only look at the highest term in the Legendre polynomial:
+\[
+    P_l(x)
+    = \frac{1}{2^l l!} \od{^l}{x^l} \sbr{x^{2l} + \ldots}
+    = \frac{1}{2^l l!} \frac{[2l]!}{l!} x^{l} + \ldots
+\]
+The other terms contain lesser powers of $x$ than $x^l$. Then this can be
+inverted to
+\[
+    x^l = \frac{2^l [l!]^2}{[2l]!} P_l(x) + \ldots.
+\]
+
+\section{Scattering on a dipole}
+
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
