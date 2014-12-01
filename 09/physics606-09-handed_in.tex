@@ -146,6 +146,79 @@ inverted to
     x^l = \frac{2^l [l!]^2}{[2l]!} P_l(x) + \ldots.
 \]
 
+\subsection{Use of orthogonality}
+
+We define $\xi := \cos(\theta)$ for this subsection. It is slightly confusing
+that $k$ is used as the wave number and an index, we use $m$ instead.
+
+Start with expansion of plane wave.
+\begin{align*}
+    \exp(\iup k x \xi) &= \sum_{l = 0}^\infty A_l j_l(kx) P_l(\xi) \\
+    \intertext{%
+        $L^2$ project this onto $P_m(\xi)$.
+    }
+    \int_{-1}^1 \dif \xi \, P_m(\xi) \exp(\iup k x \xi) &= \sum_{l = 0}^\infty A_l
+    j_l(kx) \int_{-1}^1 \dif \xi \, P_m(\xi) P_l(\xi) \\
+    \intertext{%
+        Use orthogonality.
+    }
+    \int_{-1}^1 \dif \xi \, P_m(\xi) \exp(\iup k x \xi) &= \sum_{l = 0}^\infty A_l
+    j_l(kx) \frac{2}{2l+1} \delta_{lm} \\
+    \intertext{%
+        Execute $\delta$.
+    }
+    \int_{-1}^1 \dif \xi \, P_m(\xi) \exp(\iup k x \xi) &= A_m
+    j_m(kx) \frac{2}{2k+1} \\
+    \intertext{%
+        Move fraction to other side.
+    }
+    \frac{2m+1}{2} \int_{-1}^1 \dif \xi \, P_m(\xi) \exp(\iup k x \xi) &= A_m
+    j_m(kx)
+\end{align*}
+This is not the result on the problem set, since the integration measure
+$\dif\cos(\theta) = \dif\xi$ is missing there.
+
+\subsection{Extraction of $A_l$}
+
+We start with the expression we just derived.
+\begin{align*}
+    A_l j_l(kx)
+    &= \frac{2l+1}{2} \int_{-1}^1 \dif \xi \, P_l(\xi) \exp(\iup k x \xi) \\
+    \intertext{%
+        We express $j_l$ through its approximation around $kx = 0$ and express
+        $P_l$ in terms of $x$.
+    }
+    A_m [kx]^l \frac{2^l l!}{[2l+1]!}
+    &= \frac{2l+1}{2} \int_{-1}^1 \dif \xi \, \frac{[2l]!}{2^l[l!]^2} \xi^l \exp(\iup k x \xi) \\
+    \intertext{%
+        Next we insert the \emph{definition} of the exponential.
+    }
+    A_m [kx]^l \frac{2^l l!}{[2l+1]!}
+    &= \frac{2l+1}{2} \int_{-1}^1 \dif \xi \, \frac{[2l]!}{2^l[l!]^2} \xi^l
+    \sbr{1 + \iup k x \xi + \mathcal O(\xi^2)} \\
+    \intertext{%
+        We move the Landau $\mathcal O$ out of the integral.
+    }
+    A_m [kx]^l \frac{2^l l!}{[2l+1]!}
+    &= \frac{2l+1}{2} \int_{-1}^1 \dif \xi \, \frac{[2l]!}{2^l[l!]^2} \xi^l
+    [1 + \iup k x \xi] + \mathcal O(\xi^{l+2}) \\
+    \intertext{%
+        Move the factors to the right hand side.
+    }
+    A_m &= \frac{[2l+1]!}{2^l l!} \frac{2l+1}{2} \frac{1}{[kx]^l}
+    \frac{[2l]!}{2^l[l!]^2} \int_{-1}^1 \dif \xi \, \xi^l [1 + \iup k x \xi] +
+    \mathcal O(\xi^{l+2}) \\
+    \intertext{%
+        Simplify.
+    }
+    A_m &= [2l+1]! [2l+1] \frac{[2l]!}{2^{2l+1} [l!]^3} \frac{1}{[kx]^l}
+    \int_{-1}^1 \dif \xi \, \xi^l [1 + \iup k x \xi] + \mathcal O(\xi^{l+2}) \\
+    A_m &= [2l+1]^2 \frac{\sbr{[2l]!}^2}{2^{2l+1} [l!]^3} \frac{1}{[kx]^l}
+    \int_{-1}^1 \dif \xi \, \xi^l [1 + \iup k x \xi] + \mathcal O(\xi^{l+2})
+\end{align*}
+One of the integrals will give zero, the other will contribute something that
+only depends on $kx$.
+
 \section{Scattering on a dipole}
 
 
