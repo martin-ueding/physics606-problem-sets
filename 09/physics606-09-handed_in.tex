@@ -221,6 +221,60 @@ only depends on $kx$.
 
 \section{Scattering on a dipole}
 
+\subsection{Scattering amplitude}
+
+Figure~\ref{fig:sketch} shows the two scattering centers as well as the
+incoming and outgoing wave vectors. The $\Deltaup s$ and $\Deltaup s'$ are the
+path differences for the two vectors. The incident waves are in phase and have
+the same wave vector $\vec k$. The incoming waves, represented by two wave
+vectors, scatter at the respective positions. At the point where they scatter,
+they have a phase shift due to the path difference. The path difference
+$\Deltaup s$ is the projection of $\vec d$ onto the direction of $\vec k$,
+namely
+\[
+    \Deltaup s = \vec d \frac{\vec k}{k}.
+\]
+The phase shift is this distance times the wave number, so the phase difference
+is given by the scalar product
+\[
+    \Deltaup \phi = \vec d \vec k.
+\]
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics{Drawing-0001.pdf}
+    \caption{%
+        Path difference for the two scattered waves.
+    }
+    \label{fig:sketch}
+\end{figure}
+
+A similar thing happens for the scattered waves, they also have a path
+difference. In the case where $\vec k$ and $\vec d$, as well as $\vec k'$ and
+$\vec d$ point into the same direction (such that $\vec k \vec d > 0 \land \vec
+k' \vec d > 0$), like in the picture, the path difference has a negative sign
+now. For the incoming wave, the right wave had an additional path, now it is
+the left wave with the additional path. We count this negatively then. The
+phase shift here is
+\[
+    \Deltaup \phi' = - \vec d \vec k'.
+\]
+
+The total phase shift therefore is
+\[
+    \vec d [\vec k - \vec k']
+    =
+    \vec d \vec q.
+\]
+Equation~(10) on the problem set gives the monopole scattering amplitude. It
+depends on the charge of the particles. Since the second particle has opposite
+charge, we will get the negative of the amplitude. Adding both amplitudes with
+the phase shift gives us the desired
+\[
+    f_{\vec k}^\text{dipole}
+    = \sbr{1 - \eup^{- \iup \vec q \vec d}} f_{\vec k}^\text{monopole}.
+\]
+
 
 \end{document}
 
