@@ -275,6 +275,68 @@ the phase shift gives us the desired
     = \sbr{1 - \exp(- \iup \vec q \vec d)} f_{\vec k}^\text{monopole}.
 \]
 
+\subsection{Case of aligned dipole}
+
+We have
+\[
+    \vec d =
+    \begin{pmatrix}
+        0 \\ 0 \\ d
+    \end{pmatrix}.
+\]
+Then
+\[
+    \vec q \vec d = [1 - \cos(\theta)] kd.
+\]
+This part is independent of $\phi$. Then we need $f^\text{monopole}_{\vec k}$:
+\begin{align*}
+    f^\text{monopole}_{\vec k}
+    &= - \frac{2M}\hbar \frac{Z_1 Z_2 e^2}{4 \piup \varepsilon_0} \frac{1}{q^2}
+    \\
+    \intertext{%
+        We insert $\vec q$.
+    }
+    &= - \frac{2M}\hbar \frac{Z_1 Z_2 e^2}{4 \piup \varepsilon_0} \frac{1}{k^2}
+    \frac{1}{\sin(\theta^2) \sin(\phi)^2 + \sin(\theta)^2 \cos(\phi)^2 +
+    [1-\cos(\theta)]^2}
+    \intertext{%
+        We use trigonometric identities to simplify.
+    }
+    &= - \frac{2M}\hbar \frac{Z_1 Z_2 e^2}{4 \piup \varepsilon_0} \frac{1}{k^2}
+    \frac{1}{\sin(\theta^2) + \cos(\theta)^2 - 2 \cos(\theta) + 1} \\
+    \intertext{%
+        This can be simplified further.
+    }
+    &= - \frac{2M}\hbar \frac{Z_1 Z_2 e^2}{4 \piup \varepsilon_0} \frac{1}{k^2}
+    \frac{1}{2 - 2 \cos(\theta)} \\
+    \intertext{%
+        For convenience, we introduce $\xi := 1 - \cos(\theta)$.
+    }
+    &= - \frac{2M}\hbar \frac{Z_1 Z_2 e^2}{4 \piup \varepsilon_0} \frac{1}{k^2}
+    \frac{1}{2\xi} \\
+    \intertext{%
+        For even more convenience, we introduce $A$ to carry all the constant
+        factors.
+    }
+    &= \frac{A}{k^2 \xi}
+\end{align*}
+
+The whole scattering amplitude then is
+\begin{align*}
+    f_{\vec k}^\text{dipole}
+    &= \frac{A}{k^2} \frac{1 - \exp(- \iup \xi k d)}{\xi}.
+    \intertext{%
+        We write down the leading terms of the exponential function.
+    }
+    f_{\vec k}^\text{dipole}
+    &= \frac{A}{k^2} \frac{\iup \xi k d + \mathcal O(\xi^2)}{\xi} \\
+    \intertext{%
+        We cancel $\xi$.
+    }
+    &= \frac{A}{k^2} \iup k d + \mathcal O(\xi)
+\end{align*}
+This is now well behaved in the limit $\theta \to 0$ implying $\xi \to 0$. It
+will be a finite nonzero value.
 
 \end{document}
 
