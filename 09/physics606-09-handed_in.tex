@@ -389,6 +389,36 @@ The differential cross section is given by its modulus squared:
 This expression depends on $\phi$, but diverges for $\theta \to 0$ since the
 numerator is $\xi$ for small $\theta$, but the denominator is $\xi^2$.
 
+\subsection{Large momentum transfer}
+
+We have $qd \gg 1$ here. The angle spanned between $\vec q$ and $\vec d$ shall
+be $\alpha$ which depends on $\theta$ in some way. Then the scattering
+amplitude is proportional to
+\[
+    1 - \exp\del{-\iup q d \cos(\alpha)}.
+\]
+We integrate the modulus squared of this over the interval $\theta \in [a-b,
+a+b]$ where $a$ can be chosen in a way that $\alpha$ becomes $\theta$. So we
+write the part of the cross section that we are interested in as
+\begin{align*}
+    \tilde\sigma
+    &= \int_{a-b}^{a+b} \dif \cos(\theta) \, \sbr{1 - \exp\del{-\iup qd
+    \cos(\theta)}}\sbr{1 - \exp\del{\iup qd \cos(\theta)}}. \\
+    \intertext{%
+        Now we out the integration and yield after a few steps of
+        simplification:
+    }
+    &= 4b + \frac{4}{qd} \exp(-\iup qda) \sin(b).
+\end{align*}
+For sufficiently large $b$, the first term will always be way greater than the
+second, since $qd \gg 1$ was given. Therefore, this will be $4b$.
+
+When a single particle is looked at, the amplitude scaling factor is just 1.
+The integral over the same domain gives $2b$. For two independent particles,
+this is twice this, $4b$. Therefore, regardless of the choice of $a$, and with
+that independent of the orientation of $\vec d$ to $\vec q$, the cross section
+is like the incoherent sum.
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
