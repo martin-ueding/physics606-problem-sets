@@ -275,7 +275,7 @@ the phase shift gives us the desired
     = \sbr{1 - \exp(- \iup \vec q \vec d)} f_{\vec k}^\text{monopole}.
 \]
 
-\subsection{Case of aligned dipole}
+\subsection{Case of parallel incident}
 
 We have
 \[
@@ -335,7 +335,59 @@ The whole scattering amplitude then is
     &= \frac{A}{k^2} \iup k d + \mathcal O(\xi)
 \end{align*}
 This is now well behaved in the limit $\theta \to 0$ implying $\xi \to 0$. It
-will be a finite nonzero value.
+will be a finite nonzero value. The modulus squared of this has the same
+properties. Therefore the differential cross section is also zero and
+independent of $\phi$. The integral over $\Omega$ does not change any of this.
+$\sigma$ itself is always independent of any angles since those are integrated
+away.
+
+\subsection{Case of perpendicular incident}
+
+Now we have
+\[
+    \vec d =
+    \begin{pmatrix}
+        0 \\ d \\ 0
+    \end{pmatrix}.
+\]
+$q^2$ is left unchanged by this. The scalar product becomes
+\[
+    \vec q \vec d = \sin(\theta) \cos(\phi) kd.
+\]
+With that we get:
+\[
+    f_{\vec k}^\text{dipole} = \frac{A}{2k^2} \frac{1 - \exp\del{-\iup \sin(\theta)
+    \cos(\phi) kd}}{1 - \cos(\theta)}
+\]
+The differential cross section is given by its modulus squared:
+\begin{align*}
+    \od\sigma\Omega
+    &= \abs{f_{\vec k}^\text{dipole}}^2. \\
+    \intertext{%
+        We insert our previous result.
+    }
+    &= \frac{A^2}{4k^4} \abs{\frac{1 - \exp\del{-\iup \sin(\theta) \cos(\phi)
+    kd}}{1 - \cos(\theta)}}^2 \\
+    \intertext{%
+        The modulus squared is the same as the product with the complex
+        conjugate.
+    }
+    &= \frac{A^2}{4k^4} \frac{\sbr{1 - \exp\del{-\iup \sin(\theta) \cos(\phi)
+    kd}}\sbr{1 - \exp\del{\iup \sin(\theta) \cos(\phi)
+    kd}}}{\sbr{1 - \cos(\theta)}^2} \\
+    \intertext{%
+        The  two exponentials can be combined into a cosine.
+    }
+    &= \frac{A^2}{4k^4} \frac{2 - 2 \cos\del{\sin(\theta) \cos(\phi)
+    kd}}{\sbr{1 - \cos(\theta)}^2} \\
+    \intertext{%
+        We cancel 4.
+    }
+    &= \frac{A^2}{k^4} \frac{1 - \cos\del{\sin(\theta) \cos(\phi)
+    kd}}{\sbr{1 - \cos(\theta)}^2}
+\end{align*}
+This expression depends on $\phi$, but diverges for $\theta \to 0$ since the
+numerator is $\xi$ for small $\theta$, but the denominator is $\xi^2$.
 
 \end{document}
 
