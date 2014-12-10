@@ -160,9 +160,45 @@ which is also the result mentioned for the hard sphere in
     $\delta_0 = - kr_0$.
 \end{problem}
 
+The first order of those spherical functions are given by
+\[
+    j_0(x) = \frac{\sin(x)}{x}
+    \eqnsep
+    n_0(x) = - \frac{\cos(x)}{x},
+\]
+\parencite{MathWorld/BesselFunctionoftheSecondKind,MathWorld/BesselFunctionoftheFirstKind}.
+Inserting this into the previous expression for the phase shift gives us
+\[
+    \tan(\delta_l) = - \frac{\sin(kr_0)}{\cos(kr_0)}
+\]
+which simplifies to $\delta_l = - kr_0$. The minus sign can be put into both
+sine and cosine, then the tangent can be inverted.
+
 \begin{problem}
     Why is the phase shift negative here?
 \end{problem}
+
+The shift is negative since the wave is scattered on a repulsive potential.
+
+\subsection{Expansion for small arguments}
+
+\begin{problem}
+    Use the expansions of $j_l$ and $n_l$ at small argument to show that
+    $\delta_l \propto [kr_0]^{2l+1}$, just as for scattering on a spherical
+    potential well.
+\end{problem}
+
+In the ninth exercise, we derived this approximation, it was also given as a
+control result:
+\[
+    j_l(x) = x^l \frac{2^l l!}{[2l+1]!} + \mathcal O(x^{l+2}).
+\]
+The von~Neumann functions have a similar representation using repeated
+differentiation,
+\[
+    n_l(x) = - [-x]^l \sbr{\frac 1x \od{}x}^l \frac{\cos(x)}{x},
+\]
+\parencite{wikipedia/bessel_dgl}
 
 \section{Scattering length}
 
