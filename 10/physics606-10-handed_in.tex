@@ -128,25 +128,23 @@ infinite jump, $R$ will not be differentiable, just like the energy
 eigenfunctions of the infinite potential well. Both factors in the logarithmic
 derivative will be infinite, such that $\alpha_l = \infty$ is result. The
 logarithmic derivative of the inner and outer solutions have to match up. This
-leads to
+leads to \parencite[(18.61)]{Schwabl/Quantenmechanik}:
 \[
-    \frac{1}{R_l^>(r)} \od{R_l^>(r)}r \overset != \alpha_l,
+    \frac{1}{R_l^>(r)} \od{R_l^>(r)}r \overset != \alpha_l.
 \]
-\parencite[(18.61)]{Schwabl/Quantenmechanik}. The spherical Hankel functions
-can be split up into spherical Bessel $j_l$ and spherical von~Neumann $n_l$
-functions. Then the previous equation can be transformed into
-\parencite[(18.62)]{Schwabl/Quantenmechanik}:
+The spherical Hankel functions can be split up into spherical Bessel $j_l$ and
+spherical von~Neumann $n_l$ functions. Then the previous equation can be
+transformed into \parencite[(18.62)]{Schwabl/Quantenmechanik}:
 \[
     \eup^{2 \iup \delta_l} -1 = 2 \eval{\frac{\od{j_l}r - \alpha_l j_l}{\alpha_l h_l
     - \od{h_l}r}}_{r=r_0}.
 \]
-Solving for $\delta_l$ gives
+Solving for $\delta_l$ gives \parencite[(18.62)]{Schwabl/Quantenmechanik}:
 \[
     \tan(\delta_l) = \eval{\frac{\od{j_l}r - \alpha_l j_l}{\od{n_l}r - \alpha_l
-    n_l}}_{r=r_0},
+    n_l}}_{r=r_0}.
 \]
-\parencite[(18.62)]{Schwabl/Quantenmechanik}. Since $\alpha_l$ is infinite, the
-remainder of this fraction is
+Since $\alpha_l$ is infinite, the remainder of this fraction is
 \[
     \tan(\delta_l) = \frac{j_l(kr_0)}{n_l(kr_0)},
 \]
@@ -161,12 +159,12 @@ which is also the result mentioned for the hard sphere in
 \end{problem}
 
 The first order of those spherical functions are given by
+\parencite{MathWorld/BesselFunctionoftheSecondKind,MathWorld/BesselFunctionoftheFirstKind}:
 \[
     j_0(x) = \frac{\sin(x)}{x}
     \eqnsep
-    n_0(x) = - \frac{\cos(x)}{x},
+    n_0(x) = - \frac{\cos(x)}{x}.
 \]
-\parencite{MathWorld/BesselFunctionoftheSecondKind,MathWorld/BesselFunctionoftheFirstKind}.
 Inserting this into the previous expression for the phase shift gives us
 \[
     \tan(\delta_l) = - \frac{\sin(kr_0)}{\cos(kr_0)}
@@ -194,11 +192,14 @@ control result:
     j_l(x) = x^l \frac{2^l l!}{[2l+1]!} + \mathcal O(x^{l+2}).
 \]
 The von~Neumann functions have a similar representation using repeated
-differentiation,
+differentiation \parencite{wikipedia/bessel_dgl}:
 \[
-    n_l(x) = - [-x]^l \sbr{\frac 1x \od{}x}^l \frac{\cos(x)}{x},
+    j_l(x) = [-x]^l \sbr{\frac 1x \od{}x}^l \frac{\sin(x)}{x}
+    \eqnsep
+    n_l(x) = - [-x]^l \sbr{\frac 1x \od{}x}^l \frac{\cos(x)}{x}.
 \]
-\parencite{wikipedia/bessel_dgl}
+
+The derivation is similar.
 
 \section{Scattering length}
 
