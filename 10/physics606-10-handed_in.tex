@@ -1,0 +1,172 @@
+\documentclass[11pt, english, fleqn, DIV=15, headinclude, BCOR=1.5cm]{scrartcl}
+
+\usepackage[
+    bibatend,
+    color,
+]{../header}
+
+\usepackage{tikz}
+\usepackage{pdflscape}
+
+\usepackage[tikz]{mdframed}
+\newmdtheoremenv[%
+    backgroundcolor=black!5,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+]{theorem}{Theorem}[section]
+
+\hypersetup{
+    pdftitle=
+}
+
+\newcounter{totalpoints}
+\newcommand\punkte[1]{#1\addtocounter{totalpoints}{#1}}
+
+\newcounter{problemset}
+\setcounter{problemset}{9}
+
+\subject{physics606 -- Advanced Quantum Theory}
+\ihead{physics606 -- Problem Set \arabic{problemset}}
+
+\title{Problem Set \arabic{problemset}}
+
+\publishers{Group 2 -- Dilege Gülmez}
+\ofoot{Group 2 -- Dilege Gülmez}
+
+\newmdenv[%
+    backgroundcolor=black!0,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+    frametitle={Problem statement},
+    frametitlerule=true,
+    nobreak=true,
+]{problem}
+
+\newmdenv[%
+    backgroundcolor=white,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    innerbottommargin=8cm,
+    splittopskip=\topskip,
+    frametitle={Side question},
+    frametitlerule=true,
+]{question}
+
+\newcommand\an{^\text{angular}}
+\newcommand\ra{^\text{radial}}
+
+
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+    \and
+    Lino Lemmer \\ \small{\href{mailto:l2@uni-bonn.de}{l2@uni-bonn.de}}
+}
+\ifoot{Martin Ueding, Lino Lemmer}
+
+\ohead{\rightmark}
+
+\begin{document}
+
+\maketitle
+
+\vspace{3ex}
+
+\begin{center}
+    \begin{tabular}{rrr}
+        problem number & achieved points & possible points \\
+        \midrule
+        1 & & \punkte{15} \\
+        2 & & \punkte{13} \\
+        \midrule
+        total & & \arabic{totalpoints}
+    \end{tabular}
+\end{center}
+
+\section{Scattering on a hard sphere}
+
+\subsection{Phase shift}
+
+\begin{problem}
+    Write down the radial wave function.
+\end{problem}
+
+Inside the sphere, the potential is infinite, so it is exactly zero for any
+angular momentum $l$:
+\[
+    R_l^<(r) = 0.
+\]
+The part outside the sphere is independent of the potential,
+\[
+    R_l^>(r) = \frac12 \sbr{h_l^*(kr) + \eup^{2\iup \delta_l} h_l(kr)},
+\]
+where $h_l := h_l^{(1)}$ \parencite[(18.59)]{Schwabl/Quantenmechanik}.
+
+\begin{problem}
+    Use the continuity of the wave function at $r = r_0$ together with the
+    asymptotic expression for the wave function at $r \to \infty$ to show that
+    \[
+        \tan(\delta_l) = \frac{j_l(kr_0)}{n_l(kr_0)}.
+    \]
+\end{problem}
+
+At the boundary $r_0$ the wave function $\psi$ has to be both continuous and
+differentiable. Both criteria can be checked at the same time by the virtue of
+the logarithmic derivative, which is defined in
+\parencite[(18.60)]{Schwabl/Quantenmechanik} as
+\[
+    \alpha_l := \eval{\od{\,\log\del{R_l^<(r)}}r}_{r = r_0}
+    = \eval{\frac{1}{R_l^<(r)} \od{R_l^<(r)}r}_{r = r_0}.
+\]
+As mentioned before, the wave function $\psi$ and its radial part $R$ will be
+zero within this sphere of radius $r_0$. Also, since the potential makes an
+infinite jump, $R$ will not be differentiable, just like the energy
+eigenfunctions of the infinite potential well. Both factors in the logarithmic
+derivative will be infinite, such that $\alpha_l = \infty$ is result. The
+logarithmic derivative of the inner and outer solutions have to match up. This
+leads to
+\[
+    \frac{1}{R_l^>(r)} \od{R_l^>(r)}r \overset != \alpha_l,
+\]
+\parencite[(18.61)]{Schwabl/Quantenmechanik}. The spherical Hankel functions
+can be split up into spherical Bessel $j_l$ and spherical von~Neumann $n_l$
+functions. Then the previous equation can be transformed into
+\parencite[(18.62)]{Schwabl/Quantenmechanik}:
+\[
+    \eup^{2 \iup \delta_l} -1 = 2 \eval{\frac{\od{j_l}r - \alpha_l j_l}{\alpha_l h_l
+    - \od{h_l}r}}_{r=r_0}.
+\]
+Solving for $\delta_l$ gives
+\[
+    \tan(\delta_l) = \eval{\frac{\od{j_l}r - \alpha_l j_l}{\od{n_l}r - \alpha_l
+    n_l}}_{r=r_0},
+\]
+\parencite[(18.62)]{Schwabl/Quantenmechanik}. Since $\alpha_l$ is infinite, the
+remainder of this fraction is
+\[
+    \tan(\delta_l) = \frac{j_l(kr_0)}{n_l(kr_0)},
+\]
+which is also the result mentioned for the hard sphere in
+\parencite[(18.63)]{Schwabl/Quantenmechanik}.
+
+\subsection{Negative shift}
+
+\begin{problem}
+    Use the explicit expressions for $j_0(x)$ and $n_0(x)$ to show that
+    $\delta_0 = - kr_0$.
+\end{problem}
+
+\begin{problem}
+    Why is the phase shift negative here?
+\end{problem}
+
+\section{Scattering length}
+
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
