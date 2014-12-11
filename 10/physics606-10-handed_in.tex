@@ -454,6 +454,47 @@ we obtain the desired result of
 
 \subsection{Wavefunction outside}
 
+In this problem, a second $R_0$ comes up. Until now, $R_0 \in \R$ was the
+scattering length. Now this second $R_0$ is an element of the mapping $\R \to
+\R$. It stands for the radial part of the $S$-wave function. It is the special
+case $l = 1$ of $R_l(r)$. As a rule of thumb, every $R_0(r)$ means the radial
+wave function, $R_0$ without function arguments means the scattering length.
+Luckily, this problem does not ask anything about the function $R_0$ itself, so
+the notation would be impossible.
+
+Anyway, to the problem at hand, I digress. We are given another form of the
+wave function outside of the sphere. We had a version by
+\citeauthor{Schwabl/Quantenmechanik}. This one here is
+\begin{align*}
+    R_0(r)
+    &\propto \cos(\delta_0) j_0(kr) - \sin(\delta_0) n_0(kr). \\
+    \intertext{%
+        Now we factor out a factor of cosine and hide it in the
+        proportionality since it does not depend on the radius $r$.
+    }
+    &\propto j_0(kr) - \tan(\delta_0) n_0(kr) \\
+    \intertext{%
+        Here we use equation~(4) from the problem set to replace the tangent.
+        Keep in mind that this $R_0$ is not the same as the other one.
+    }
+    &= j_0(kr) + k R_0 n_0(kr) \\
+    \intertext{%
+        Next are the approximations for the Bessel and von~Neumann functions.
+        For the zeroth order, they are quite simple, just $1$ and $-1/[kr]$.
+    }
+    &= 1 - \frac{R_0}r  \\
+    \intertext{%
+        We change the order of the summands and again use the proportionality
+        here.
+    }
+    &\propto \frac{R_0}r - 1 \\
+    \intertext{%
+        Now we just multiply both sides with the radius $r$.
+    }
+    r R_0(r) &\propto R_0 - r
+\end{align*}
+So this gives us a proportionality between the two $R_0$.
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
