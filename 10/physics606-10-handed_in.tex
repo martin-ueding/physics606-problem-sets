@@ -261,6 +261,52 @@ The ratio gives us
 \]
 The problem is that the sign is wrong.
 
+\subsection{Total cross section}
+
+We start with equation \parencite[(18.40)]{Schwabl/Quantenmechanik}:
+\begin{align*}
+    \sigma
+    &= \frac{4\piup}{k^2} \sum_{l=0}^{kr_0} [2l+1] \sin(\delta_l)^2. \\
+    \intertext{%
+        Now we insert the result of $\delta_l$ from the previous part.
+    }
+    &= \frac{4\piup}{k^2} \sum_{l=0}^{kr_0} [2l+1] \sin\del{-kr_0 +
+    \frac{l\piup}2}^2
+    \intertext{%
+        We now split the sum into even and odd values of $l$, introducing $m$.
+    }
+    &= \frac{4\piup}{k^2} \sum_{m=0}^{kr_0/2} \sbr{
+        [2[2m]+1] \sin\del{-kr_0 + \frac{2m\piup}2}^2
+        + [2[2m+1]+1] \sin\del{-kr_0 + \frac{[2m+1]\piup}2}^2
+    } \\
+    &= \frac{4\piup}{k^2} \sum_{m=0}^{kr_0/2} \sbr{
+        [4m+1] \sin\del{-kr_0 + m\piup}^2
+    + [4m+3] \sin\del{-kr_0 + \frac{[2m+1]}2 \piup}^2
+    }
+    \intertext{%
+        The first sine will always be a sine for any value of $m$. The square
+        will take care of the sign, so we can just write this as a pure sine of
+        the first summand. The second sine will always be a cosine.
+    }
+    &= \frac{4\piup}{k^2} \sum_{m=0}^{kr_0/2} \sbr{
+        [4m+1] \sin(kr_0)^2 + [4m+3] \cos(kr_0)^2
+    }
+    \intertext{%
+        We combine sine and cosine.
+    }
+    &= \frac{4\piup}{k^2} \sum_{m=0}^{kr_0/2} [8m+4]
+    \intertext{%
+        The sum can now be evaluated and gives
+    }
+    &= \frac{4\piup}{k^2} \sbr{[kr_0]^2 + 4kr_0 + 4}.
+    \intertext{%
+        We simplify more and only keep the leading term in $k$ since $k$ is
+        supposed to be large.
+    }
+    &= 4 \piup r_0^2
+\end{align*}
+So this is a factor 4 larger than the geometrical cross section.
+
 \section{Scattering length}
 
 
