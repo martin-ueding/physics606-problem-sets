@@ -199,7 +199,67 @@ differentiation \parencite{wikipedia/bessel_dgl}:
     n_l(x) = - [-x]^l \sbr{\frac 1x \od{}x}^l \frac{\cos(x)}{x}.
 \]
 
-The derivation is similar.
+The derivation is similar. We expand the cosine in terms of its power series:
+\begin{align*}
+    n_l(x)
+    &= - \sum_{n=0}^l \frac{[-1]^n}{[2n]!} [-x]^l \sbr{\frac 1x \od{}x}^l
+    x^{2n-1}.
+    \intertext{%
+        Now we drop all but the lowest power, which comes at $n = 0$. This is
+        the same as just using the first order expansion of the cosine.
+    }
+    &\approx - [-x]^l \sbr{\frac 1x \od{}x}^l x^{-1}.
+    \intertext{%
+        Assuming that $l \geq 1$, we can perform the derivatives and obtain
+    }
+    &= - [2l-1]!! \, x^{-1-l}.
+\end{align*}
+
+Then we simply have
+\[
+    \frac{j_l(x)}{n_l(x)} \propto \frac{x^l}{x^{-1-l}} = x^{2l+1}.
+\]
+However, this is $\tan(\delta_l)$, not $\delta_l$ itself. Do we make the
+approximation $\tan(x) = x + \mathcal O(x^3)$ here as well?
+
+\subsection{Asymptotic expansion}
+
+\begin{problem}
+    Use the asymptotic expressions for $j_l$ and $n_l$ for large arguments to
+    show that
+    \[
+        \lim_{k r_0 \to \infty} \delta_l(k) = - kr_0 + \frac{l \piup}2.
+    \]
+\end{problem}
+
+\parencite{wikipedia/bessel_dgl} gives the following large argument expressions
+for the non-spherical functions:
+\[
+    J_\nu(x) = \sqrt{\frac{2}{\piup x}} \cos\del{x - \frac{\nu\piup}2 -
+    \frac\piup4}
+    \eqnsep
+    N_\nu(x) = \sqrt{\frac{2}{\piup x}} \sin\del{x - \frac{\nu\piup}2 -
+    \frac\piup4}.
+\]
+The relation to the spherical ones is given by
+\[
+    j_l(x) = \sqrt{\frac\piup{2x}} J_{l + 1/2}(x)
+    \eqnsep
+    n_l(x) = \sqrt{\frac\piup{2x}} N_{l + 1/2}(x).
+\]
+We now plug this together and get
+\[
+    j_l(x) = \frac1x \cos\del{x - \frac{l\piup}2}
+    \eqnsep
+    n_l(x) = \frac1x \sin\del{x - \frac{l\piup}2}.
+\]
+The ratio gives us
+\[
+    \tan(\delta_l) = \tan\del{kr_0 - \frac{l\piup}2}
+    \iff
+    \delta_l = kr_0 - \frac{l\piup}2.
+\]
+The problem is that the sign is wrong.
 
 \section{Scattering length}
 
