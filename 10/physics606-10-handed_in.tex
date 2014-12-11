@@ -328,6 +328,95 @@ We start with equation~(3) from the problem set:
     \iff k \cot(\delta_0) &= - \frac{1}{R_0}
 \end{align*}
 
+\subsection{}
+
+\begin{problem}
+    Show that
+    \[
+        \eup^{2 \iup \delta_0}
+        = \frac{2 \iup}{\cot(\delta_0) - \iup}
+        = \frac{2k R_0}{\iup - kR_0}
+        = - 2 \iup k R_0 + \mathcal O(k^2).
+    \]
+\end{problem}
+
+The correct version of the first equality is given in
+\parencite[(18.95)]{Schwabl/Quantenmechanik} and has an additional term
+compared to the one from the problem set\footnote{Regarding the version from
+the evening of Wednesday, 2014-12-10.}:
+\[
+    \eup^{2 \iup \delta_0} \underbrace{-1}
+    = \frac{2 \iup}{\cot(\delta_0) - \iup}.
+\]
+With that, this is rather straightforward. We define $w := \eup^{\iup
+\delta_0}$ to write less stuff. The derivation is just the simplification
+backwards:
+\begin{align*}
+    \exp(2 \iup \delta_0)
+    &= w^2 - 1 \\
+    \intertext{%
+        Expand.
+    }
+    &= \frac{w^{-1} [w^2 -1]}{w^{-1}} \\
+    \intertext{%
+        Factor out.
+    }
+    &= \frac{w - w^{-1}}{w^{-1}} \\
+    \intertext{%
+        Introduce factor of 2.
+    }
+    &= 2 \frac{w - w^{-1}}{2 w^{-1}} \\
+    \intertext{%
+        Make this into a more complex double fraction.
+    }
+    &= 2 \frac{1}{\frac{2 w^{-1}}{w - w^{-1}}} \\
+    \intertext{%
+        Invent more terms.
+    }
+    &= \frac{2}{\frac{w - w^{-1} - w + w^{-1}}{w - w^{-1}}} \\
+    \intertext{%
+        Separate fractions.
+    }
+    &= \frac{2}{\frac{w + w^{-1}}{w - w^{-1}} - 1} \\
+    \intertext{%
+        Introduce a factor of $\iup$.
+    }
+    &= \frac{2\iup}{\iup\frac{w + w^{-1}}{w - w^{-1}} - \iup} \\
+    \intertext{%
+        Write said factor as another double fraction.
+    }
+    &= \frac{2\iup}{\frac{1/2}{1/[2\iup]}\frac{w + w^{-1}}{w - w^{-1}} - \iup} \\
+    \intertext{%
+        Recognize cosine and sine.
+    }
+    &= \frac{2\iup}{\frac{\cos(\delta_0)}{\sin(\delta_0) - \iup}} \\
+    \intertext{%
+        Compress this into a cotangent.
+    }
+    &= \frac{2\iup}{\cot(\delta_0) - \iup}
+\end{align*}
+From here, the next part is a bit easier:
+\begin{align*}
+    \frac{2\iup}{\cot(\delta_0) - \iup}
+    &= \frac{2\iup}{- \frac{1}{k R_0} - \iup} \\
+    \intertext{%
+        Combine the fractions.
+    }
+    &= - \frac{2\iup}{\frac{1 + \iup k R_0}{k R_0}} \\
+    \intertext{%
+        Simplify the double fraction.
+    }
+    &= - \frac{2\iup k R_0}{1 + \iup k R_0} \\
+    \intertext{%
+        Introduce a $-\iup$ in the denominator.
+    }
+    &= - \frac{2\iup k R_0}{[-\iup][\iup - k R_0]} \\
+    \intertext{%
+        Cancel $-\iup$.
+    }
+    &= \frac{2 k R_0}{\iup - k R_0} \\
+\end{align*}
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
