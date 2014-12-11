@@ -395,6 +395,8 @@ backwards:
     }
     &= \frac{2\iup}{\cot(\delta_0) - \iup}
 \end{align*}
+That was the first part.
+
 From here, the next part is a bit easier:
 \begin{align*}
     \frac{2\iup}{\cot(\delta_0) - \iup}
@@ -414,8 +416,26 @@ From here, the next part is a bit easier:
     \intertext{%
         Cancel $-\iup$.
     }
-    &= \frac{2 k R_0}{\iup - k R_0} \\
+    &= \frac{2 k R_0}{\iup - k R_0}
 \end{align*}
+That is the second part.
+
+The last part is a Taylor expansion around $k = 0$. The steps are:
+\begin{gather*}
+    f(k) := \frac{2 k R_0}{\iup - k R_0} \\ 
+    f(0) = 0 \\
+    f'(k) = \frac{2 R_0 [\iup - kR_0] - 2 k R_0[-R_0]}{[\iup - kR_0]^2} \\
+    f'(0) = - 2 \iup R_0
+\end{gather*}
+So the approximation is
+\[
+    \frac{2 k R_0}{\iup - k R_0}
+    = - 2 \iup k R_0 + \mathcal O(k^2).
+\]
+
+\subsection{$S$-wave amplitude}
+
+\subsection{Wavefunction outside}
 
 \end{document}
 
