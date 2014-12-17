@@ -1,0 +1,176 @@
+\documentclass[11pt, english, fleqn, DIV=15, headinclude, BCOR=1.5cm]{scrartcl}
+
+\usepackage[
+    bibatend,
+    color,
+]{../header}
+
+\usepackage{tikz}
+\usepackage{pdflscape}
+
+\usepackage[tikz]{mdframed}
+\newmdtheoremenv[%
+    backgroundcolor=black!5,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+]{theorem}{Theorem}[section]
+
+\hypersetup{
+    pdftitle=
+}
+
+\newcounter{totalpoints}
+\newcommand\punkte[1]{#1\addtocounter{totalpoints}{#1}}
+
+\newcounter{problemset}
+\setcounter{problemset}{11}
+
+\subject{physics606 -- Advanced Quantum Theory}
+\ihead{physics606 -- Problem Set \arabic{problemset}}
+
+\title{Problem Set \arabic{problemset}}
+
+\publishers{Group 2 -- Dilege Gülmez}
+\ofoot{Group 2 -- Dilege Gülmez}
+
+\newmdenv[%
+    backgroundcolor=black!0,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+    frametitle={Problem statement},
+    frametitlerule=true,
+    nobreak=true,
+]{problem}
+
+\newmdenv[%
+    backgroundcolor=white,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    innerbottommargin=8cm,
+    splittopskip=\topskip,
+    frametitle={Side question},
+    frametitlerule=true,
+]{question}
+
+\newcommand\an{^\text{angular}}
+\newcommand\ra{^\text{radial}}
+
+
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+    \and
+    Lino Lemmer \\ \small{\href{mailto:l2@uni-bonn.de}{l2@uni-bonn.de}}
+}
+\ifoot{Martin Ueding, Lino Lemmer}
+
+\ohead{\rightmark}
+
+\begin{document}
+
+\maketitle
+
+\vspace{3ex}
+
+\begin{center}
+    \begin{tabular}{rrr}
+        problem number & achieved points & possible points \\
+        \midrule
+        1 & & \punkte{19} \\
+        2 & & \punkte{12} \\
+        3 & & \punkte{5} \\
+        \midrule
+        total & & \arabic{totalpoints}
+    \end{tabular}
+\end{center}
+
+\section{Two-particle scattering}
+
+\section{Two-particle wave function}
+
+\subsection{Normalization}
+
+We have to normalize the given function. We think that this $N$ is meant to be
+the normalization, so we put this to the other side already.
+\begin{align*}
+    \frac 1{N^2}
+    &= \frac{1}{N^2} \intop_\R \dif x_1 \, \intop_\R \dif x_2 \, |\psi(x_1, x_2)|^2 \\
+    \intertext{%
+        So we put in the function.
+    }
+    &= \intop_\R \dif x_1 \, \intop_\R \dif x_2 \,
+    \exp\del{- 2 \frac{[x_1 - x_2]^2}{\sigma^2}}
+    \exp\del{- 2 \frac{[x_1 + x_2]^2}{\Sigma^2}}
+    \intertext{%
+        Now the best way is to do a coordinate transformation to parabolic
+        coordinates (I think they are called that). This is just
+        \[
+            \eta := x_1 - x_2
+            \eqnsep
+            \xi := x_1 + x_2.
+        \]
+        The Jacobian of this transformation can be computed to be just 2. That
+        transformation has the nice effect to decouple the two integrals.
+    }
+    &= 2 \intop_\R \dif \xi \exp\del{- 2 \frac{\xi^2}{\sigma^2}}
+    \intop_\R \dif \eta \exp\del{- 2 \frac{\eta^2}{\sigma^2}}
+    \intertext{%
+        Those integrals can be solved using the solution formulas for the
+        Gaussian integrals that we have missed somewhat in the last few
+        homework problems. Having $a = 2 / \sigma^2$, we get
+    }
+    &= 2 \sqrt{\frac{\piup}{2/\sigma^2}} \sqrt{\frac{\piup}{2/\Sigma^2}} \\
+    &= \piup \sigma \Sigma
+\end{align*}
+
+\subsection{Simple product}
+
+You can apply the binomial equation in the exponent and see that you will
+always have terms like $\exp(x_1 x_2)$ which cannot be factored into functions
+of one of the variables only.
+
+\subsection{Decomposition}
+
+% TODO
+
+\subsection{Use as boson or fermion function}
+
+In general, you just have to (anti)symmetrize the hell out the function and you
+get a completely (anti)symmetric function. In this particular case, the
+function already is symmetric in its coordinates. So it the antisymmetric part
+is zero. Therefore one can only use it a bosonic function.
+
+\section{Totally symmetric $N$-particle state}
+
+The modulus squared of this thing can be written like this, where the dots mean
+every possible combination of all permutations with all permutations:
+\[
+    \abs{S_+ \ket{i_1, i_2, \ldots, i_N}}^2
+    = \frac{1}{N} \sbr{
+        \braket{\ldots | \ldots}
+        +
+        \braket{\ldots | \ldots}
+        +
+        \ldots
+    }
+\]
+Assume first, that all $i_j$ are different. Then there are $[N!]^2$ scalar
+products, and only $N!$ are nonzero, because the permutations are exactly the
+same for both terms. Therefore, the norm will be 1. Now assume that just one of
+the $i$s has a multiplicity of $n_i$. Then terms that were orthogonal before,
+are now identical, giving a scalar product of 1. The number of possible
+permutations of this particular $i$ is given by $n_i$. Therefore, the number of
+nonzero scalar products will go up by a factor $n_i$. This can be done for the
+other $i$s as well, giving the normalization of
+\[
+    \prod_{i = 0}^N n_i.
+\]
+
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
