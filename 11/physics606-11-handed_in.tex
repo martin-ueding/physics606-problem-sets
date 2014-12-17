@@ -182,6 +182,41 @@ momentum has to transfer completely. This gives us three equations,
 \]
 From that, $m_1 = m_2$ follows pretty directly.
 
+\subsection{Relation of the angles}
+
+% TODO
+
+In the limit $m_1 \ll m_2$, it simplifies to
+\[
+    \cos(\theta) = 1
+    \quad\Longleftarrow\quad
+    \theta = 0.
+\]
+
+In the limit $m_1 \gg m_2$, this simplifies to $\cos(\theta) = \cos(\theta^*)$
+which is fulfilled given $\theta = \theta^*$.
+
+When the masses are equal, we have
+\begin{align*}
+    \cos(\theta)
+    &= \frac{m_1 + m_1 \cos(\theta^*)}{\sqrt{2 m_1^2 + 2m_1^2 \cos(\theta^*)}} \\
+    &= \frac{1 + \cos(\theta^*)}{\sqrt{2 + 2\cos(\theta^*)}} \\
+    &= \sqrt{\frac{1 + 1\cos(\theta^*)}2} \\
+    \intertext{%
+        Now we use the power reduction formula and get
+    }
+    &= \cos\del{\frac{\theta^*}{2}}.
+\end{align*}
+This is consistent with
+\[
+    \theta = \frac{\theta^*}2.
+\]
+
+
+\subsection{Scattering cross section}
+
+% TODO
+
 \section{Two-particle wave function}
 
 \subsection{Normalization}
