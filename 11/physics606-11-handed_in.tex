@@ -90,6 +90,98 @@
 
 \section{Two-particle scattering}
 
+The notation is a bit strange. The center of mass system has an asterisk in the
+superscript, the lab frame has an italic (although it should be roman according
+to ISO standard) “L” in it. We will drop this “L” and just have asterisk and
+non-asterisk variables.
+
+\subsection{Galilean transformation}
+
+In the center of mass frame, there is no total momentum:
+\[
+    \vec p_1^* + \vec p_2^* = \vec 0.
+\]
+The given velocities $v$ have no specification whether they are before of after
+the scattering. To avoid any confusion, we define the ones before to be $v$,
+the after to be $w$. The transformation is a simple boost which is $\vec v_i^*
+= \vec v_i - \vec v$. We plug this in and solve for $\vec v$. The masses of the
+particles are only introduced in part four on the problem set, but they are
+$m_1$ and $m_2$.
+\begin{align*}
+    \vec p_1^* + \vec p_2^* &= \vec 0 \\
+    \intertext{%
+        Write out the momentum.
+    }
+    \iff m_1 \vec v_1^* + m_2 \vec v_2^* &= \vec 0 \\
+    \intertext{%
+        Insert the transformation. $\vec v_2 = \vec 0$ because the in the
+        laboratory frame, the second particle is initially at rest.
+    }
+    \iff m_1 [\vec v_1 - \vec v] + m_2 [- \vec v] &= \vec 0 \\
+    \intertext{%
+        Now this is plain algebra.
+    }
+    \iff \vec v &= \frac{m_1}{m_1 + m_2} \vec v_1
+\end{align*}
+
+\subsection{Angular independence in center of mass frame}
+
+In the center of mass frame, there is zero total momentum. For two particles,
+like here, this means that they have opposing momentum. The energy is given by
+\[
+    \sum_i \frac 12 m_i p_i^{*2}.
+\]
+The total energy is conserved,
+\[
+    \therefore \forall i, j\colon p_i^* = k_j^*.
+\]
+That also means that there is no angular dependence, so there is no restriction
+in $\theta^*$.
+
+\subsection{Angular dependence in lab frame}
+
+We know that
+\[
+    \vec p_1 = \vec k_1 + \vec k_2
+\]
+holds in the lab frame since the second particle was at rest initially. Then we
+can write down energy conservation:
+\begin{align*}
+    m_1 p_1^2 &= m_1 k_1^2 + m_2 k_2^2 \\
+    \intertext{%
+        Replace $\vec k_2$ with other knowns.
+    }
+    \iff m_1 p_1^2 &= m_1 k_1^2 + m_2 [\vec p_1 - \vec k_1]^2 \\
+    \intertext{%
+        Expand.
+    }
+    \iff m_1 p_1^2 &= m_1 k_1^2 + m_2 p_1^2 + m_2 k_1^2 - 2 m_2 \vec p_1 \vec k_1 \\
+    \intertext{%
+        Exchange on the sides.
+    }
+    \iff 2 m_2 \vec p_1 \vec k_1 &= m_1 k_1^2 + m_2 p_1^2 + m_2 k_1^2 - m_1 p_1^2  \\
+    \frac{\vec p_1 \vec k_1}{p_1 k_1} &= \frac 12 \sbr{
+        \frac{m_1}{m_2} \frac{k_1}{p_1} + \frac{p_1}{k_1} + \frac{k_1}{p_1} -
+        \frac{m_1}{m_2} \frac{p_1}{k_1}
+    } \\
+    &= \cos(\theta)
+\end{align*}
+So one can see that $k_1$ depends on $\theta$. We could try to solve this
+equation for $k_1$, but that was not asked.
+
+\subsection{Equal mass}
+
+The energy has to transfer completely to particle 2. That also means that the
+momentum has to transfer completely. This gives us three equations,
+\[
+    \vec p_1 = \vec k_2
+    \eqnsep
+    \vec p_2 = \vec k_1 = \vec 0
+    \eqnsep
+    m_1 p_1^2 + 0 = 0 + m_2 k_2^2.
+\]
+From that, $m_1 = m_2$ follows pretty directly.
+
 \section{Two-particle wave function}
 
 \subsection{Normalization}
