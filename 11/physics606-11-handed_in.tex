@@ -104,7 +104,8 @@ In the center of mass frame, there is no total momentum:
 The given velocities $v$ have no specification whether they are before of after
 the scattering. To avoid any confusion, we define the ones before to be $v$,
 the after to be $w$. The transformation is a simple boost which is $\vec v_i^*
-= \vec v_i - \vec v$. We plug this in and solve for $\vec v$. The masses of the
+= \vec v_i - \vec B$. We use the letter $B$ here to avoid mixing it up with any
+of the velocities. We plug this in and solve for $\vec v$. The masses of the
 particles are only introduced in part four on the problem set, but they are
 $m_1$ and $m_2$.
 \begin{align*}
@@ -117,11 +118,9 @@ $m_1$ and $m_2$.
         Insert the transformation. $\vec v_2 = \vec 0$ because the in the
         laboratory frame, the second particle is initially at rest.
     }
-    \iff m_1 [\vec v_1 - \vec v] + m_2 [- \vec v] &= \vec 0 \\
-    \intertext{%
-        Now this is plain algebra.
-    }
-    \iff \vec v &= \frac{m_1}{m_1 + m_2} \vec v_1
+    \iff m_1 [\vec v_1 - \vec B] + m_2 [- \vec B] &= \vec 0 \\
+    \iff [m_1 + m_2] \vec B &= m_1 \vec v_1 \\
+    \iff \vec B &= \frac{m_1}{m_1 + m_2} \vec v_1
 \end{align*}
 
 \subsection{Angular independence in center of mass frame}
@@ -184,7 +183,65 @@ From that, $m_1 = m_2$ follows pretty directly.
 
 \subsection{Relation of the angles}
 
-% TODO
+\newcommand\w{{v_1^*}}
+\newcommand\ct{\cos(\theta^*)}
+
+\begin{align*}
+    \cos(\theta)
+    &= \frac{\vec p_1 \vec k_1}{p_1 k_1} \\
+    \intertext{%
+        We can cancel $m_1$ twice and obtain the velocities.
+    }
+    &= \frac{\vec v_1 \vec w_1}{v_1 w_1} \\
+    \intertext{%
+        Those velocities can be boosted into the center of mass system.
+    }
+    &= \frac{[\vec v_1^* + \vec B] [\vec w_1^* + \vec B]}{|\vec v_1^* + \vec B| |\vec w_1^* + \vec B|} \\
+    \intertext{%
+        We expand.
+    }
+    &= \frac{\vec v_1^* \vec w_1^* + \vec v_1^* \vec B + \vec v_1^* \vec B + B^2}
+    {|\vec v_1^* + \vec B| |\vec w_1^* + \vec B|} \\
+    \intertext{%
+        The magnitude of the velocities of particle 1 is the same, since all
+        momenta (particle 1, 2 and before/after) have the same magnitude.
+        Divide by $m_1$ and obtain conserved velocities. The angle between
+        $\vec v_1^*$ and $\vec w_1^*$ is $\theta^*$. The boost $\vec B$
+        parallel to $\vec v_1^*$. That will let us express the scalar products
+        in terms of that angle and the magnitudes of a single velocity.
+    }
+    &= \frac{\w^2 \ct + \w B + \w B \ct + B^2}{[\w + B] \sqrt{\w^2 + 2 \w B \ct
+    + B^2}}
+    \intertext{%
+        Now we use the proportionality between $B$ and $\w$, where we call the
+        proportionality constant $\alpha$.
+    }
+    &= \frac{\w^2 \ct + \alpha \w^2 + \alpha \w^2 \ct + \alpha^2 \w^2}{\w[1 +
+    \alpha] \sqrt{\w^2 + 2 \alpha \w^2 \ct + \alpha^2 \w^2}}
+    \intertext{%
+        We cancel off a $\w^2$.
+    }
+    &= \frac{\ct + \alpha + \alpha \ct + \alpha^2}{[1 +
+    \alpha] \sqrt{1 + 2 \alpha \ct + \alpha^2}}
+    \intertext{%
+        We factor the numerator.
+    }
+    &= \frac{[1 + \alpha] \sbr{\ct + \alpha}}{[1 +
+    \alpha] \sqrt{1 + 2 \alpha \ct + \alpha^2}}
+    \intertext{%
+        Now we can cancel the first bracket.
+    }
+    &= \frac{\alpha + \ct}{\sqrt{1 + \alpha^2 + 2 \alpha \ct}}
+\end{align*}
+Now if 
+\[
+    \alpha = \frac{m_1}{m_2},
+\]
+then this would would work out by expanding the whole fraction with $m_2$. This
+does not match what we had in the very first part of the problem though. So
+this is not really solved yet.
+
+% FIXME This could be improved.
 
 In the limit $m_1 \ll m_2$, it simplifies to
 \[
