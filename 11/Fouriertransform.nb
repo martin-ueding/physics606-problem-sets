@@ -1,0 +1,254 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7846,        244]
+NotebookOptionsPosition[      6797,        203]
+NotebookOutlinePosition[      7435,        228]
+CellTagsIndexPosition[      7311,        222]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Psi]", "[", 
+   RowBox[{"x1_", ",", "x2_"}], "]"}], ":=", 
+  RowBox[{"n", " ", 
+   RowBox[{"Exp", "[", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"x1", "-", "x2"}], ")"}], "^", "2"}]}], "/", 
+     RowBox[{"\[Sigma]", "^", "2"}]}], "]"}], 
+   RowBox[{"Exp", "[", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"x1", "+", "x2"}], ")"}], "^", "2"}]}], "/", 
+     RowBox[{"\[CapitalSigma]", "^", "2"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.627882799269651*^9, 3.627882802675865*^9}, {
+  3.627882911347266*^9, 3.627882956162483*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "FourierTransform"}]], "Input",
+ CellChangeTimes->{{3.627882966804747*^9, 3.627882970061014*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"FourierTransform\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"t\\\", \\\
+\"TI\\\"], \\\",\\\", \\\"\[Omega]\\\"}], \\\"]\\\"}]\\) gives the symbolic \
+Fourier transform of \\!\\(\\*StyleBox[\\\"expr\\\", \\\"TI\\\"]\\). \
+\\n\\!\\(\\*RowBox[{\\\"FourierTransform\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"expr\\\", \\\"TI\\\"], \\\",\\\", RowBox[{\\\"{\\\", \
+RowBox[{SubscriptBox[StyleBox[\\\"t\\\", \\\"TI\\\"], StyleBox[\\\"1\\\", \
+\\\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"t\\\", \\\"TI\\\"], \
+StyleBox[\\\"2\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\[Ellipsis]\\\", \\\
+\"TR\\\"]}], \\\"}\\\"}], \\\",\\\", RowBox[{\\\"{\\\", RowBox[{SubscriptBox[\
+\\\"\[Omega]\\\", StyleBox[\\\"1\\\", \\\"TR\\\"]], \\\",\\\", \
+SubscriptBox[\\\"\[Omega]\\\", StyleBox[\\\"2\\\", \\\"TR\\\"]], \\\",\\\", \
+StyleBox[\\\"\[Ellipsis]\\\", \\\"TR\\\"]}], \\\"}\\\"}]}], \\\"]\\\"}]\\) \
+gives the multidimensional Fourier transform of \
+\\!\\(\\*StyleBox[\\\"expr\\\", \\\"TI\\\"]\\). \"\>", "MSG"], 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/FourierTransform"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.627882970646675*^9},
+ CellTags->"Info3627886570-9390070"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"?", "Fourier"}]], "Input",
+ CellChangeTimes->{{3.627882971539028*^9, 3.627882973065963*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Fourier\\\", \\\"[\\\", \
+StyleBox[\\\"list\\\", \\\"TI\\\"], \\\"]\\\"}]\\) finds the discrete Fourier \
+transform of a list of complex numbers.\\n\\!\\(\\*RowBox[{\\\"Fourier\\\", \
+\\\"[\\\", RowBox[{StyleBox[\\\"list\\\", \\\"TI\\\"], \\\",\\\", \
+RowBox[{\\\"{\\\", RowBox[{SubscriptBox[StyleBox[\\\"p\\\", \\\"TI\\\"], \
+StyleBox[\\\"1\\\", \\\"TR\\\"]], \\\",\\\", SubscriptBox[StyleBox[\\\"p\\\", \
+\\\"TI\\\"], StyleBox[\\\"2\\\", \\\"TR\\\"]], \\\",\\\", StyleBox[\\\"\
+\[Ellipsis]\\\", \\\"TR\\\"]}], \\\"}\\\"}]}], \\\"]\\\"}]\\) returns the \
+specified positions of the discrete Fourier transform. \"\>", "MSG"], 
+  "\[NonBreakingSpace]", 
+  ButtonBox[
+   StyleBox["\[RightSkeleton]", "SR"],
+   Active->True,
+   BaseStyle->"Link",
+   ButtonData->"paclet:ref/Fourier"]}]], "Print", "PrintUsage",
+ CellChangeTimes->{3.627882973359436*^9},
+ CellTags->"Info3627886573-9390070"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FourierTransform", "[", 
+  RowBox[{
+   RowBox[{"\[Psi]", "[", 
+    RowBox[{"x1", ",", "x2"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "x2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"k1", ",", "k2"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.627883010180358*^9, 3.62788302857272*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     FractionBox["1", "16"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", "k1", " ", "k2", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["\[Sigma]", "2"], "-", 
+          SuperscriptBox["\[CapitalSigma]", "2"]}], ")"}]}], "-", 
+       RowBox[{
+        SuperscriptBox["k1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["\[Sigma]", "2"], "+", 
+          SuperscriptBox["\[CapitalSigma]", "2"]}], ")"}]}], "-", 
+       RowBox[{
+        SuperscriptBox["k2", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["\[Sigma]", "2"], "+", 
+          SuperscriptBox["\[CapitalSigma]", "2"]}], ")"}]}]}], ")"}]}]], " ", 
+   "n"}], 
+  RowBox[{"4", " ", 
+   SqrtBox[
+    RowBox[{
+     FractionBox["1", 
+      SuperscriptBox["\[Sigma]", "2"]], "+", 
+     FractionBox["1", 
+      SuperscriptBox["\[CapitalSigma]", "2"]]}]], " ", 
+   SqrtBox[
+    FractionBox["1", 
+     RowBox[{
+      SuperscriptBox["\[Sigma]", "2"], "+", 
+      SuperscriptBox["\[CapitalSigma]", "2"]}]]]}]]], "Output",
+ CellChangeTimes->{3.627883029495557*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Simplify", "[", "%", "]"}]], "Input",
+ CellChangeTimes->{{3.6278831822133083`*^9, 3.62788318544425*^9}}],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{
+   SuperscriptBox["\[ExponentialE]", 
+    RowBox[{
+     FractionBox["1", "16"], " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"2", " ", "k1", " ", "k2", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["\[Sigma]", "2"], "-", 
+          SuperscriptBox["\[CapitalSigma]", "2"]}], ")"}]}], "-", 
+       RowBox[{
+        SuperscriptBox["k1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["\[Sigma]", "2"], "+", 
+          SuperscriptBox["\[CapitalSigma]", "2"]}], ")"}]}], "-", 
+       RowBox[{
+        SuperscriptBox["k2", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          SuperscriptBox["\[Sigma]", "2"], "+", 
+          SuperscriptBox["\[CapitalSigma]", "2"]}], ")"}]}]}], ")"}]}]], " ", 
+   "n"}], 
+  RowBox[{"4", " ", 
+   SqrtBox[
+    RowBox[{
+     FractionBox["1", 
+      SuperscriptBox["\[Sigma]", "2"]], "+", 
+     FractionBox["1", 
+      SuperscriptBox["\[CapitalSigma]", "2"]]}]], " ", 
+   SqrtBox[
+    FractionBox["1", 
+     RowBox[{
+      SuperscriptBox["\[Sigma]", "2"], "+", 
+      SuperscriptBox["\[CapitalSigma]", "2"]}]]]}]]], "Output",
+ CellChangeTimes->{3.627883185830298*^9}]
+}, Open  ]]
+},
+WindowSize->{958, 1059},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (September 9, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3627886570-9390070"->{
+  Cell[1364, 48, 1368, 24, 63, "Print",
+   CellTags->"Info3627886570-9390070"]},
+ "Info3627886573-9390070"->{
+  Cell[2888, 81, 947, 18, 63, "Print",
+   CellTags->"Info3627886573-9390070"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3627886570-9390070", 7098, 213},
+ {"Info3627886573-9390070", 7208, 216}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 653, 20, 32, "Input"],
+Cell[CellGroupData[{
+Cell[1236, 44, 125, 2, 32, "Input"],
+Cell[1364, 48, 1368, 24, 63, "Print",
+ CellTags->"Info3627886570-9390070"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2769, 77, 116, 2, 32, "Input"],
+Cell[2888, 81, 947, 18, 63, "Print",
+ CellTags->"Info3627886573-9390070"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3872, 104, 330, 9, 32, "Input"],
+Cell[4205, 115, 1204, 38, 74, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5446, 158, 128, 2, 32, "Input"],
+Cell[5577, 162, 1204, 38, 74, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
