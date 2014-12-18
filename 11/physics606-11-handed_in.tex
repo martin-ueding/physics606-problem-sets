@@ -111,7 +111,7 @@ $m_1$ and $m_2$.
 \begin{align*}
     \vec p_1^* + \vec p_2^* &= \vec 0 \\
     \intertext{%
-        Write out the momentum.
+        Write out the non-relativistic momentum.
     }
     \iff m_1 \vec v_1^* + m_2 \vec v_2^* &= \vec 0 \\
     \intertext{%
@@ -123,19 +123,27 @@ $m_1$ and $m_2$.
     \iff \vec B &= \frac{m_1}{m_1 + m_2} \vec v_1
 \end{align*}
 
+We will look at the edge cases here to make this more plausible. In the case
+$m_1 \gg m_2$, the center of mass frame will be the rest frame of the first
+particle. Therefore, the boost into the center of mass frame has to be almost
+the velocity of the particle itself. In case $m_1 \ll m_2$, the center of mass
+frame is pretty much identical to the lab frame. Therefore, the is no boost
+needed.
+
 \subsection{Angular independence in center of mass frame}
 
 In the center of mass frame, there is zero total momentum. For two particles,
 like here, this means that they have opposing momentum. The energy is given by
 \[
-    \sum_i \frac 12 m_i p_i^{*2}.
+    E = \sum_i \frac 12 m_i p_i^{*2}.
 \]
-The total energy is conserved,
+The total energy is conserved in an elastic collision,
 \[
     \therefore \forall i, j\colon p_i^* = k_j^*.
 \]
 That also means that there is no angular dependence, so there is no restriction
-in $\theta^*$.
+in $\theta^*$. This means that all of the four the momentum vectors lie on a
+circle centered at the origin.
 
 \subsection{Angular dependence in lab frame}
 
@@ -186,9 +194,10 @@ From that, $m_1 = m_2$ follows pretty directly.
 \newcommand\w{{v_1^*}}
 \newcommand\ct{\cos(\theta^*)}
 
+The angle in the lab frame is defined as
 \begin{align*}
     \cos(\theta)
-    &= \frac{\vec p_1 \vec k_1}{p_1 k_1} \\
+    &= \frac{\vec p_1 \vec k_1}{p_1 k_1}. \\
     \intertext{%
         We can cancel $m_1$ twice and obtain the velocities.
     }
@@ -272,6 +281,25 @@ This is consistent with
 
 \subsection{Scattering cross section}
 
+We have a differential cross section given in the lab frame:
+\[
+    \od{\sigma}{\Omega^*} = |f(\theta^*, \phi^*)|^2.
+\]
+From this, one can integrate over $\phi^*$ and remove that dependency to get
+the scattering cross section that depends on the angle $\theta^*$ only. This
+integral might be trivial if $f$ does not depend on $\phi^*$.
+\[
+    \od{\sigma}{\,\cos(\theta^*)} = \int_0^{2\piup} \dif \phi^* \, |f(\theta^*, \phi^*)|^2
+\]
+Assuming that this is a constant, we can use the chain rule:
+\[
+    \od{\sigma}{\, \cos(\theta)}
+    = \od{\, \cos(\theta^*)}{\, \cos(\theta)} \od{\sigma}{\, \cos(\theta^*)}
+\]
+For this, equation~(3) needs to be inverted and the derivative computed. We
+tried this, but the expression looked too strange to be correct, so we either
+made a mistake there, or this ansatz is incorrect.
+
 % TODO
 
 \section{Two-particle wave function}
@@ -308,7 +336,10 @@ the normalization, so we put this to the other side already.
         homework problems. Having $a = 2 / \sigma^2$, we get
     }
     &= 2 \sqrt{\frac{\piup}{2/\sigma^2}} \sqrt{\frac{\piup}{2/\Sigma^2}} \\
-    &= \piup \sigma \Sigma
+    \intertext{%
+        Then we just simplify and obtain
+    }
+    &= \piup \sigma \Sigma.
 \end{align*}
 
 \subsection{Simple product}
@@ -434,7 +465,7 @@ function was pretty symmetric in $x_1$ and $x_2$ as well.
 In general, you just have to (anti)symmetrize the hell out the function and you
 get a completely (anti)symmetric function. In this particular case, the
 function already is symmetric in its coordinates. So it the antisymmetric part
-is zero. Therefore one can only use it a bosonic function.
+is zero. Therefore one can only use it as a boson function.
 
 \section{Totally symmetric $N$-particle state}
 
