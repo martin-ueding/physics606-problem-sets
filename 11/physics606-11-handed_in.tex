@@ -380,16 +380,18 @@ should fulfill the equation~(4) from the problem set.
     }
     &= \frac{N}{2\piup} \intop_\R \dif x_2 \intop_\R \dif x_1 \, 
     \exp\del{- \frac{x_1^2 - 2 x_1 x_2 + x_2^2}{\sigma^2} - \frac{x_1^2 + 2 x_1
-    x_2 + x_2^2}{\Sigma^2} + \iup k_1 x_1 + \iup k_2 x_2} \\
-    \intertext{%
-        Then grouping by the powers of $x_1$ and $x_2$ is in order. We define 
-        \[
-            Z := \frac{1}{\sigma^2} + \frac{1}{\Sigma^2}
-            \eqnsep
-            Y := \frac{1}{\sigma^2} - \frac{1}{\Sigma^2}
-        \]
-        and use that.
-    }
+    x_2 + x_2^2}{\Sigma^2} + \iup k_1 x_1 + \iup k_2 x_2}
+\end{align*}
+\end{landscape}
+Then grouping by the powers of $x_1$ and $x_2$ is in order. We define 
+\[
+    Z := \frac{1}{\sigma^2} + \frac{1}{\Sigma^2}
+    \eqnsep
+    Y := \frac{1}{\sigma^2} - \frac{1}{\Sigma^2}
+\]
+and use that.
+\begin{align*}
+    \tilde \psi
     &= \frac{N}{2\piup} \intop_\R \dif x_2 \intop_\R \dif x_1 \, 
     \exp\del{- Z x_1^2 + \sbr{\frac{2 x_2}{\sigma^2} - \frac{2 x_2}{\Sigma^2} +
     \iup k_1} x_1 - Z x_2^2 + \iup k_2 x_2} \\
@@ -450,10 +452,15 @@ should fulfill the equation~(4) from the problem set.
     \exp\del{- \frac{k_1^2}{4 Z}
         + \frac{1}{4 \sbr{Z+\frac{Y^2}Z}} \sbr{\iup k_2 + \iup \frac YZ k_1}^2
     } \\
+    \intertext{%
+        We expand with $Z^2$ in the last fraction.
+    }
+    &= \frac{N}{2\sqrt{Z^2 + Y^2}}
+    \exp\del{- \frac{1}{4Z} \sbr{k_1^2 + \frac{\sbr{Y k_1 + Z k_2}^2}{Z^2+Y^2} 
+    }} \\
 \end{align*}
 We would expect this to be more symmetric in $k_1$ and $k_2$ since the original
 function was pretty symmetric in $x_1$ and $x_2$ as well.
-\end{landscape}
 
 Mathematica gives us
 \begin{align*}
