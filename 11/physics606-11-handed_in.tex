@@ -356,16 +356,16 @@ Here we will calculate the Fourier transform of the given $\psi$. It then
 should fulfill the equation~(4) from the problem set.
 \begin{align*}
     \tilde \psi
-    &= \mathcal F_{x_1} \mathcal F_{x_2} \psi(x_1, x_2) \\
+    &= \mathcal F_{x_2} \mathcal F_{x_1} \psi(x_1, x_2) \\
     \intertext{%
         We insert the integrals for the Fourier transform.
     }
-    &= \frac{1}{2\piup} \intop_\R \dif x_1 \intop_\R \dif x_2 \, \psi(x_1, x_2)
+    &= \frac{1}{2\piup} \intop_\R \dif x_2 \intop_\R \dif x_2 \, \psi(x_1, x_2)
     \exp(\iup k_1 x_1) \exp(\iup k_2 x_2) \\
     \intertext{%
         We insert $\psi$.
     }
-    &= \frac{N}{2\piup} \intop_\R \dif x_1 \intop_\R \dif x_2 \, 
+    &= \frac{N}{2\piup} \intop_\R \dif x_2 \intop_\R \dif x_1 \, 
     \exp\del{- \frac{[x_1 - x_2]^2}{\sigma^2}}
     \exp\del{- \frac{[x_1 + x_2]^2}{\Sigma^2}}
     \exp(\iup k_1 x_1) \exp(\iup k_2 x_2) \\
@@ -373,59 +373,67 @@ should fulfill the equation~(4) from the problem set.
         The next thing to do is to convert this into a form where the beloved
         formulas can be used. First, we combine all the exponentials.
     }
-    &= \frac{N}{2\piup} \intop_\R \dif x_1 \intop_\R \dif x_2 \, 
+    &= \frac{N}{2\piup} \intop_\R \dif x_2 \intop_\R \dif x_1 \, 
     \exp\del{- \frac{[x_1 - x_2]^2}{\sigma^2} - \frac{[x_1 + x_2]^2}{\Sigma^2} + \iup k_1 x_1 + \iup k_2 x_2} \\
     \intertext{%
         Then we expand the squares.
     }
-    &= \frac{N}{2\piup} \intop_\R \dif x_1 \intop_\R \dif x_2 \, 
+    &= \frac{N}{2\piup} \intop_\R \dif x_2 \intop_\R \dif x_1 \, 
     \exp\del{- \frac{x_1^2 - 2 x_1 x_2 + x_2^2}{\sigma^2} - \frac{x_1^2 + 2 x_1
     x_2 + x_2^2}{\Sigma^2} + \iup k_1 x_1 + \iup k_2 x_2} \\
     \intertext{%
         Then grouping by the powers of $x_1$ and $x_2$ is in order. We define 
         \[
             Z := \frac{1}{\sigma^2} + \frac{1}{\Sigma^2}
+            \eqnsep
+            Y := \frac{1}{\sigma^2} - \frac{1}{\Sigma^2}
         \]
         and use that.
     }
-    &= \frac{N}{2\piup} \intop_\R \dif x_1 \intop_\R \dif x_2 \, 
+    &= \frac{N}{2\piup} \intop_\R \dif x_2 \intop_\R \dif x_1 \, 
     \exp\del{- Z x_1^2 + \sbr{\frac{2 x_2}{\sigma^2} - \frac{2 x_2}{\Sigma^2} +
     \iup k_1} x_1 - Z x_2^2 + \iup k_2 x_2} \\
+    &= \frac{N}{2\piup} \intop_\R \dif x_2 \intop_\R \dif x_1 \, 
+    \exp\del{- Z x_1^2 + \sbr{2 Y x_2 + \iup k_1} x_1 - Z x_2^2 + \iup k_2 x_2} \\
+    \intertext{%
+        The parts that do not depend on $x_1$ are moved in front of the
+        integral for more clarity about the Gaussian integral.
+    }
+    &= \frac{N}{2\piup} \intop_\R \dif x_2 \exp\del{- Z x_2^2 + \iup k_2 x_2}
+    \, \intop_\R \dif x_1 \, 
+    \exp\del{- Z x_1^2 + \sbr{2 Y x_2 + \iup k_1} x_1}\\
     \intertext{%
         Using
         \[
             a = Z
             \eqnsep
-            b = \frac{2 x_2}{\sigma^2} - \frac{2 x_2}{\Sigma^2} + \iup k_1
+            b = 2 Y x_2 + \iup k_1
         \]
-        for the $x_1$ integral, we obtain:
+        for the $x_1$ integral, we obtain using the Gaussian solution formula:
     }
     &= \frac{N}{2\piup} \sqrt{\frac{\piup}{Z}} \intop_\R \dif x_2 \exp\del{- Z x_2^2 + \iup k_2 x_2}
-    \exp\del{\frac{1}{4 Z}\sbr{\frac{2 x_2}{\sigma^2} - \frac{2 x_2}{\Sigma^2} +
-    \iup k_1}^2} \\
+    \exp\del{\frac{1}{4 Z}\sbr{2 Y x_2 + \iup k_1}^2} \\
     \intertext{%
         Now all the $x_1$ are integrated over and gone. The same steps have to
         be done for the $x_2$ integral. So the exponential functions have to be
         combined and sorted by powers of $x_2$.
     }
     &= \frac{N}{2\piup} \sqrt{\frac{\piup}{Z}} \intop_\R \dif x_2 \exp\del{- Z x_2^2 + \iup k_2 x_2
-    + \frac{1}{4 Z}\sbr{\frac{2 x_2}{\sigma^2} - \frac{2 x_2}{\Sigma^2} +
-    \iup k_1}^2} \\
-    \intertext{%
-        Here we define
-        \[
-            Y := \frac{1}{\sigma^2} - \frac{1}{\Sigma^2}
-        \]
-        similarly to $Z$, except for the sign.
-    }
-    &= \frac{N}{2\piup} \sqrt{\frac{\piup}{Z}} \intop_\R \dif x_2 \exp\del{- Z x_2^2 + \iup k_2 x_2
     + \frac{1}{4 Z}\sbr{2 Y x_2 + \iup k_1}^2} \\
     &= \frac{N}{2\piup} \sqrt{\frac{\piup}{Z}} \intop_\R \dif x_2 \exp\del{- Z x_2^2 + \iup k_2 x_2
-    + \frac{1}{4 Z}\sbr{4 Y^2 x_2^2 + 4 \iup Y k_2 x_2 - k_1^2}} \\
+    + \frac{1}{4 Z}\sbr{4 Y^2 x_2^2 + 4 \iup Y k_1 x_2 - k_1^2}} \\
     &= \frac{N}{2\piup} \sqrt{\frac{\piup}{Z}} \intop_\R \dif x_2 \exp\del{
     - \sbr{Z+\frac{Y^2}Z} x_2^2
-    + \sbr{\iup k_2 + \iup \frac YZ k_2} x_2
+    + \sbr{\iup k_2 + \iup \frac YZ k_1} x_2
     - \frac{k_1^2}{4 Z}} \\
+    \intertext{%
+        Everything that does not depend on $x_2$ is moved in front of the
+        integral again.
+    }
+    &= \frac{N}{2\piup} \sqrt{\frac{\piup}{Z}} \exp\del{- \frac{k_1^2}{4 Z}}
+    \intop_\R \dif x_2 \exp\del{
+    - \sbr{Z+\frac{Y^2}Z} x_2^2
+    + \sbr{\iup k_2 + \iup \frac YZ k_1} x_2} \\
     \intertext{%
         Now we can apply the Gaussian integration again.
     }
@@ -433,30 +441,39 @@ should fulfill the equation~(4) from the problem set.
     \frac{Y^2}Z}}
     \exp\del{- \frac{k_1^2}{4 Z}}
     \exp\del{
-        \frac{1}{4 \sbr{Z+\frac{Y^2}Z}} \sbr{\iup k_2 + \iup \frac YZ k_2}^2
+        \frac{1}{4 \sbr{Z+\frac{Y^2}Z}} \sbr{\iup k_2 + \iup \frac YZ k_1}^2
     } \\
     \intertext{%
-        We can simplify this again.
+        We combine the square roots and the two exponentials.
     }
-    &= \frac{N}{2[Z^2 + Y^2]}
+    &= \frac{N}{2\sqrt{Z^2 + Y^2}}
     \exp\del{- \frac{k_1^2}{4 Z}
-    -
-    \frac{k_2^2}{4 \sbr{Z+\frac{Y^2}Z}} \sbr{1 + 2 \frac YZ + \frac{Y^2}{Z^2}}
+        + \frac{1}{4 \sbr{Z+\frac{Y^2}Z}} \sbr{\iup k_2 + \iup \frac YZ k_1}^2
     } \\
-    \intertext{%
-        We move the $k$s to the end of each summand.
-    }
-    &= \frac{N}{2[Z^2 + Y^2]} \exp\del{- \frac{1}{4 Z} k_1^2
-    - \frac{1 + 2 \frac YZ + \frac{Y^2}{Z^2}}{4 \sbr{Z+\frac{Y^2}Z}} k_2^2} \\
-    \intertext{%
-        We expand with a factor of $Z$ in the second summand.
-    }
-    &= \frac{N}{2[Z^2 + Y^2]} \exp\del{- \frac{1}{4 Z} k_1^2
-    - \frac{Z + 2 Y + \frac{Y^2}{Z}}{4 \sbr{Z^2+Y^2}} k_2^2}
 \end{align*}
 We would expect this to be more symmetric in $k_1$ and $k_2$ since the original
 function was pretty symmetric in $x_1$ and $x_2$ as well.
 \end{landscape}
+
+Mathematica gives us
+\begin{align*}
+    \tilde\psi
+    &= \frac{N \exp\del{\frac{1}{16} \sbr{2 k_1 k_2 [\sigma^2 - \Sigma^2] -
+    k_1^2 [\sigma^2 + \Sigma^2] - k_2^2 [\sigma^2 + \Sigma^2]}}}{4
+    \sqrt{\frac{1}{\sigma^2} + \frac1{\Sigma^2}} \sqrt{\frac{1}{\sigma^2 +
+    \Sigma^2}}},
+    \intertext{%
+        which we can write more suggestive as
+    }
+    &= \frac{N \exp\del{- \frac{1}{16} \sbr{
+    [k_1 - k_2]^2 \sigma^2
+    + [k_1 + k_2]^2 \Sigma^2
+    }}}{4
+    \sqrt{\frac{1}{\sigma^2} + \frac1{\Sigma^2}} \sqrt{\frac{1}{\sigma^2 +
+    \Sigma^2}}},
+\end{align*}
+This is symmetric in $k_1$ and $k_2$, which we would expect since the original
+function was symmetric in its argument as well.
 
 % TODO
 
