@@ -130,6 +130,21 @@ the velocity of the particle itself. In case $m_1 \ll m_2$, the center of mass
 frame is pretty much identical to the lab frame. Therefore, the is no boost
 needed.
 
+While we are at it, we will also derive the relation between $\vec B$ and $\vec
+v_1^*$ since we need that later on.
+\begin{align*}
+    \vec B &= \frac{m_1}{m_1+m_2} \vec v_1 \\
+    \intertext{%
+        We boost into the moving system.
+    }
+    \iff \vec B &= \frac{m_1}{m_1+m_2} [\vec B + \vec v_1^*] \\
+    \iff \sbr{1 - \frac{m_1}{m_1+m_2}} \vec B &= \frac{m_1}{m_1+m_2} \vec
+    v_1^* \\
+    \iff \frac{m_2}{m_1+m_2} \vec B &= \frac{m_1}{m_1+m_2} \vec v_1^* \\
+    \iff \vec B &= \frac{m_1}{m_2} \vec v_1^*
+\end{align*}
+This gives us the proportionality between $\vec B$ and $\vec v_1^*$.
+
 \subsection{Angular independence in center of mass frame}
 
 In the center of mass frame, there is zero total momentum. For two particles,
@@ -241,16 +256,15 @@ The angle in the lab frame is defined as
         Now we can cancel the first bracket.
     }
     &= \frac{\alpha + \ct}{\sqrt{1 + \alpha^2 + 2 \alpha \ct}}
+    \intertext{%
+        Now since 
+        \[
+            \alpha = \frac{m_1}{m_2},
+        \]
+        this works out by expanding the whole fraction with $m_2$.
+    }
+    &= \frac{m_1 + m_2 \ct}{\sqrt{m_1^2 + m_2^2 + 2 m_1 m_2 \ct}}
 \end{align*}
-Now if 
-\[
-    \alpha = \frac{m_1}{m_2},
-\]
-then this would would work out by expanding the whole fraction with $m_2$. This
-does not match what we had in the very first part of the problem though. So
-this is not really solved yet.
-
-% FIXME This could be improved.
 
 In the limit $m_1 \ll m_2$, it simplifies to
 \[
@@ -277,7 +291,6 @@ This is consistent with
 \[
     \theta = \frac{\theta^*}2.
 \]
-
 
 \subsection{Scattering cross section}
 
@@ -347,7 +360,6 @@ the normalization, so we put this to the other side already.
 You can apply the binomial equation in the exponent and see that you will
 always have terms like $\exp(x_1 x_2)$ which cannot be factored into functions
 of one of the variables only.
-
 
 \begin{landscape}
 \subsection{Decomposition}
