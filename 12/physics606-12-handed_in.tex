@@ -144,7 +144,78 @@ they are equal. We write this more formally as
 \end{align*}
 This is the desired result in equation~(2) of the problem set.
 
+\subsection{}
+
+We start with equation~(2) from the problem set.
+\begin{align*}
+    F &= \frac 12 \sum_{\alpha \in \mathbb P}
+    \sum_{\beta \in \mathbb P \setminus \{\alpha\}}
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \ket i_\alpha \ket j_\beta
+    \bra k_\alpha \bra l_\beta
+    \intertext{%
+        Then we change the order of the bra and ket vectors at the right side
+        of the equation.
+    }
+    &= \frac 12
+    \sum_{\alpha \in \mathbb P}
+    \sum_{\beta \in \mathbb P \setminus \{\alpha\}}
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \ket i_\alpha
+    \bra k_\alpha
+    \ket j_\beta
+    \bra l_\beta
+    \intertext{%
+        We change the order of the summations such that we can plug in
+        equation~(5) from the problem set later on. The underbraces denote the
+        outcome suggestively, we still have to work on that, though.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \underbrace{
+        \sum_{\alpha \in \mathbb P}
+        \ket i_\alpha
+        \bra k_\alpha
+    }_{\leadsto b^\dagger_i b_k}
+    \underbrace{
+        \sum_{\beta \in \mathbb P \setminus \{\alpha\}}
+        \ket j_\beta
+        \bra l_\beta
+    }_{\leadsto b^\dagger_j b_l}
+    \intertext{%
+        The problem is that the sum over $\beta$ excludes $\alpha$. Therefore,
+        the sums are not independent and we cannot apply equation~(5) yet. So
+        we just sum over all $\beta \in \mathbb P$ in the sum and subtract that
+        particular value again.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \sum_{\alpha \in \mathbb P}
+    \ket i_\alpha
+    \bra k_\alpha
+    \sbr{
+        \sum_{\beta \in \mathbb P}
+        \ket j_\beta
+        \bra l_\beta
+        - 
+        \ket j_\alpha
+        \bra l_\alpha
+    }
+\end{align*}
+
 \section{Hartree-Fock approximation for atoms}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
+
+\subsection{}
 
 
 \end{document}
