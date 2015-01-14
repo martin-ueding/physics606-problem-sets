@@ -1,0 +1,152 @@
+\documentclass[11pt, english, fleqn, DIV=15, headinclude, BCOR=1.5cm]{scrartcl}
+
+\usepackage[
+    bibatend,
+    color,
+]{../header}
+
+\usepackage{tikz}
+\usepackage{pdflscape}
+
+\usepackage[tikz]{mdframed}
+\newmdtheoremenv[%
+    backgroundcolor=black!5,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+]{theorem}{Theorem}[section]
+
+\hypersetup{
+    pdftitle=
+}
+
+\newcounter{totalpoints}
+\newcommand\punkte[1]{#1\addtocounter{totalpoints}{#1}}
+
+\newcounter{problemset}
+\setcounter{problemset}{12}
+
+\subject{physics606 -- Advanced Quantum Theory}
+\ihead{physics606 -- Problem Set \arabic{problemset}}
+
+\title{Problem Set \arabic{problemset}}
+
+\publishers{Group 2 -- Dilege Gülmez}
+\ofoot{Group 2 -- Dilege Gülmez}
+
+\newmdenv[%
+    backgroundcolor=black!0,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+    frametitle={Problem statement},
+    frametitlerule=true,
+    nobreak=true,
+]{problem}
+
+\newmdenv[%
+    backgroundcolor=white,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    innerbottommargin=8cm,
+    splittopskip=\topskip,
+    frametitle={Side question},
+    frametitlerule=true,
+]{question}
+
+\newcommand\an{^\text{angular}}
+\newcommand\ra{^\text{radial}}
+
+
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+    \and
+    Lino Lemmer \\ \small{\href{mailto:l2@uni-bonn.de}{l2@uni-bonn.de}}
+}
+\ifoot{Martin Ueding, Lino Lemmer}
+
+\ohead{\rightmark}
+
+\begin{document}
+
+\maketitle
+
+\vspace{3ex}
+
+\begin{center}
+    \begin{tabular}{rrr}
+        problem number & achieved points & possible points \\
+        \midrule
+        1 & & \punkte{7} \\
+        2 & & \punkte{14} \\
+        \midrule
+        total & & \arabic{totalpoints}
+    \end{tabular}
+\end{center}
+
+\section{Two-particle operators in second quantization}
+
+\subsection{}
+
+Let $\mathbb P$ be the set of all particles such that $\alpha, \beta \in
+\mathbb P$. The sum
+\[
+    \sum_{\alpha \neq \beta}
+\]
+means that it is to be summed over all $\alpha$ and $\beta$ but not those where
+they are equal. We write this more formally as
+\begin{align*}
+    F &= \frac 12 \sum_{\alpha \in \mathbb P} \sum_{\beta \in \mathbb P
+    \setminus \{\alpha\}} f(\vec x_\alpha, \vec x_\beta).
+    \intertext{%
+        Now we insert sets of ones.
+    }
+    &= \frac 12 \sum_{\alpha \in \mathbb P}
+    \sum_{\beta \in \mathbb P \setminus \{\alpha\}}
+    \sum_{i,j,k,l}
+    \ket i_\alpha \bra i_\alpha \ket j_\beta \bra j_\beta
+    f(\vec x_\alpha, \vec x_\beta)
+    \ket k_\alpha \bra k_\alpha \ket l_\beta \bra l_\beta
+    \intertext{%
+        We commute the bra and ket vectors of different particles which we can
+        do since we consider the product Hilbert space of two different
+        particles.
+    }
+    &= \frac 12 \sum_{\alpha \in \mathbb P}
+    \sum_{\beta \in \mathbb P \setminus \{\alpha\}}
+    \sum_{i,j,k,l}
+    \ket i_\alpha \ket j_\beta \bra i_\alpha \bra j_\beta
+    f(\vec x_\alpha, \vec x_\beta)
+    \ket k_\alpha \ket l_\beta \bra k_\alpha \bra l_\beta
+    \intertext{%
+        We can then use the notation which corresponds to the tensor product
+        Hilbert space of two particles.
+    }
+    &= \frac 12 \sum_{\alpha \in \mathbb P}
+    \sum_{\beta \in \mathbb P \setminus \{\alpha\}}
+    \sum_{i,j,k,l}
+    \ket i_\alpha \ket j_\beta \bra{i,j}
+    f(\vec x_\alpha, \vec x_\beta)
+    \ket{k,l} \bra k_\alpha \bra l_\beta
+    \intertext{%
+        The term in the middle is a scalar and can be moved anywhere in the
+        product.
+    }
+    &= \frac 12 \sum_{\alpha \in \mathbb P}
+    \sum_{\beta \in \mathbb P \setminus \{\alpha\}}
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \ket i_\alpha \ket j_\beta
+    \bra k_\alpha \bra l_\beta
+\end{align*}
+This is the desired result in equation~(2) of the problem set.
+
+\section{Hartree-Fock approximation for atoms}
+
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
