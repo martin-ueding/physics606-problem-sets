@@ -507,6 +507,26 @@ the state $\ket \psi$. So we get
 
 \subsection{}
 
+Given our in-depth coverage of the second part of this problem, we will do this
+one really short. Look at
+\[
+    \braket{\psi|b_i^\dagger b_j^\dagger b_l b_k|\psi}.
+\]
+If we assume $j = l$ and then $i = k$, this scalar product will give us 1
+because the operators will become occupation number operators which are
+eigenoperators of state $\ket \psi$. So this is the $\delta_{ik} \delta_{jl}$
+term. However, we can do one anticommutation as well. We anticommute the two
+creation operators and get an additional minus sign:
+\[
+    = - \braket{\psi|b_j^\dagger b_i^\dagger b_l b_k|\psi}.
+\]
+With the same argumentation as above, we get a $- \delta_{il} \delta_{jk}$.
+Together we have
+\[
+    \delta_{ik} \delta_{jl} - \delta_{il} \delta_{jk}
+\]
+which is the desired result.
+
 \subsection{}
 
 
