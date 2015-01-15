@@ -546,33 +546,35 @@ the kinetic operator as such to avoid nesting brakets.
     }
     &= \sum_{i=1}^N \braket{\psi| b_i^\dagger b_j T_{ii} | \psi}
     \intertext{%
-        Now we insert two complete sets of eigenstates.
+        Now we insert two complete sets of eigenstates, one for each
+        particle/state.
     }
-    &= \sum_{i=1}^N \int \dif^3 x \, \dif^3 y \,
-    \braket{\psi|\vec x} \braket{\vec x| T_{ii} |\vec y} \braket{\vec y|\psi}
+    &= \sum_{i=1}^N \int \dif^3 x_i \, \dif^3 y_i \,
+    \braket{\psi|\vec x_i} \braket{\vec x_i| T_{ii} |\vec y_j} \braket{\vec y_i|\psi}
     \intertext{%
         Those scalar products are the field operators
         \parencite[(1.5.3)]{Schwabl/Quantenmechanik_fuer_Fortgeschrittene}.
     }
-    &= \sum_{i=1}^N \int \dif^3 x \, \dif^3 y \,
-    \phi^*(\vec x) \braket{\vec x| T_{ii} |\vec y} \phi(\vec y)
+    &= \sum_{i=1}^N \int \dif^3 x_i \, \dif^3 y_i \,
+    \phi_i^*(\vec x_i) \braket{\vec x_i| T_{ii} |\vec y_i} \phi_i(\vec y_i)
     \intertext{%
         We write out the matrix element.
     }
-    &= \sum_{i=1}^N \int \dif^3 x \, \dif^3 y \, \dif^3 z \,
-    \phi^*(\vec x) \delta^{(3)}(\vec z - \vec x) T_{ii}(\vec z) \delta^{(3)}(\vec z - \vec y) \phi(\vec y)
+    &= \sum_{i=1}^N \int \dif^3 x_i \, \dif^3 y_i \, \dif^3 z \,
+    \phi_i^*(\vec x_i) \delta^{(3)}(\vec z - \vec x_i) T_{ii}(\vec z)
+    \delta^{(3)}(\vec z - \vec y_i) \phi_i(\vec y_i)
     \intertext{%
         The $\vec z$ integration will remove one $\delta$ distribution, the
         $\vec y$ integral the other one such that the only variable left is
         $\vec x$.
     }
-    &= \sum_{i=1}^N \int \dif^3 x \,
-    \phi^*(\vec x) T_{ii}(\vec x) \phi(\vec x)
+    &= \sum_{i=1}^N \int \dif^3 x_i \,
+    \phi_i^*(\vec x_i) T_{ii}(\vec x_i) \phi_i(\vec x_i)
     \intertext{%
         As a last step we insert the kinetic energy operator.
     }
-    &= - \frac{\hbar^2}{2m} \sum_{i=1}^N \int \dif^3 x \,
-    \phi^*(\vec x) \laplace \phi(\vec x)
+    &= - \frac{\hbar^2}{2m} \sum_{i=1}^N \int \dif^3 x_i \,
+    \phi_i^*(\vec x_i) \laplace \phi_i(\vec x_i)
 \end{align*}
 
 That was fun, let us do it again. The exact same steps can be done for the
@@ -580,15 +582,19 @@ scalar potential $U$. So we will have this:
 \begin{align*}
     \Braket{\psi| \sum_{i,j} b_i^\dagger b_j U_{ij} | \psi}
     &= \sum_{i,j} \int \dif^3 x \,
-    \phi^*(\vec x) U(\vec x) \phi(\vec x)
+    \phi_i^*(\vec x) U(\vec x) \phi_i(\vec x)
     \intertext{%
         The new thing here is that $U$ is just a regular function, not an
         operator. Therefore it commutes with the field operators and we get a
         modulus squared.
     }
-    &= \sum_{i,j} \int \dif^3 x \, U(\vec x) |\phi(\vec x)|^2
+    &= \sum_{i,j} \int \dif^3 x \, U(\vec x) |\phi_i(\vec x)|^2
 \end{align*}
 
+For the last part, the equations got so long that we had to use landscape paper
+for that either way. So see you after the page break.
+
+\begin{landscape}
 Now the stage is set for the last part, the interaction between different
 electrons. $H_{\restriction V}$ is supposed to be a shorthand for the summand
 of the Hamiltonian which contains $V$. It is merely introduced for alignment
@@ -596,15 +602,91 @@ purposes. This time we did not avoid the nested braket.
 \begin{align*}
     \braket{\psi| H_{\restriction V} | \psi}
     &= \bra \psi
-    \frac 12 \sum_{i,j} \braket{i,j|V|k,l} b_i^\dagger b_j^\dagger b_l b_k
+    \frac 12 \sum_{i,j,k,l} \braket{i,j|V|k,l} b_i^\dagger b_j^\dagger b_l b_k
     \ket \psi
     \intertext{%
         We pull out the sum.
     }
-    &= \frac 12 \sum_{i,j} \bra \psi
+    &= \frac 12 \sum_{i,j,k,l} \bra \psi
     \braket{i,j|V|k,l} b_i^\dagger b_j^\dagger b_l b_k
     \ket \psi
+    \intertext{%
+        We can already replace the creation and annihilation operators with
+        Kronecker $\delta$s again.
+    }
+    &= \frac 12 \sum_{i,j,k,l} \sbr{\delta_{jl} \delta_{ik} - \delta_{il} \delta_{jk}}
+    \bra \psi
+    \braket{i,j|V|k,l} 
+    \ket \psi
+    \intertext{%
+        We again insert a bunch of space eigenstates to get more integration
+        variables and field operators. Each is associated with a particular
+        state.
+    }
+    &= \frac 12 \sum_{i,j,k,l}
+    \sbr{\delta_{jl} \delta_{ik} - \delta_{il} \delta_{jk}}
+    \int \dif^3 x \, \dif^3 y \, \dif^3 z \, \dif^3 w \,
+    \braket{\psi|\vec x, \vec y}
+    \braket{\vec x, \vec y|V_{ijkl}|\vec z, \vec w}
+    \braket{\vec z, \vec w|\psi}
+    \intertext{%
+        Now we introduce the field operators.
+    }
+    &= \frac 12 \sum_{i,j,k,l}
+    \sbr{\delta_{jl} \delta_{ik} - \delta_{il} \delta_{jk}}
+    \int \dif^3 x \, \dif^3 y \, \dif^3 z \, \dif^3 w \,
+    \phi_i^*(\vec x) \phi_j^*(\vec y)
+    \braket{\vec x, \vec y|V_{ijkl}|\vec z, \vec w}
+    \phi_k(\vec z) \phi_l(\vec w)
+    \intertext{%
+        Like before, the $\delta$ distributions in the matrix element around
+        the interaction term $V$ will identify $\vec x$ and $\vec y$ with $\vec
+        z$ and $\vec w$. Then the interaction term can be written in position
+        space simply. We still have to integrate that factor $\delta_{s_i,s_k}
+        \delta_{s_j,s_l}$ from the matrix element of $V$ into this.
+    }
+    &= \frac 12 \sum_{i,j,k,l=1}^N
+    \sbr{\delta_{jl} \delta_{ik} - \delta_{il} \delta_{jk}}
+    \int \dif^3 x \, \dif^3 y \,
+    V(\vec x - \vec y) \delta_{s_i,s_k} \delta_{s_j,s_l}
+    \phi_i^*(\vec x) \phi_j^*(\vec y)
+    \phi_k(\vec x) \phi_l(\vec y)
+    \intertext{%
+        Now we execute the Kronecker $\delta$s that have been waiting for their
+        turn.
+    }
+    &= \frac 12 \sum_{i,j=1}^N
+    \int \dif^3 x \, \dif^3 y \,
+    V(\vec x - \vec y)
+    \sbr{
+        \delta_{s_i,s_i} \delta_{s_j,s_j}
+        \phi_i^*(\vec x) \phi_j^*(\vec y)
+        \phi_i(\vec x) \phi_j(\vec y)
+        -
+        \delta_{s_i,s_j} \delta_{s_i,s_j}
+        \phi_i^*(\vec x) \phi_j^*(\vec y)
+        \phi_j(\vec x) \phi_i(\vec y)
+    }
+    \intertext{%
+        The spins in the same state are equal, so we can just drop this. The
+        second summand has the $\delta$ twice, so we just remove one of them.
+    }
+    &= \frac 12 \sum_{i,j=1}^N
+    \int \dif^3 x \, \dif^3 y \,
+    V(\vec x - \vec y)
+    \sbr{
+        \phi_i^*(\vec x) \phi_j^*(\vec y)
+        \phi_i(\vec x) \phi_j(\vec y)
+        -
+        \delta_{s_i,s_j}
+        \phi_i^*(\vec x) \phi_j^*(\vec y)
+        \phi_j(\vec x) \phi_i(\vec y)
+    }
 \end{align*}
+\end{landscape}
+
+When all three terms are added up, it is the desired equation from the problem
+set.
 
 \end{document}
 
