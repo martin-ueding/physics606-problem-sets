@@ -201,11 +201,160 @@ We start with equation~(2) from the problem set.
         \sum_{\beta \in \mathbb P}
         \ket j_\beta
         \bra l_\beta
-        - 
+        -
         \ket j_\alpha
         \bra l_\alpha
     }
+    \intertext{%
+        The one summation over $\beta$ is now independent of $\alpha$ and we
+        can use equation~(5).
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \sum_{\alpha \in \mathbb P}
+    \ket i_\alpha
+    \bra k_\alpha
+    \sbr{
+        b^\dagger_j b_l
+        -
+        \ket j_\alpha
+        \bra l_\alpha
+    }
+    \intertext{%
+        Now we expand the parentheses.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \sbr{
+        b^\dagger_j b_l
+        \sum_{\alpha \in \mathbb P}
+        \ket i_\alpha
+        \bra k_\alpha
+        -
+        \sum_{\alpha \in \mathbb P}
+        \ket i_\alpha
+        \bra k_\alpha
+        \ket j_\alpha
+        \bra l_\alpha
+    }
+    \intertext{%
+        We apply equation~(5) once again.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \sbr{
+        b^\dagger_i b_k
+        b^\dagger_j b_l
+        -
+        \sum_{\alpha \in \mathbb P}
+        \ket i_\alpha
+        \bra k_\alpha
+        \ket j_\alpha
+        \bra l_\alpha
+    }
+    \intertext{%
+        This looks somewhat like equation~(4) from the problem set which we
+        should arrive at. The terms are not in the correct order yet, though.
+        The bra-ket in the middle is just a Kronecker $\delta$.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \sbr{
+        b^\dagger_i b_k
+        b^\dagger_j b_l
+        -
+        \sum_{\alpha \in \mathbb P}
+        \ket i_\alpha
+        \delta_{kj}
+        \bra l_\alpha
+    }
+    \intertext{%
+        However, the Kronecker $\delta$ is also contained in the commutator of
+        the creation and annihilation operators: $\delta_{kj} = [b_k,
+        b^\dagger_j]_\mp$
+        \parencite[16]{Schwabl/Quantenmechanik_fuer_Fortgeschrittene}. Since it
+        is a plain number, we pull it out front for a step.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \sbr{
+        b^\dagger_i b_k
+        b^\dagger_j b_l
+        -
+        \delta_{kj}
+        \sum_{\alpha \in \mathbb P}
+        \ket i_\alpha
+        \bra l_\alpha
+    }
+    \intertext{%
+        Now we apply equation~(5) from the problem set again.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \sbr{
+        b^\dagger_i b_k
+        b^\dagger_j b_l
+        -
+        \delta_{kj}
+        b^\dagger_i b_l
+    }
+    \intertext{%
+        Now we move the Kronecker $\delta$ in between those terms.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \sbr{
+        b^\dagger_i b_k
+        b^\dagger_j b_l
+        -
+        b^\dagger_i
+        \delta_{kj}
+        b_l
+    }
+    \intertext{%
+        We expand the (anti-)commutator there.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \sbr{
+        b^\dagger_i b_k
+        b^\dagger_j b_l
+        -
+        b^\dagger_i
+        \sbr{ b_k b^\dagger_j \mp b_k b^\dagger_j }
+        b_l
+    }
+    \intertext{%
+        Then we expand the inner square bracket.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    \sbr{
+        b^\dagger_i b_k b^\dagger_j b_l
+        -
+        b^\dagger_i b_k b^\dagger_j b_l
+        \pm
+        b^\dagger_i b^\dagger_j b_k b_l
+    }
+    \intertext{%
+        The first two terms cancel each other, so we are left with
+    }
+    &= \pm \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    b^\dagger_i b^\dagger_j b_k b_l.
 \end{align*}
+The version on the problem set has $k$ and $l$ switched. Since the annihilation
+operators always commute, those two versions are equivalent.
 
 \section{Hartree-Fock approximation for atoms}
 
