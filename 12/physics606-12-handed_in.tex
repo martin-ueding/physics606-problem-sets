@@ -465,6 +465,46 @@ just like above. So this comes to the desired result as well.
 
 \subsection{}
 
+We just insert the result from the previous problem. The trick here is that $i$
+and $j$
+must be smaller than $N$ as well, because only states up to $N$ are occupied in
+the state $\ket \psi$. So we get
+\begin{align*}
+    \sum_{i = 1}^\infty
+    \sum_{j = 1}^\infty
+    \braket{i | O | j}
+    \braket{\psi|b_i^\dagger b_j|\psi}
+    &=
+    \sum_{i = 1}^\infty
+    \sum_{j = 1}^\infty
+    \braket{i | O | j}
+    \delta_{ij}
+    \Theta(i - N)
+    \Theta(j - N).
+    \intertext{%
+        Then this is rather straightforward. But we will include the steps in
+        between because this problem is worth two points.
+    }
+    &=
+    \sum_{i = 1}^\infty
+    \braket{i | O | i}
+    \Theta(i - N)
+    \Theta(i - N)
+    \intertext{%
+        The Heaviside step function squared it just the function itself.
+    }
+    &=
+    \sum_{i = 1}^\infty
+    \braket{i | O | i}
+    \Theta(i - N)
+    \intertext{%
+        Now we restrict the summation according to the Heaviside step function.
+    }
+    &=
+    \sum_{i = 1}^N
+    \braket{i | O | i}
+\end{align*}
+
 \subsection{}
 
 \subsection{}
