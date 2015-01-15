@@ -529,6 +529,82 @@ which is the desired result.
 
 \subsection{}
 
+The equations are rather long here, even the result is on two lines already! We
+could just go landscape and plow through it like fearless theoreticians or take
+the more practical route and look at each summand in the Hamiltonian
+separately. Since we are at \thepage\ pages already, we choose the latter way.
+
+First we will look at the kinetic energy term. We write the matrix elements of
+the kinetic operator as such to avoid nesting brakets.
+\begin{align*}
+    \Braket{\psi| \sum_{i,j} b_i^\dagger b_j T_{ij} | \psi}
+    &= \sum_{i,j} \braket{\psi| b_i^\dagger b_j T_{ij} | \psi}
+    \intertext{%
+        Because of the creation and annihilation operators, we need $i = j$
+        because of the reasoning we had in the previous few problems. This
+        restricts the sum.
+    }
+    &= \sum_{i=1}^N \braket{\psi| b_i^\dagger b_j T_{ii} | \psi}
+    \intertext{%
+        Now we insert two complete sets of eigenstates.
+    }
+    &= \sum_{i=1}^N \int \dif^3 x \, \dif^3 y \,
+    \braket{\psi|\vec x} \braket{\vec x| T_{ii} |\vec y} \braket{\vec y|\psi}
+    \intertext{%
+        Those scalar products are the field operators
+        \parencite[(1.5.3)]{Schwabl/Quantenmechanik_fuer_Fortgeschrittene}.
+    }
+    &= \sum_{i=1}^N \int \dif^3 x \, \dif^3 y \,
+    \phi^*(\vec x) \braket{\vec x| T_{ii} |\vec y} \phi(\vec y)
+    \intertext{%
+        We write out the matrix element.
+    }
+    &= \sum_{i=1}^N \int \dif^3 x \, \dif^3 y \, \dif^3 z \,
+    \phi^*(\vec x) \delta^{(3)}(\vec z - \vec x) T_{ii}(\vec z) \delta^{(3)}(\vec z - \vec y) \phi(\vec y)
+    \intertext{%
+        The $\vec z$ integration will remove one $\delta$ distribution, the
+        $\vec y$ integral the other one such that the only variable left is
+        $\vec x$.
+    }
+    &= \sum_{i=1}^N \int \dif^3 x \,
+    \phi^*(\vec x) T_{ii}(\vec x) \phi(\vec x)
+    \intertext{%
+        As a last step we insert the kinetic energy operator.
+    }
+    &= - \frac{\hbar^2}{2m} \sum_{i=1}^N \int \dif^3 x \,
+    \phi^*(\vec x) \laplace \phi(\vec x)
+\end{align*}
+
+That was fun, let us do it again. The exact same steps can be done for the
+scalar potential $U$. So we will have this:
+\begin{align*}
+    \Braket{\psi| \sum_{i,j} b_i^\dagger b_j U_{ij} | \psi}
+    &= \sum_{i,j} \int \dif^3 x \,
+    \phi^*(\vec x) U(\vec x) \phi(\vec x)
+    \intertext{%
+        The new thing here is that $U$ is just a regular function, not an
+        operator. Therefore it commutes with the field operators and we get a
+        modulus squared.
+    }
+    &= \sum_{i,j} \int \dif^3 x \, U(\vec x) |\phi(\vec x)|^2
+\end{align*}
+
+Now the stage is set for the last part, the interaction between different
+electrons. $H_{\restriction V}$ is supposed to be a shorthand for the summand
+of the Hamiltonian which contains $V$. It is merely introduced for alignment
+purposes. This time we did not avoid the nested braket.
+\begin{align*}
+    \braket{\psi| H_{\restriction V} | \psi}
+    &= \bra \psi
+    \frac 12 \sum_{i,j} \braket{i,j|V|k,l} b_i^\dagger b_j^\dagger b_l b_k
+    \ket \psi
+    \intertext{%
+        We pull out the sum.
+    }
+    &= \frac 12 \sum_{i,j} \bra \psi
+    \braket{i,j|V|k,l} b_i^\dagger b_j^\dagger b_l b_k
+    \ket \psi
+\end{align*}
 
 \end{document}
 
