@@ -358,7 +358,110 @@ operators always commute, those two versions are equivalent.
 
 \section{Hartree-Fock approximation for atoms}
 
+We understand equation~(8) from the problem set that there are $N$ states
+occupied and those are the states with the lowest numbers from 1 to $N$.
+
 \subsection{}
+
+\begin{problem}
+    Show that
+    \[
+        \braket{\psi|b_i^\dagger b_j|\psi} = \delta_{ij}.
+    \]
+\end{problem}
+
+We have done this in three similar ways. We will start with the third one that
+we came up with because it is really succinct.
+
+\subsubsection{Third way}
+
+$b_j$ will destroy a particle in state $\ket j$. $b_i^\dagger$ will create one
+in the state $\ket i$. Since those are fermions, $i$ has to be either the same
+as $j$ or $i > N$ because there are no other free spots. If $i > N$, then this
+altered $\ket \psi$ will be orthogonal to $\bra \psi$. If $i = j$, then the two
+operators are just the occupation number operator $n_j$. Its eigenvalue here is
+1 since $j \leq N$ and fermions was assumed. $\ket \psi$ is left unchanged.
+Therefore it is $\delta_{ij}$.
+
+\subsubsection{First way}
+
+Now we will use the Ansatz directly.
+\begin{align*}
+    \braket{\psi|b_i^\dagger b_j|\psi}
+    &= \sbr{\prod_{k=1}^N b_k^\dagger \ket 0}^\dagger b_i^\dagger
+    b_j \sbr{\prod_{k=1}^N b_k^\dagger \ket 0}
+    \intertext{%
+        Now we incorporate the two stray operators into the brackets.
+    }
+    &= \sbr{b_i \prod_{k=1}^N b_k^\dagger \ket 0}^\dagger
+    \sbr{b_j \prod_{k=1}^N b_k^\dagger \ket 0}
+    \intertext{%
+        The $b$ anticommute with the $b^\dagger$ like so:
+        \[
+            [b_i, b_j^\dagger]_+ = \delta_{ij}.
+        \]
+        That means that we can move the $b_j$ into the spot in the product over
+        $k$ such that we have the $b_j$ in front of the $b_j^\dagger$. We will
+        need $i-1$ anticommutations for that. The same applies in the second
+        bracket. We do not really like the notation with omissions, but this
+        actually seems easier here.
+    }
+    &= [-1]^{i + j - 2}
+    \sbr{
+        b_1^\dagger
+        b_2^\dagger
+        \ldots
+        b_{i-1}^\dagger
+        b_{i+1}^\dagger
+        \ldots
+        b_N^\dagger
+        \ket 0
+    }^\dagger
+    \sbr{
+        b_1^\dagger
+        b_2^\dagger
+        \ldots
+        b_{j-1}^\dagger
+        b_{j+1}^\dagger
+        \ldots
+        b_N^\dagger
+        \ket 0
+    }
+    \intertext{%
+        You can see that almost all creation operators are present, except for
+        the ones with $i$ and $j$, respectively. The states that we will get
+        from the vacuum are then the following:
+    }
+    &= [-1]^{i + j} \braket{1, 1, \ldots, 1, \underset i0, 1, \ldots, \underset
+    N1, 0, \ldots | 1, 1, \ldots, 1, \underset j0, 1, \ldots, \underset N1, 0,
+    \ldots}.
+    \intertext{%
+        We have marked the index of the unoccupied states. This scalar product
+        is only nonzero when $i = j$ are given. So we can write this as
+    }
+    &= [-1]^{i + j} \delta_{ij}.
+    \intertext{%
+        And then we just have
+    }
+    &= \delta_{ij}
+\end{align*}
+because in the case of $i = j$, we have an even power of the $-1$, such that
+does not contribute at all.
+
+\subsubsection{Second way}
+
+This way uses the hint on the problem set. Basically, in the first way we have
+derived this hint for the special case that all the lower states are occupied.
+So let us use that hint in the way given on the problem set. We let
+$b_i^\dagger$ act to the left, $b_j$ to the right.
+\[
+    \braket{\psi|b_i^\dagger b_j|\psi}
+    = n_i n_j [-1]^{\sum_{k<i} n_k + \sum_{k<j} n_k} \braket{1, 1, \ldots, 1,
+    \underset i0, 1, \ldots, \underset N1, 0, \ldots | 1, 1, \ldots, 1, \underset
+    j0, 1, \ldots, \underset N1, 0, \ldots}
+\]
+The sums are actually pretty straightforward, they are $i-1$ and $j-1$,
+just like above. So this comes to the desired result as well.
 
 \subsection{}
 
