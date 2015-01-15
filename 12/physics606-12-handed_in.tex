@@ -352,9 +352,94 @@ We start with equation~(2) from the problem set.
     \sum_{i,j,k,l}
     \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
     b^\dagger_i b^\dagger_j b_k b_l.
+    \intertext{%
+        The annihilation operators for bosons commute, the ones for fermions
+        anticommute. So we can get rid of the $\pm$ sign by switching the last
+        terms.
+    }
+    &= \frac 12
+    \sum_{i,j,k,l}
+    \bra{i,j} f(\vec x_\alpha, \vec x_\beta) \ket{k,l}
+    b^\dagger_i b^\dagger_j b_l b_k
 \end{align*}
-The version on the problem set has $k$ and $l$ switched. Since the annihilation
-operators always commute, those two versions are equivalent.
+
+Now we still have to derive the equation~(5) that we have used up to here. Say
+we have a state which is given in occupation number presentation,
+\[
+    \ket{n_1, \ldots}.
+\]
+Now we apply the operator $b_i^\dagger b_j$ onto that. We will get the
+following, assuming that the state $\ket j$ was occupied at least once:
+\[
+    b_i^\dagger b_j \ket{n_1, \ldots}
+    = \begin{cases}
+        n_i \ket{n_1, \ldots} & i = j \\
+        \sqrt{[n_i+1] n_j} \ket{n_1, \ldots, n_i + 1, \ldots, n_j - 1, \ldots} & \text{else}
+    \end{cases}
+\]
+Let us show that the same thing happens when we act with
+\[
+    \sum_\alpha \ket i_\alpha \bra j_\alpha
+\]
+on the same state. To do this, we have to decompose the occupation number
+representation into a product state.
+\[
+    \ket{n_1, \ldots} =
+    \prod_{k=0}^\infty \ket{k}^{n_k}
+\]
+All those different $\ket k$ are for different particles $\alpha$. In the above
+product, the order of the states in the product is by the value of the state,
+not in the order of the particle. When we order by particle, we get something
+like this:
+\[
+    \ket{k_1, k_2, \ldots, k_N}
+\]
+Here the $i_\alpha$ are allowed to appear multiple times at arbitrary positions
+for bosons. When we now throw that operator onto that state, like
+\[
+    \sum_\alpha \ket k_\alpha \bra j_\alpha
+    \ket{k_1, k_2, \ldots, k_N},
+\]
+it will go the particle with number $\alpha$ and project that part onto the
+state $\ket j$ and replace it with the state $\ket i$. This changed the
+normalization of the state.
+\begin{align*}
+    \sum_\alpha \ket i_\alpha \bra j_\alpha
+    \ket{k_1, k_2, \ldots, k_N}
+    &=
+    \sqrt{\frac{n_i + 1}{n_j}}
+    \sum_\alpha \delta_{j_\alpha k_\alpha}
+    \ket{k_1, k_2, \ldots, i_\alpha, \ldots, k_N}
+    \begin{cases}
+        1 & i = j \\
+        \sqrt{\frac{n_i + 1}{n_j}} & \text{else}
+    \end{cases}
+    \intertext{%
+        So this has replaced the state that the particle $\alpha$ was in ($\ket
+        k_\alpha$) with the new state ($\ket i_\alpha$) in case any of the
+        states $k_\alpha = j_\alpha$. Otherwise, it is zero. In the case $i =
+        j$, the state itself does not change, just like with the creation and
+        annihilation operators above. We already assumed that the state $\ket
+        j$ was in the mix at least once, so we can just take that granted.
+        Therefore, the sum will just give us a summand for each time the state
+        $\ket j$ is occupied. Combining this, we get a factor $n_j$ from the
+        sum.
+    }
+    &=
+    \ket{k_1, k_2, \ldots, i_\alpha, \ldots, k_N}
+    \begin{cases}
+        n_i & i = j \\
+        n_j \sqrt{\frac{n_i + 1}{n_j}} & \text{else}
+    \end{cases}
+    \intertext{%
+        And this can be simplified to the final result.
+    }
+    &=  \ket{k_1, k_2, \ldots, i_\alpha, \ldots, k_N}
+    \begin{cases}
+        n_i & i = j \\
+        \sqrt{[n_i + 1]n_j} & \text{else}
+    \end{cases}
+\end{align*}
 
 \section{Hartree-Fock approximation for atoms}
 
