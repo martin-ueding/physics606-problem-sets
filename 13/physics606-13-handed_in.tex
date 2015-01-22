@@ -315,7 +315,7 @@ evolution of anything is given by
     }
     &= - U^\dagger(t)
     \int \dif^3 y \sbr{
-        \frac{\hbar^2}{2m} [\vnabla \psi^\dagger(\vec y), \psi(\vec x)]_\pm \vnabla \psi(\vec
+        \mp \frac{\hbar^2}{2m} [\vnabla \psi^\dagger(\vec y), \psi(\vec x)]_\pm \vnabla \psi(\vec
         y)
         + U(\vec y) [\psi^\dagger(\vec y) \psi(\vec y) , \psi(\vec x)]
     }
@@ -333,7 +333,7 @@ evolution of anything is given by
     }
     &= - U^\dagger(t)
     \int \dif^3 y \sbr{
-        \frac{\hbar^2}{2m} \vnabla [\psi^\dagger(\vec y), \psi(\vec x)]_\pm \vnabla \psi(\vec
+        \mp \frac{\hbar^2}{2m} \vnabla [\psi^\dagger(\vec y), \psi(\vec x)]_\pm \vnabla \psi(\vec
         y)
         + U(\vec y) [\psi^\dagger(\vec y) \psi(\vec y) , \psi(\vec x)]
     }
@@ -349,7 +349,7 @@ evolution of anything is given by
     }
     &= - U^\dagger(t)
     \int \dif^3 y \sbr{
-        - \frac{\hbar^2}{2m} \vnabla \delta^{(3)}(\vec x - \vec y) \vnabla \psi(\vec
+        \pm \frac{\hbar^2}{2m} \vnabla \delta^{(3)}(\vec x - \vec y) \vnabla \psi(\vec
         y)
         + U(\vec y) [\psi^\dagger(\vec y) \psi(\vec y) , \psi(\vec x)]
     }
@@ -367,7 +367,7 @@ evolution of anything is given by
     }
     &= - U^\dagger(t)
     \int \dif^3 y \sbr{
-        \frac{\hbar^2}{2m} \delta^{(3)}(\vec x - \vec y) \laplace \psi(\vec y)
+        \mp \frac{\hbar^2}{2m} \delta^{(3)}(\vec x - \vec y) \laplace \psi(\vec y)
         + U(\vec y) [\psi^\dagger(\vec y) \psi(\vec y) , \psi(\vec x)]
     }
     U(t)
@@ -382,7 +382,7 @@ evolution of anything is given by
     }
     &= - U^\dagger(t)
     \sbr{
-        - \frac{\hbar^2}{2m} \laplace \psi(\vec x)
+        \pm \frac{\hbar^2}{2m} \laplace \psi(\vec x)
         + \int \dif^3 y \, U(\vec y) [\psi^\dagger(\vec y) \psi(\vec y) , \psi(\vec x)]
     }
     U(t)
@@ -398,7 +398,7 @@ evolution of anything is given by
         again.
     }
     &=
-    - \frac{\hbar^2}{2m} \laplace \psi^\text H(\vec x, t)
+    \mp \frac{\hbar^2}{2m} \laplace \psi^\text H(\vec x, t)
     - U^\dagger(t)
     \int \dif^3 y \, U(\vec y) [\psi^\dagger(\vec y) \psi(\vec y) , \psi(\vec x)]
     U(t)
@@ -597,6 +597,7 @@ evolution of anything is given by
     + \int \dif^3 y \, \psi^{\text H \dagger}(\vec y, t)
     V(\vec x, \vec y) \psi^\text H(\vec x, t) \psi^\text H(\vec y, t)
 \end{align*}
+Except for the sign error in the last term, this worked out.
 \end{landscape}
 
 \begin{question}
