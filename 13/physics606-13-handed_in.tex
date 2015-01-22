@@ -1,0 +1,196 @@
+\documentclass[11pt, english, fleqn, DIV=15, headinclude, BCOR=1.5cm]{scrartcl}
+
+\usepackage[
+    bibatend,
+    color,
+]{../header}
+
+\usepackage{tikz}
+\usepackage{pdflscape}
+
+\usepackage[tikz]{mdframed}
+\newmdtheoremenv[%
+    backgroundcolor=black!5,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+]{theorem}{Theorem}[section]
+
+\hypersetup{
+    pdftitle=
+}
+
+\newcounter{totalpoints}
+\newcommand\punkte[1]{#1\addtocounter{totalpoints}{#1}}
+
+\newcounter{problemset}
+\setcounter{problemset}{12}
+
+\subject{physics606 -- Advanced Quantum Theory}
+\ihead{physics606 -- Problem Set \arabic{problemset}}
+
+\title{Problem Set \arabic{problemset}}
+
+\publishers{Group 2 -- Dilege Gülmez}
+\ofoot{Group 2 -- Dilege Gülmez}
+
+\newmdenv[%
+    backgroundcolor=black!0,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    splittopskip=\topskip,
+    frametitle={Problem statement},
+    frametitlerule=true,
+    nobreak=true,
+]{problem}
+
+\newmdenv[%
+    backgroundcolor=white,
+    frametitlebackgroundcolor=black!0,
+    roundcorner=5pt,
+    skipabove=\topskip,
+    innertopmargin=\topskip,
+    innerbottommargin=8cm,
+    splittopskip=\topskip,
+    frametitle={Side question},
+    frametitlerule=true,
+]{question}
+
+\newcommand\an{^\text{angular}}
+\newcommand\ra{^\text{radial}}
+
+
+\author{
+    Martin Ueding \\ \small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+    \and
+    Lino Lemmer \\ \small{\href{mailto:l2@uni-bonn.de}{l2@uni-bonn.de}}
+}
+\ifoot{Martin Ueding, Lino Lemmer}
+
+\ohead{\rightmark}
+
+\begin{document}
+
+\maketitle
+
+\vspace{3ex}
+
+\begin{center}
+    \begin{tabular}{rrr}
+        problem number & achieved points & possible points \\
+        \midrule
+        1 & & \punkte{7} \\
+        2 & & \punkte{14} \\
+        \midrule
+        total & & \arabic{totalpoints}
+    \end{tabular}
+\end{center}
+
+\section{Annihilation operator in Heisenberg picture}
+
+\subsection{}
+
+\begin{problem}
+    Show that
+    \[
+        a_j^{\text H \dagger}(t)
+        = \exp\del{\frac\iup\hbar H t} a_j^\dagger \exp\del{\frac\iup\hbar H
+        t}.
+    \]
+    Hint: Take the hermitean conjugate of equation~(2), remembering that
+    $[AB]^\dagger = B^\dagger A^\dagger$.
+\end{problem}
+
+Okay, so we start with the equation~(2) that was mentioned in the problem
+statement. This can be found on the problem set and reads the following:
+\[
+    a_j^{\text H}(t)
+    = \exp\del{\frac\iup\hbar H t} a_j \exp\del{- \frac\iup\hbar H
+    t}.
+\]
+We omit the parentheses around the “Heisenberg” “H” because we conform to ISO
+80000-2 and set the “H” upright. Therefore it can always be distinguished from
+the italic Hamiltonian $H$.
+
+Now we follow the lead of the hint and apply the Hermitean conjugate to this
+equation. To make it really clear what happens, we do not make any
+simplification steps up to this point.
+\begin{align*}
+    \iff a_j^{\text H \dagger}(t)
+    &= \sbr{
+        \exp\del{\frac\iup\hbar H t} a_j \exp\del{- \frac\iup\hbar H t}
+    }^\dagger
+    \intertext{%
+        It can be seen that we have added the Hermitean conjugate “$\dagger$”
+        to both sides of the previous equation. Since we have applied this to
+        both sides, this equation is equivalent to the previous one. We need
+        this equivalence to be able to show that equation~(4) from the problem
+        set does indeed follows from equation~(2) from the problem set. Now
+        comes the next crucial step in this derivation: We need to apply the
+        second part of the hint, the one that said that we should remember that
+        $[AB]^\dagger = B^\dagger A^\dagger$ holds. To make it clear which term
+        went into which position, we will give them extra labels first.
+    }
+    &= \sbr{
+    \underbrace{\exp\del{\frac\iup\hbar H t}}_A a_j \underbrace{\exp\del{-
+    \frac\iup\hbar H t}}_B
+    }^\dagger
+    \intertext{%
+        Now we are all set to apply the hint to this equation.
+    }
+    &=
+    \underbrace{\exp\del{- \frac\iup\hbar H t}^\dagger}_B a_j^\dagger \underbrace{\exp\del{
+    \frac\iup\hbar H t}^\dagger}_A
+    \intertext{%
+        With the extra labels, it should be visible that the terms changed
+        their order and all got a Hermitean conjugate “$\dagger$” on their own.
+        The next step was not given in the hint. Now we have to simplify the
+        Hermitean conjugate of the exponential function. One way to see how
+        this works is to split up the exponential function into real and
+        imaginary parts. The complex exponential function can be written like
+        so:
+        \[
+            \exp(\iup \phi) = \cos(\phi) + \iup \sin(\phi)
+            \eqnsep
+            \phi \in \R.
+        \]
+        There Hermitean conjugate will, just like the complex conjugate, switch
+        the sign on the imaginary part. So here, the Hermitean conjugate will
+        be given by
+        \[
+            \exp(\iup \phi)^\dagger = \cos(\phi) - \iup \sin(\phi).
+        \]
+        To write this back into the exponential form, one has to use that the
+        cosine is symmetric, the sine is antisymmetric in its argument. So we
+        can write this as
+        \[
+            \exp(\iup \phi)^\dagger = \cos(\phi) + \iup \sin(-\phi).
+        \]
+    }
+    \intertext{%
+        However, using the above formula, we can also write this as
+        \[
+            \exp(- \iup \phi)
+        \]
+        and deduce that
+        \[
+            \exp(\iup \phi)^\dagger = \exp(- \iup \phi)
+        \]
+    }
+    \intertext{%
+        So for a pure imaginary number in the exponential, the sign will just
+        flip. The Hamiltonian $H$ is a matrix here, or can at least be thought
+        of as a matrix. The Hermitean conjugate will also transpose the matrix.
+        What we have to do is to apply the Hermitean conjugate to the
+        Hamiltonian as well. Luckily, it is a self-adjoined operator, which
+        means that $H = H^\dagger$. So we do not have to take care of this.
+        Using all this, we can simplify the exponential functions.
+    }
+    &= \exp\del{\frac\iup\hbar H t} a_j^\dagger \exp\del{- \frac\iup\hbar H t}
+\end{align*}
+And that is exactly equation~(4) from the problem set.
+
+\end{document}
+
+% vim: spell spelllang=en tw=79
