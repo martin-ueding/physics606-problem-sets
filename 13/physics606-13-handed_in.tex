@@ -192,6 +192,66 @@ simplification steps up to this point.
 \end{align*}
 And that is exactly equation~(4) from the problem set.
 
+\subsection{}
+
+The first thing that we will do is to show the identity:
+\begin{align*}
+    [AB, C]
+    &= ABC - CAB \\
+    &= ABC - ACB + ACB - CAB \\
+    &= A[B, C] + [A, C]B
+\end{align*}
+
+Then we can solve the differential equation.
+\begin{align*}
+    \dot a_k^{\text H}(t)
+    &= \frac\iup\hbar \sbr{H, a_k^{\text H}(t)}
+    \intertext{%
+        The first thing we do is to insert the unitary evolution operators.
+    }
+    &= \frac\iup\hbar \sbr{H, U^\dagger(t) a_k U(t)}
+    \intertext{%
+        Since $U$ is a analytic function of $H$, it will commute with $H$. Even
+        the $a_j^\dagger a_j$ will, taken together as $n_j$, commute with $H$
+        and every sufficiently well behaved function of $H$.
+    }
+    &= \frac\iup\hbar U^\dagger(t) [H, a_k] U(t)
+    \intertext{%
+        Then we can insert $H$ in terms of the occupation number operators.
+    }
+    &= \frac\iup\hbar U^\dagger(t) \sum_j \epsilon_j [a_j^\dagger a_j, a_k] U(t)
+    \intertext{%
+        This has the form that lets us use the relation that we have shown.
+    }
+    &= \frac\iup\hbar U^\dagger(t) \sum_j \epsilon_j \sbr{
+        a_j^\dagger [a_j, a_k] - [a_j^\dagger, a_k] a_j
+    }
+    U(t)
+    \intertext{%
+        The first commutator is zero, the second a negative Kronecker $\delta$.
+        For fermions, it will have the anti-commutator here which gives the
+        same value.
+    }
+    &= \frac\iup\hbar \epsilon_k U^\dagger(t) a_k U(t)
+    \intertext{%
+        This again is the operator in the Heisenberg picture. The differential
+        equation therefore is:
+    }
+    \dot a_k^{\text H}(t)
+    &= \frac\iup\hbar \epsilon_k a_k^{\text H}(t).
+\end{align*}
+
+With the initial condition that at $t = 0$ the Heisenberg and Schrödinger
+operators are the same ($a_k^{\text H}(0) = a_k$) this can be solved by:
+\[
+    a_k^{\text H}(t) = \exp\del{\frac\iup\hbar \epsilon_k t} a_k
+\]
+
+\subsection{}
+
+Trivial. Do the same derivation and note that the fermion anti-commutator has
+the same value as the boson commutator.
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
