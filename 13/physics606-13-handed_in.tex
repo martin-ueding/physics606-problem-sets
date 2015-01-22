@@ -2,7 +2,7 @@
 
 \usepackage[
     bibatend,
-    color,
+    %color,
 ]{../header}
 
 \usepackage{tikz}
@@ -680,7 +680,56 @@ Do it all again, just with a shift.
     \exp\del{- \frac{\vec x^2}{2 \Delta^2}} \\
     &= t \exp\del{-\frac{a^2}{2\Delta^2}}
 \end{align*}
-Our suppression has a factor 2, not 4 in it.
+Our suppression has a factor 2, not 4 in it. Maybe one has to take two of them
+and distribute them equally to both electrons?
+
+\subsection{}
+
+After applying the $\delta$-distribution from the hints, the equation is
+\[
+    V_ij = \lambda \int \dif^3 x \, \abs{\phi(\vec x - \vec R_i)}^2
+    \abs{\phi(\vec x - \vec R_j)}^2.
+\]
+Then the first part is quite easy, just put $i = j$.
+\begin{align*}
+    V_ii
+    &= \lambda \int \dif^3 x \, \abs{\phi(\vec x - \vec R_i)}^4
+    \intertext{%
+        Then insert $\phi$ …
+    }
+    &= \lambda \frac{1}{\Delta^6 \piup^3} \int \dif^3 x \,
+    \exp\del{- 2 \frac{[\vec x - \vec R_i]^2}{\Delta^2}}
+    \intertext{%
+        Apply yet another Gaussian integral … well, you have to shift the
+        integration variable before you do that, but we will not write that
+        down.
+    }
+    &= \lambda \frac{1}{\Delta^6 \piup^3} \sbr{\sqrt{\frac\piup2}\Delta}^3
+    \intertext{%
+        Simplify …
+    }
+    &= \lambda \frac{1}{\sqrt 8 \Delta^3 \sqrt\piup^3}
+\end{align*}
+
+Now one has to do the same exact thing as above and further above. So take two
+neighbors and compute the interaction for that as well.
+\[
+    \lambda \int \dif^3 x \, \abs{\phi(\vec x - \vec R_i)}^2
+    \abs{\phi(\vec x - \vec R_i - a \ev_x)}^2.
+\]
+Just like above, there is an additional factor
+\[
+    \exp\del{- \frac{a^2}{\Delta^2}}
+\]
+that arises here. Again, it has a factor 2 missing in the denominator. Probably
+just a different definition of suppression …
+
+\subsection{}
+
+In the limit $\Delta \ll a$, only the diagonal terms will contribute. That
+eliminates the sum over $j$ directly. Then to get rid of the sum over $s'$ it
+might be possible to use the anti-commutation properties of the fermionic
+creation and annihilation operators to obtain a $\delta_{ss'}$.
 
 \end{document}
 
