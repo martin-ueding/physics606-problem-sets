@@ -609,6 +609,79 @@ Except for the sign error in the last term, this worked out.
     it. Was \emph{that} asked here?
 \end{question}
 
+\section{Hubbard model}
+
+\subsection{}
+
+The diagonal terms in the energy can be computed with the usual methods.
+\begin{align*}
+    t_ij
+    &= \braket{i | T | j} \\
+    \intertext{%
+        We insert two complete sets of position eigenstates.
+    }
+    &= \int \dif^3 x \, \dif^3 y \,
+    \braket{i|\vec x}\braket{\vec x| T|\vec y}\braket{\vec y|j} \\
+    \intertext{%
+        Now making the connection between $\vec x = \vec n_i a$ and the same
+        for $y$, we get position eigenstates. The kinetic energy operator is
+        now given in position space.
+    }
+    &= - \frac{\hbar^2}{2m} \int \dif^3 x \, \phi(\vec x) \laplace \phi(\vec x) \\
+    \intertext{%
+        At this point we insert equation~(10) from the problem set.
+    }
+    &= - \frac{\hbar^2}{2m \Delta^3 \piup^{3/2}} \int \dif^3 x \,
+    \exp\del{-\frac{\vec x^2}{2 \Delta^2}} \laplace \exp\del{-\frac{\vec x^2}{2 \Delta^2}} \\
+    \intertext{%
+        We compute the derivatives.
+    }
+    &= - \frac{\hbar^2}{2m \Delta^3 \piup^{3/2}} \int \dif^3 x \,
+    \exp\del{-\frac{\vec x^2}{2 \Delta^2}} \sbr{- \frac{1}{2 \Delta^2} + \vec
+    x^2 \frac{1}{4\Delta^4}} \exp\del{-\frac{\vec x^2}{2 \Delta^2}} \\
+    \intertext{%
+        Factor stuff out.
+    }
+    &= \frac{\hbar^2}{4m \Delta^5 \piup^{3/2}}
+    \sbr{
+        \int \dif^3 x \, \exp\del{-\frac{\vec x^2}{\Delta^2}}
+        -
+        \frac{1}{2\Delta^2} \int \dif^3 x \, \vec x^2 \exp\del{-\frac{\vec x^2}{\Delta^2}}
+    }
+    \intertext{%
+        Now we have the Gaussian integrals back. We thought that we would not
+        see them again, but mistaken! Since they are in three dimensions---as
+        the hint did not want us to forget---we get the results cubed out of
+        them.
+    }
+    &= \frac{\hbar^2}{4m \Delta^5 \piup^{3/2}}
+    \sbr{ \sbr{\Delta \sqrt\piup}^3 - \sbr{\frac12 \Delta^3 \sqrt\piup}^3 } \\
+    &= \frac{\hbar^2}{4m \Delta^2}
+    - \frac{\hbar^2}{4m \Delta^5 \piup^{3/2}} \sbr{\frac12 \Delta^3 \sqrt\piup}^3
+    % TODO Figure out why the power of \Delta does not match.
+\end{align*}
+
+\subsection{}
+
+Do it all again, just with a shift.
+\begin{align*}
+    \braket{\phi(a \ev_x) | T | \phi(\vec 0)}
+    &= - \frac\hbar{2m} \frac1{\Delta^3 \piup^{3/2}}
+    \int \dif^3 x \, \exp\del{-\frac{[\vec x - a \ev_x]^2}{2\Delta^2}} \laplace
+    \exp\del{- \frac{\vec x^2}{2 \Delta^2}} \\
+    &= - \frac\hbar{2m} \frac1{\Delta^3 \piup^{3/2}}
+    \int \dif^3 x \, \exp\del{-\frac{\vec x^2 - 2 ax + a^2}{2\Delta^2}} \laplace
+    \exp\del{- \frac{\vec x^2}{2 \Delta^2}} \\
+    \intertext{%
+        Linear term will cancel in symmetric integral, pull $a^2$ term out.
+    }
+    &= - \frac\hbar{2m} \frac1{\Delta^3 \piup^{3/2}} \exp\del{-\frac{a^2}{2\Delta^2}}
+    \int \dif^3 x \, \exp\del{-\frac{\vec x^2}{2\Delta^2}} \laplace
+    \exp\del{- \frac{\vec x^2}{2 \Delta^2}} \\
+    &= t \exp\del{-\frac{a^2}{2\Delta^2}}
+\end{align*}
+Our suppression has a factor 2, not 4 in it.
+
 \end{document}
 
 % vim: spell spelllang=en tw=79
